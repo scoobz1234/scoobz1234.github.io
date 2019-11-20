@@ -2,7 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveFour.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveOne.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveSix.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveThree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ObjectiveTwo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Objective2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Objective3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Objective4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Objective5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Objective6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/ReciPleaseLogo.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/scoobz1234.github.io/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/scoobz1234.github.io/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objectiveOne.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/objectives.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,11 +32,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QI2xMrhmiMpqji3saSiCvrlZTT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="copyright" />
@@ -22,6 +57,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -36,6 +74,19 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",HTML5_OUTLINE_MODE" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -47,6 +98,10 @@
       <option name="presentableId" value="Default" />
       <updated>1567444034579</updated>
       <workItem from="1567444036716" duration="7958000" />
+      <workItem from="1574206164920" duration="1890000" />
+      <workItem from="1574208073195" duration="1459000" />
+      <workItem from="1574264051718" duration="1799000" />
+      <workItem from="1574265930434" duration="1851000" />
     </task>
     <servers />
   </component>
@@ -58,10 +113,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

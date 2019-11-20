@@ -222,6 +222,10 @@ footer {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15)
 }
 
+.shadow-large_left {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15)
+}
+
 .heading {
     position: relative;
     display: inline-block;
@@ -528,6 +532,9 @@ footer {
 .project-image {
     float: left
 }
+.project-image_right {
+    float: right
+}
 
 .project-info {
     position: absolute;
@@ -537,7 +544,22 @@ footer {
     padding: 15px
 }
 
+.project-info_left {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 300px;
+    padding: 15px
+}
+
 .project-info h3 {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #374054;
+    margin: 0 0 15px 0
+}
+
+.project-info_left h3 {
     font-size: 1.5em;
     font-weight: 300;
     color: #374054;
@@ -587,6 +609,11 @@ footer {
     list-style: none;
     cursor: default;
     font-size: 1.2em
+}
+
+#objectives {
+    padding: 50px 15px;
+    text-align:center
 }
 
 #contact {
