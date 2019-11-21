@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveFour.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveOne.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveSix.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveThree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ObjectiveTwo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Objective2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Objective3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Objective4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Objective5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Objective6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ReciPleaseLogo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/scoobz1234.github.io/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/scoobz1234.github.io/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectiveOne.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/objectives.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects.html" beforeDir="false" />
-    </list>
+    <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +77,16 @@
       <workItem from="1574206164920" duration="1890000" />
       <workItem from="1574208073195" duration="1459000" />
       <workItem from="1574264051718" duration="1799000" />
-      <workItem from="1574265930434" duration="1851000" />
+      <workItem from="1574265930434" duration="2233000" />
     </task>
+    <task id="LOCAL-00001" summary="Fixed links">
+      <created>1574267945363</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574267945363</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,5 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Fixed links" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed links" />
   </component>
 </project>
