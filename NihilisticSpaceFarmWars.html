@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nihilistic Space Farm Wars</title>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/prism.js"></script>
+    <style type="text/css">
+        img{
+            width: 500px;
+            height: 100%;
+        }
+        .box{
+            display: table;
+        }
+        .slider{
+            width:520px;
+            height:920px;
+            margin:30px auto;
+            position: relative;
+            border: 10px solid white;
+            box-shadow: 0px 0px 5px 2px #ccc;
+        }
+        button{
+            padding: 30px;
+            border: none;
+            background: #00d6ff;
+            font-size: 20px;
+            color: black;
+            position: absolute;
+            top:45%;
+            cursor: pointer;
+        }
+        .next{
+            border-radius: 0px 10px 10px 0px;
+            margin-left: 500px
+        }
+        .prev{
+            border-radius: 10px 0px 0px 10px;
+            margin-left: -70px
+        }
+        .codeReview{
+            height: 400px;
+            margin:auto;
+            width: 800px;
+            overflow: auto
+        }
+
+    </style>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+</head>
+<body>
+<div id="mobile-menu-open" class="shadow-large">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<!-- End #mobile-menu-toggle -->
+<header>
+    <div id="mobile-menu-close">
+        <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul id="menu" class="shadow">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#scripts">Scripts</a></li>
+    </ul>
+</header>
+<!-- End header -->
+
+<div id="lead" style="height: 300px;">
+    <div id="lead-content">
+        <h1 style="width: 800px">Nihilistic Space Farm Wars</h1>
+        <img src="images/ship.PNG.png" style =" height:80%; width:auto;" />
+    </div>
+    <!-- End #lead-content -->
+
+    <div id="lead-overlay"></div>
+
+    <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+    </div>
+    <!-- End #lead-down -->
+</div>
+<!-- End #lead -->
+
+<!-- START #ABOUT -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="heading">Project Information</h2>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    Nihilistic Space Farm Wars (NFSW), was a 3D game created in Unity Engine. The innovation was
+                    a unique space ship repair and breakdown system. NFSW is a MOBA style game the employs couch co-op
+                    as well as network play.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End #about -->
+
+<!-- BEGIN PICTURE SLIDER -->
+<div class="slider" id="slider">
+    <div class="box" id="box">
+        <img src="images/homescreen.PNG" height="1384" width="770"/>
+    </div>
+
+    <!-- Buttons -->
+    <button class="prev" onclick="prevImage()"><</button>
+    <button class="next" onclick="nextImage()">></button>
+</div>
+<!-- END PICTURE SLIDER -->
+
+<!-- Objectives -->
+<div id="objectives" class="background-alt">
+    <h2 class="heading">Objectives Met</h2>
+    <div class="container">
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        Project utilized a Game Design Document, as well as Trello for project development process.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project was programmed in C# with the Unity Engine
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project was created for a desktop environments/platform
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Objectives -->
+
+<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
+
+<script type="text/javascript">
+    var slider_content = document.getElementById('box');
+
+    var preCode = document.getElementById('preCode');
+
+    var showSecond = false;
+    // contains images in an array
+    var image = ['homescreen','recipecreation','recipelist','share','devicelist'];
+    var i = image.length;
+
+
+    // function for next image
+
+    function nextImage(){
+        if (i < image.length){
+            i += 1;
+        } else{
+            i = 1;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+    }
+
+    function prevImage(){
+        if (i < image.length + 1 && i > 1){
+            i -= 1;
+        } else{
+            i = image.length;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+    }
+</script>
+
+<!-- BEGIN PLAYER CONTROLLER SCRIPT -->
+<div>
+    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+        <code class="language-c#">
+public class Player_Controller : NetworkBehaviour {
+
+    [Header("------------------------------------------------------------------------")]
+    [Header("                             CHANGEABLE VALUES                          ")]
+    [Header("------------------------------------------------------------------------")]
+    [Range(10,60)][SerializeField][Tooltip("Constant forward speed of the ship")]
+    float cruiseSpeed = 40;
+    [Range(40, 200)][SerializeField][Tooltip("Speed of ship when player is pressing the Thrust button (this is NOT warp speed)")]
+    float thrustSpeed = 80;
+    [Range(100, 600)][SerializeField][Tooltip("Speed of ship when player spools up the warp drive")]
+    float warpSpeed = 200;
+    [Range(0, 10)][SerializeField][Tooltip("Speed of ship when player is pressing the Brake Button")]
+    float brakeSpeed = 5;
+    [Range(50, 150)][SerializeField][Tooltip("Speed of ship when player Rolls")]
+    float rollSpeed = 90;
+    [Range(50, 150)][SerializeField][Tooltip("Speed of ship when player Tilts")]
+    float verticalTiltSpeed = 60;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Rolls while Thrusting")]
+    float thrustRollSpeed = 30;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Tilts while Thrusting")]
+    float thrustVerticalTiltSpeed = 30;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Rolls while Braking")]
+    float brakeRollSpeed = 100;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Tilts while Braking")]
+    float brakeVerticalTiltSpeed = 90;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Rolls while Warping")]
+    float warpRollSpeed = 100;
+    [Range(0, 150)][SerializeField][Tooltip("Speed of ship when player Tilts while Warping")]
+    float warpVerticalTiltSpeed = 90;
+    [Range(0.0f, 1.0f)][SerializeField][Tooltip("Acceleration speed for Rolling (ramp up)")]
+    float rollAcceleration = 0.5f;
+    [Range(0.0f, 1.0f)][SerializeField][Tooltip("Acceleration speed for Tilting (ramp up)")]
+    float verticalTiltAcceleration = 0.5f;
+    [Range(0, 60)][SerializeField][Tooltip("Time it takes for the warp drive to cool down to use again")]
+    float warpDownTime = 30;
+    [Range(0.0f, 1.0f)][SerializeField][Tooltip("How long it takes for the camera to catch up to the player ship")]
+    float cameraLag = 0.95f;
+    [Range(1.0f, 60.0f)][SerializeField][Tooltip("How far the camera zooms in")]
+    float cameraZoomAmount = 20;
+    [Range(0.0f, 20.0f)][SerializeField][Tooltip("Speed at which the camera zooms in and out")]
+    float cameraZoomSmoothing = 5;
+    [Range(0,100)][SerializeField][Tooltip("Normal camera zoom amount, when not zoomed in")]
+    int normalCameraZoomAmount = 60;
+
+    [Header("                              DATA REQUIRED                             ")]
+    [Header("------------------------------------------------------------------------")]
+    [Header("------------------------------------------------------------------------")]
+    [SerializeField][Tooltip("Transform in which the camera will focus/follow")]
+    Transform shipCameraTarget;
+    [SerializeField][Tooltip("These are the chemtrails and exhaust trails for the engines")]
+    GameObject[] warpStreams;
+    [SerializeField][Tooltip("the player camera object.")]
+    Camera shipCamera;
+
+    //Internal Variables...
+
+    string verticalButton = "Vertical";
+    string horizontalButton = "Horizontal";
+    string thrustButton = "Thrust";
+    string brakeButton = "Brake";
+    string warpButton = "Warp";
+    string cameraZoomButton = "Zoom";
+
+    float prevVert, prevRoll, vDir, rDir, warpSpeedTimer, warpCoolDown;
+    Vector3 _velocity;
+    bool canWarp = true;
+
+    void Update() {
+        if (!hasAuthority) {
+            return;
+        }
+
+        CheckForInput();
+        CheckForWarpSpeed();
+        CheckForCameraZoom();
+        CameraFollow();
+
+        if (warpCoolDown > 0) {
+            canWarp = false;
+            warpCoolDown -= Time.deltaTime;
+        }
+        if (warpCoolDown <= 0) {
+            canWarp = true;
+        }
+    }
+
+    void CheckForInput() {
+        float vert = Input.GetAxis(verticalButton);
+        float roll = Input.GetAxis(horizontalButton);
+
+        if (Input.GetButton(thrustButton)) {
+            _velocity = Vector3.forward * thrustSpeed * Time.fixedDeltaTime;
+            vDir = vert * thrustVerticalTiltSpeed;
+            rDir = roll * -1f * thrustRollSpeed;
+        }
+        else if (Input.GetButton(brakeButton)) {
+            _velocity = Vector3.forward * brakeSpeed * Time.fixedDeltaTime;
+            vDir = vert * brakeVerticalTiltSpeed;
+            rDir = roll * -1f * brakeRollSpeed;
+        }
+        else {
+            _velocity = Vector3.forward * cruiseSpeed * Time.fixedDeltaTime;
+            vDir = vert * verticalTiltSpeed;
+            rDir = roll * -1f * rollSpeed;
+        }
+
+        transform.Translate(_velocity);
+        prevVert = Mathf.Lerp(prevVert, vDir, verticalTiltAcceleration);
+        prevRoll = Mathf.Lerp(prevRoll, rDir, rollAcceleration);
+    }
+
+    void CameraFollow() {
+        // save camera transform positions
+        Vector3 camPosition = shipCamera.transform.position;
+        Quaternion camRotation = shipCamera.transform.rotation;
+
+        // rotate without the camera
+        transform.Rotate(new Vector3(prevVert, 0, prevRoll) * Time.deltaTime);
+        shipCamera.transform.position = camPosition;
+        shipCamera.transform.rotation = camRotation;
+
+        // lerp the camera back to its correct position
+        shipCamera.transform.localPosition = Vector3.Lerp(shipCamera.transform.localPosition, shipCameraTarget.transform.localPosition, 1f - cameraLag);
+        shipCamera.transform.localRotation = Quaternion.Lerp(shipCamera.transform.localRotation, shipCameraTarget.transform.localRotation, 1f - cameraLag);
+    }
+
+    void CheckForCameraZoom() {
+        //camera zoom stuff...
+        if (Input.GetAxis(cameraZoomButton) != 0 || Input.GetButton(cameraZoomButton)) {
+            shipCamera.fieldOfView = Mathf.Lerp(shipCamera.fieldOfView, cameraZoomAmount, Time.deltaTime * cameraZoomSmoothing);
+        }
+        else {
+            shipCamera.fieldOfView = Mathf.Lerp(shipCamera.fieldOfView, normalCameraZoomAmount, Time.deltaTime * cameraZoomSmoothing);
+        }
+    }
+
+    void CheckForWarpSpeed() {
+        if (canWarp) {
+            if (Input.GetButton(warpButton)) {
+                warpSpeedTimer += Time.deltaTime;
+                if (warpSpeedTimer > 3 && warpSpeedTimer < 6) {
+                    WarpSpeedEngaged();
+                }
+                else if (warpSpeedTimer >= 6) {
+                    warpSpeedTimer = 0;
+                    warpCoolDown = warpDownTime;
+                    foreach (GameObject ws in warpStreams) {
+                        ws.SetActive(false);
+                    }
+                }
+            }
+            else if (Input.GetButtonUp(warpButton)) {
+                warpSpeedTimer = 0;
+            }
+        }
+    }
+
+    void WarpSpeedEngaged() {
+
+        if (warpSpeedTimer > 3 && warpSpeedTimer < 6) {
+            foreach (GameObject ws in warpStreams) {
+                ws.SetActive(true);
+            }
+            //assign the value of the button to vert and roll floats...
+            float vert = Input.GetAxis(verticalButton);
+            float roll = Input.GetAxis(horizontalButton);
+
+            //move the player forward at warpspeed...
+            transform.Translate(Vector3.forward * warpSpeed * Time.fixedDeltaTime);
+
+            // check if were rolling or tilting...
+            vDir = vert * warpVerticalTiltSpeed;
+            rDir = roll * -1f * warpRollSpeed;
+
+            prevVert = Mathf.Lerp(prevVert, vDir, verticalTiltAcceleration);
+            prevRoll = Mathf.Lerp(prevRoll, rDir, rollAcceleration);
+        }
+    }
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END PLAYER CONTROLLER SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Controller</div></h3><br>
+
+<!-- BEGIN PLAYER HEALTH SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Player_Health : NetworkBehaviour {
+
+    public const int maxHealth = 100;
+    //syncvar is a command that helps something sync across all clients from server...
+    [SyncVar(hook = "OnChangeHealth")]
+    public int currentHealth = maxHealth;
+    public RectTransform healthBar;
+    public bool destroyOnDeath;
+    private NetworkStartPosition[] spawnPoints;
+
+    public void Start() {
+        if (isLocalPlayer) {
+        }
+    }
+
+    //handles the health deduction..
+    public void DeductHealth(int dmg) {
+        if (!isServer) {
+            return;
+        }
+        currentHealth -= dmg;
+        if (currentHealth <= 0) {
+            if (destroyOnDeath) {
+                Destroy(gameObject);
+            }
+            else {
+                currentHealth = maxHealth;
+                RpcRespawn();
+            }
+        }
+        healthBar.sizeDelta = new Vector2(currentHealth, healthBar.sizeDelta.y);
+    }
+    //updates the health bars...
+    public void OnChangeHealth(int health) {
+        healthBar.sizeDelta = new Vector2(health, healthBar.sizeDelta.y);
+    }
+    /// &lt;summary>
+    /// [ClientRpc] is opposite of a command, its called on the server...
+    /// but it is run on the clients...
+    /// must have Rpc prior to function name...
+    /// &lt;/summary>
+    [ClientRpc]
+    void RpcRespawn() {
+        if (isLocalPlayer) {
+            // Set the spawn point to origin as a default value
+            Vector3 spawnPoint = Vector3.zero;
+
+            // if there is a spawn point array and the array is not empty, pick a spawn point at random
+            if (spawnPoints != null && spawnPoints.Length > 0){
+                spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position;
+            }
+
+            transform.position = spawnPoint;
+        }
+    }
+}
+
+</code>
+</pre>
+</div>
+<!-- END PLAYER HEALTH SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Health</div></h3><br>
+
+<!-- BEGIN PLAYER MASTER SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Player_Master : NetworkBehaviour {
+
+    public delegate void GeneralEventHandler();
+    public event GeneralEventHandler EventAmmoChanged;
+    public event GeneralEventHandler EventComponentBroken;
+    public event GeneralEventHandler EventShipDestroyed;
+    public event GeneralEventHandler EventToggleRepairUI;
+    public event GeneralEventHandler EventCheckIfUsable;
+
+    public delegate void ShipHealthEventHandler(int healthChange);
+    public event ShipHealthEventHandler EventShipHealthDeduction;
+    public event ShipHealthEventHandler EventShipHealthIncrease;
+
+    public delegate void ShipEnergyEventHandler(int energyChange);
+    public event ShipEnergyEventHandler EventShipEnergyDeduction;
+    public event ShipEnergyEventHandler EventShipEnergyIncrease;
+
+    public delegate void AmmoPickupEventHandler(string ammoType, int quantity);
+    public event AmmoPickupEventHandler EventPickedUpAmmo;
+
+    public delegate void RepairEventHandler(int damage);
+    public event RepairEventHandler EventComponentHealthDeduction;
+    public event RepairEventHandler EventComponentHealthIncrease;
+
+    public bool componentIsUsable = true;
+    public bool isRepairUIOn = false;
+    public bool hasEnergy = true;
+
+    public void CallEventAmmoChanged() {
+        if (EventAmmoChanged != null) {
+            EventAmmoChanged();
+        }
+    }
+
+    public void CallEventCheckIfUsable() {
+        if (EventCheckIfUsable != null) {
+            EventCheckIfUsable();
+        }
+    }
+
+    public void CallEventComponentBroken() {
+        if (EventComponentBroken != null) {
+            EventComponentBroken();
+        }
+    }
+
+    public void CallEventShipDestroyed() {
+        if (EventShipDestroyed != null) {
+            EventShipDestroyed();
+        }
+    }
+
+    public void CallEventRepairUIToggle() {
+        if (EventToggleRepairUI != null) {
+            EventToggleRepairUI();
+        }
+    }
+
+    public void CallEventPickedUpAmmp(string ammoType, int quantity) {
+        if (EventPickedUpAmmo != null) {
+            EventPickedUpAmmo(ammoType, quantity);
+        }
+    }
+
+    public void CallEventShipHealthDeduction(int damage) {
+        if (EventShipHealthDeduction != null) {
+            EventShipHealthDeduction(damage);
+        }
+    }
+
+    public void CallEventShipHealthIncrease(int increase) {
+        if (EventShipHealthIncrease != null) {
+            EventShipHealthIncrease(increase);
+        }
+    }
+
+    public void CallEventShipEnergyDeduction(int decrease) {
+        if (EventShipEnergyDeduction != null) {
+            EventShipEnergyDeduction(decrease);
+        }
+    }
+
+    public void CallEventShipEnergyIncrease(int increase) {
+        if (EventShipEnergyIncrease != null) {
+            EventShipEnergyIncrease(increase);
+        }
+    }
+
+    public void CallEventComponentHealthDeduction(int damageAmmount) {
+        if (EventComponentHealthDeduction != null) {
+            EventComponentHealthDeduction(damageAmmount);
+        }
+    }
+
+    public void CallEventComponentHealthIncrease(int increaseAmmount) {
+        if (EventComponentHealthIncrease != null) {
+            EventComponentHealthIncrease(increaseAmmount);
+        }
+    }
+
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END PLAYER MASTER SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Master</div></h3><br>
+
+<!-- BEGIN MOTOR SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Player_Motor : MonoBehaviour {
+
+// [SerializeField]
+// private Camera cam;
+
+Vector3 velocity = Vector3.zero;
+Vector3 rotation = Vector3.zero;
+private Rigidbody rb;
+
+/// &lt;summary>
+    /// public functions
+    /// &lt;/summary>
+
+public void Move(Vector3 _velocity) {
+velocity = _velocity;
+}
+
+public void Rotate(Vector3 _rotation) {
+rotation = _rotation;
+}
+
+public void Yaw(Vector3 _yaw) {
+
+}
+
+
+/// &lt;summary>
+    /// private functions
+    /// &lt;/summary>
+
+void Forward() {
+rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+}
+
+void Roll() {
+rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation * Time.fixedDeltaTime));
+}
+
+
+/// &lt;summary>
+    /// standard functions
+    /// &lt;/summary>
+
+private void Start() {
+rb = GetComponent&lt;Rigidbody>();
+    }
+
+    private void FixedUpdate() {
+    Forward();
+    Roll();
+    }
+
+    }
+    </code>
+    </pre>
+</div>
+<!-- END MOTOR SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Motor</div></h3><br>
+
+<!-- BEGIN SETUP SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Player_Setup : NetworkBehaviour {
+
+    [SerializeField]
+    Behaviour[] componentsToDisable;
+    Camera sceneCamera;
+
+    private void Start() {
+        if (!isLocalPlayer) {
+            foreach (Behaviour b in componentsToDisable) {
+                b.enabled = false;
+            }
+            return;
+        }
+        else {
+            sceneCamera = Camera.main;
+            if (sceneCamera !=null){
+                sceneCamera.gameObject.SetActive(false);
+            }
+        }
+    }
+
+}
+    </code>
+    </pre>
+</div>
+<!-- END SETUP SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Setup</div></h3><br>
+
+<!-- BEGIN SHOOT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Player_Shoot : NetworkBehaviour {
+
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+
+    void Update() {
+        if (!isLocalPlayer) {
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            CmdFire();
+        }
+    }
+
+    /// &lt;summary>
+    /// [Command] code is called on the client...
+    /// but its run on the server only...
+    /// the Cmd prior to the name of the function tells...
+    /// the server that its going to be a command...
+    /// &lt;/summary>
+    [Command]
+    void CmdFire() {
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        bullet.GetComponent&lt;Rigidbody>().velocity = bullet.transform.forward * 6;
+        NetworkServer.Spawn(bullet);
+        Destroy(bullet, 2.0f);
+
+    }
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END SHOOT SCRIPT -->
+
+    <h3><div style="text-align: center;">Player Shoot</div></h3><br>
+
+<!-- BEGIN ASTEROIDS SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Asteroid_Master : MonoBehaviour {
+
+    public delegate void AsteroidEventHandler(GameObject temp);
+    public event AsteroidEventHandler EventAsteroidDestroyed;
+    public event AsteroidEventHandler EventAsteroidSpawned;
+
+    public void CallEventAsteroidDestroyed(GameObject temp) {
+        if (EventAsteroidDestroyed != null) {
+            EventAsteroidDestroyed(temp);
+        }
+    }
+
+    public void CallEventAsteroidSpawned(GameObject temp) {
+        if (EventAsteroidSpawned != null) {
+            EventAsteroidSpawned(temp);
+        }
+    }
+}
+    </code>
+    </pre>
+</div>
+<!-- END ASTEROIDS SCRIPT -->
+
+    <h3><div style="text-align: center;">Asteroids Master</div></h3><br>
+
+<!-- BEGIN ASTEROID SPAWN SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Asteroid_Spawn : NetworkBehaviour {
+
+    public GameObject[] Asteroids;
+    public List&lt;GameObject> spawnedAsteroids = new List&lt;GameObject>();
+    int maxAsteroids = 200;
+    public int currentAsteroidCount = 0;
+    float radius = 400.0f;
+    public Transform asteroidSpawn;
+    bool isSpawning = false;
+    public float minTime = .1f;
+    public float maxTime = .2f;
+
+    private Asteroid_Master master;
+
+    public void OnEnable() {
+        master = GetComponent&lt;Asteroid_Master>();
+        master.EventAsteroidDestroyed += DestroyAsteroid;
+    }
+
+    public void OnDisable() {
+        master.EventAsteroidDestroyed -= DestroyAsteroid;
+    }
+
+    void Update() {
+        if (!hasAuthority) {
+            return;
+        }
+        currentAsteroidCount = spawnedAsteroids.Count;
+        if (!isSpawning && spawnedAsteroids.Count < maxAsteroids) {
+            isSpawning = true;
+            int asteroidIndex = Random.Range(0, Asteroids.Length);
+            StartCoroutine(SpawnObject(asteroidIndex, Random.Range(minTime, maxTime)));
+        }
+    }
+
+    IEnumerator SpawnObject(int index, float seconds) {
+
+        yield return new WaitForSeconds(seconds);
+        GameObject asteroid = Instantiate(Asteroids[index], Random.insideUnitSphere * radius + asteroidSpawn.position, Random.rotation, asteroidSpawn);
+        NetworkServer.Spawn(asteroid);
+        spawnedAsteroids.Add(asteroid);
+
+        isSpawning = false;
+    }
+
+    public void DestroyAsteroid(GameObject destroyedAsteroid) {
+        spawnedAsteroids.Remove(destroyedAsteroid);
+        Destroy(destroyedAsteroid);
+    }
+
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END ASTEROID SPAWN SCRIPT -->
+
+<h3><div style="text-align: center;">Asteroid Spawner</div></h3><br>
+</body>
+</html>

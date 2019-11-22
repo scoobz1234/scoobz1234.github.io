@@ -2,12 +2,1327 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet"
-          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+    <title>ReciPlease</title>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/prism.js"></script>
+    <style type="text/css">
+        img{
+            width: 500px;
+            height: 100%;
+        }
+        .box{
+            display: table;
+        }
+        .slider{
+            width:520px;
+            height:920px;
+            margin:30px auto;
+            position: relative;
+            border: 10px solid white;
+            box-shadow: 0px 0px 5px 2px #ccc;
+        }
+        button{
+            padding: 30px;
+            border: none;
+            background: #00d6ff;
+            font-size: 20px;
+            color: black;
+            position: absolute;
+            top:45%;
+            cursor: pointer;
+        }
+        .next{
+            border-radius: 0px 10px 10px 0px;
+            margin-left: 500px
+        }
+        .prev{
+            border-radius: 10px 0px 0px 10px;
+            margin-left: -70px
+        }
+        .codeReview{
+            height: 400px;
+            margin:auto;
+            width: 800px;
+            overflow: auto
+        }
+
+    </style>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
 </head>
 <body>
+<div id="mobile-menu-open" class="shadow-large">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<!-- End #mobile-menu-toggle -->
+<header>
+    <div id="mobile-menu-close">
+        <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul id="menu" class="shadow">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#scripts">Scripts</a></li>
+    </ul>
+</header>
+<!-- End header -->
 
+<div id="lead" style="height: 200px;">
+    <div id="lead-content">
+        <img src="images/ReciPleaseLogo.jpg" style =" height:50%; width:auto;" />
+    </div>
+    <!-- End #lead-content -->
+
+    <div id="lead-overlay"></div>
+
+    <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+    </div>
+    <!-- End #lead-down -->
+</div>
+<!-- End #lead -->
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="heading">Project Information</h2>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    ReciPlease is an innovative mobile application which provides it's users with the ability to
+                    create, store, and share recipes without the need for network connectivity
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End #about -->
+
+<div class="slider" id="slider">
+    <div class="box" id="box">
+        <img src="images/homescreen.PNG" height="1384" width="770"/>
+    </div>
+
+    <!-- Buttons -->
+    <button class="prev" onclick="prevImage()"><</button>
+    <button class="next" onclick="nextImage()">></button>
+</div>
+
+<!-- Objectives -->
+<div id="objectives" class="background-alt">
+    <h2 class="heading">Objectives Met</h2>
+    <div class="container">
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        Project followed software development processes, and was completed in several stages, to include initial creation of the
+                        classes and data structures that create the backbone of the system. next stage was the sharing of content without a network connection.
+                        This was by far the longest stage and caused several new iterations of phase 1. That is where building and testing software solutions came into play.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project specifically started out in C# with the Unity Engine, secondly it was moved to C# and Xamarin and XAML with Visual Studio. Lastly
+                        the project was moved to Android Studio and completed in Java.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        Prior to the final iteration of this project, it was created as a cross platform project in Visual Studio covering Android, Apple, and PC.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project is designed and has been implemented on mobile Android devices.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This projects development was tracked and managed with Trello.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective6.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project utilizes the Room database management system as well as Lists, Arrays, and implements specific algorithms for management,
+                        navigation, storage, and sharing of data.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Objectives -->
+
+<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
+
+<!-- BEGIN RECIPE SCRIPT -->
+    <script type="text/javascript">
+        var slider_content = document.getElementById('box');
+
+        var preCode = document.getElementById('preCode');
+
+        var showSecond = false;
+        // contains images in an array
+        var image = ['homescreen','recipecreation','recipelist','share','devicelist'];
+        var i = image.length;
+
+
+        // function for next image
+
+        function nextImage(){
+            if (i < image.length){
+                i += 1;
+            } else{
+                i = 1;
+            }
+            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+        }
+
+        function prevImage(){
+            if (i < image.length + 1 && i > 1){
+                i -= 1;
+            } else{
+                i = image.length;
+            }
+            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+        }
+    </script>
+<div>
+    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+        <code class="language-java">
+        @Entity
+        public class Recipe implements Serializable {
+
+        @PrimaryKey(autoGenerate = true)
+        private int id;
+
+        private String recipeName;
+        private String recipeType;
+        private Boolean selectedMeal;
+
+        @TypeConverters(DataConverter.class)
+        private List&lt;Ingredient> ingredients;
+
+        // GETTERS //
+        public int getId(){
+            return id;
+        }
+        public String getRecipeName(){return recipeName;}
+        public String getRecipeType(){return recipeType;}
+        public List&lt;Ingredient> getIngredients(){ return ingredients; }
+        public Boolean getSelectedMeal() {return selectedMeal;}
+
+        // SETTERS //
+        public void setId(int id) {
+            this.id = id;
+        }
+        public void setRecipeName(String name){this.recipeName = name;}
+        public void setRecipeType(String recipeType){this.recipeType = recipeType;}
+        public void setIngredients(List&lt;Ingredient> ingredients){this.ingredients = ingredients;}
+        public void setSelectedMeal(Boolean selectedMeal) {this.selectedMeal = selectedMeal;}
+
+        // CONSTRUCTORS //
+        public Recipe(){}
+        public Recipe(String name, Types type, List&lt;code> ingredients){
+            this.recipeName = name;
+            this.recipeType = type.toString();
+            this.ingredients = ingredients;
+            this.selectedMeal = false;
+        }
+
+        // METHODS //
+        @NonNull
+        @Override
+        public String toString() {
+            return recipeName;
+        }
+        public String toOtherString(){return recipeName + "," + recipeType;}
+    }
+
+    // OTHER //
+    enum Types
+    {
+        NA, Beef, Bison, Boar,
+        Chicken, Duck, Fish,
+        Lamb, Pheasant, Pork,
+        Rabbit, Turkey, Vegan,
+        Venison, NonMeat, Vegetarian,
+        Dessert, Appetizer
+        }
+    </code>
+    </pre>
+</div>
+
+<!-- END RECIPE SCRIPT -->
+<h3><div style="text-align: center;">Recipe Class</div></h3><br>
+<!-- BEGIN INGREDIENT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+@Entity
+public class Ingredient implements Serializable {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    //private int recipeID;
+    private float amount;
+    private String ingredientName;
+    private String measurement;
+
+    // GETTERS //
+    //public int getRecipeID() {return recipeID;}
+    public int getId() {return id;}
+    public float getAmount() {return amount;}
+    public String getIngredientName() {return ingredientName;}
+    public String getMeasurement() {return measurement;}
+
+    // SETTERS //
+   // public void setRecipeID(int recipeID){this.recipeID = recipeID;}
+    public void setId(int id) {this.id = id;}
+    public void setAmount(float amount) {this.amount = amount;}
+    public void setIngredientName(String ingredientName) {this.ingredientName = ingredientName;}
+    public void setMeasurement(String measurement) {this.measurement = measurement;}
+
+    // CONSTRUCTORS //
+    public Ingredient(){}
+    public Ingredient(float amount, String name, Measurements measurement){
+        //this.recipeID = rID;
+        this.amount = amount;
+        this.ingredientName = name;
+        this.measurement = measurement.toString();
+    }
+
+    // METHODS //
+    @NonNull
+    @Override
+    public String toString() {
+        return amount + " " + measurement + " of " + ingredientName;
+    }
+}
+
+// OTHER //
+enum Measurements
+{
+    NA, Boxes, Cans, Cups,
+    Dash, Packets, Pinch,
+    Pounds, Quarts, Whole,
+    Ounces, Teaspoons, Tablespoons
+}
+</code>
+</pre>
+</div>
+
+<!-- END INGREDIENT SCRIPT -->
+    <h3><div style="text-align: center;">Ingredient Class</div></h3><br>
+<!-- BEGIN MAIN MENU FRAGMENT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+public class MainMenuFragment extends Fragment implements View.OnClickListener {
+
+    public MainMenuFragment() {
+        // Required empty public constructor
+    }
+
+
+    // function is called on the creation of the fragment...
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_main_menu, container, false);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        init(view);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btn_create_recipe:
+                MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                    new RecipeCreationFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.btn_menu:
+                MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                    new MealsListFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.btn_share:
+                MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                    new ShareRecipeFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.btn_go_to_recipe_list:
+                MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                    new RecipeListFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.btn_exit:
+                System.exit(0);
+                break;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void init(View v){
+        Typeface t = getResources().getFont(R.font.custom_font_1);
+
+        Button btnCreate = v.findViewById(R.id.btn_create_recipe);
+        btnCreate.setTypeface(t);
+        btnCreate.setOnClickListener(this);
+
+        Button btnExit = v.findViewById(R.id.btn_exit);
+        btnExit.setOnClickListener(this);
+        btnExit.setTypeface(t);
+
+        Button btnMeals = v.findViewById(R.id.btn_menu);
+        btnMeals.setOnClickListener(this);
+        btnMeals.setTypeface(t);
+
+        Button btnShare = v.findViewById(R.id.btn_share);
+        btnShare.setOnClickListener(this);
+        btnShare.setTypeface(t);
+
+        Button btnRecipeList = v.findViewById(R.id.btn_go_to_recipe_list);
+        btnRecipeList.setOnClickListener(this);
+    }
+}
+
+    </code>
+    </pre>
+</div>
+
+<!-- END MAIN MENU FRAGMENT SCRIPT -->
+    <h3><div style="text-align: center;">Main Menu Fragment</div></h3><br>
+<!-- BEGIN MEALS LIST FRAGMENT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+public class MealsListFragment extends Fragment implements View.OnClickListener{
+
+    private Recipe[] recipeList;
+    private ArrayList&lt;String> recipes;
+    private Recipe selectedRecipe = null;
+
+    public MealsListFragment() {}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_meals_list, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Init();
+    }
+
+    private void Init(){
+
+        recipes = new ArrayList<>();
+        ListView lvMeals = this.getView().findViewById(R.id.lv_meals_list);
+        //get all the recipes and put it into this list...
+        recipeList = MainActivity.db.dao().getRecipes();
+        //foreach recipe in the list add them to the recipe[] array
+        for(Recipe r : recipeList){
+            if(r.getSelectedMeal()) {
+                recipes.add(r.toString());
+            }
+        }
+
+        ArrayAdapter&lt;String> adapter = new ArrayAdapter<>(this.getContext(),
+            R.layout.meals_list_item, recipes);
+        lvMeals.setAdapter(adapter);
+
+        // Adds a click feature to the Ingredients list so we can remove ingredients
+        lvMeals.setOnItemClickListener( new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView&lt;?> a, View v, int p, long l) {
+                for(Recipe r : recipeList){
+                if (r.toString() == recipes.get(p)){
+                selectedRecipe = r;
+                }
+            }
+            MainActivity.selectedRecipe = selectedRecipe;
+            MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                    new RecipeViewFragment()).addToBackStack(null).commit();
+            }
+        });
+
+        Button btnGoBack = this.getView().findViewById(R.id.btn_go_back_meals_list);
+        btnGoBack.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btn_go_back_meals_list:
+                MainActivity.fragMan.popBackStack();
+                break;
+        }
+    }
+}
+
+    </code>
+    </pre>
+</div>
+
+<!-- END SCRIPT -->
+    <h3><div style="text-align: center;">Meals List Fragment</div></h3><br>
+<!-- BEGIN COMM SERVICE SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+public class CommServ {
+
+    private final Handler handler;
+    private BluetoothAdapter btAdapter;
+    private ConnectThread connectThread;
+    private AcceptThread acceptThread;
+    private ReadWriteThread connectedThread;
+
+    private final UUID APP_UUID = UUID.fromString(
+        "8ce255c0-200a-11e0-ac64-0800200c9a66");
+    private final String APP_NAME = "ReciPlease";
+
+    public static final int STATE_NONE = 0;
+    public static final int STATE_LISTEN = 1;
+    public static final int STATE_CONNECTING = 2;
+    public static final int STATE_CONNECTED = 3;
+
+    private int state;
+    public static int currentState;
+
+    /**Constructor for the Communication Service**/
+    public CommServ(Context context, Handler handler){
+
+        this.handler = handler;
+
+        state = STATE_NONE;
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        CommServ.this.start();
+    }
+
+    public static synchronized int getState(){
+        return currentState;
+    }
+
+    // Sets the current state of the connection
+    public synchronized void setState(int state){
+        this.state = state;
+        currentState = state;
+        handler.obtainMessage(ShareRecipeFragment.MESSAGE_STATE_CHANGED,
+            currentState, -1).sendToTarget();
+    }
+
+    // Starts the connection service...
+    public synchronized void start(){
+        CancelThreads();
+        setState(STATE_LISTEN);
+        //now start the accept thread...
+        if (acceptThread == null){
+            acceptThread = new AcceptThread();
+            acceptThread.start();
+        }
+    }
+
+    // Stops the connection service...
+    public synchronized void stop(){
+        CancelThreads();
+        setState(STATE_NONE);
+    }
+
+    // Initiates connection to the remote device
+    public void connect(BluetoothDevice device){
+        if (state == STATE_CONNECTING){
+            if (connectThread != null) {
+                connectThread.cancel();
+                connectThread = null;
+            }
+        }
+        // Cancel the running thread...
+        if (connectedThread != null){
+            connectedThread.cancel();
+            connectedThread = null;
+        }
+
+        // Now start the thread to connect with the selected device...
+        connectThread = new ConnectThread(device);
+        connectThread.start();
+        setState(STATE_CONNECTING);
+    }
+
+    //Write to the thread...
+    public void write(byte[] buffer){
+        ReadWriteThread r;
+        synchronized (this){
+            if(state != STATE_CONNECTED){
+                return;
+            }
+           r = connectedThread;
+        }
+        r.write(buffer);
+    }
+
+    // Manages the bluetooth connection
+    public synchronized void connected(BluetoothSocket socket, BluetoothDevice device){
+        CancelThreads();
+
+        // Start the thread to manage the connection and perform transmissions...
+        connectedThread = new ReadWriteThread(socket);
+        connectedThread.start();
+
+        // Send the name of the connected device back to the UI Activity...
+        Message message = handler.obtainMessage(ShareRecipeFragment.MESSAGE_DEVICE_NAME);
+        Bundle bundle = new Bundle();
+        bundle.putString(ShareRecipeFragment.DEVICE_NAME, device.getName());
+        message.setData(bundle);
+        handler.sendMessage(message);
+
+        setState(STATE_CONNECTED);
+    }
+
+    // Runs while listening for incoming connections...
+    private class AcceptThread extends Thread{
+        private final BluetoothServerSocket serverSocket;
+
+        public AcceptThread(){
+            BluetoothServerSocket tmp = null;
+            try {
+                tmp = btAdapter.listenUsingInsecureRfcommWithServiceRecord(APP_NAME, APP_UUID);
+            } catch (IOException e){
+                Log.e("Accept->Constructor", e.toString());
+            }
+            serverSocket = tmp;
+        }
+
+        public void run(){
+            BluetoothSocket socket;
+            while(state != STATE_CONNECTED) {
+                try {
+                    socket = serverSocket.accept();
+                } catch (IOException e) {
+                    break;
+                }
+
+                // If the connection was accepted...
+                if (socket != null) {
+                    synchronized (CommServ.this) {
+                        switch (state) {
+                            case STATE_LISTEN:
+                            case STATE_CONNECTING:
+                                connected(socket, socket.getRemoteDevice());
+                                break;
+                            case STATE_NONE:
+                            case STATE_CONNECTED:
+                                try {
+                                    socket.close();
+                                } catch (IOException e) {
+                                    Log.e("Accept->CloseSocket", e.toString());
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void cancel(){
+            try {
+                serverSocket.close();
+            }catch (IOException e){
+                Log.e("Accept->CloseServer", e.toString());
+            }
+        }
+    }
+
+    // runs while attempting to make an outgoing connection
+    private class ConnectThread extends Thread {
+        private final BluetoothSocket socket;
+        private final BluetoothDevice device;
+
+        public ConnectThread(BluetoothDevice device) {
+            this.device = device;
+            BluetoothSocket tmp = null;
+            try {
+                tmp = device.createInsecureRfcommSocketToServiceRecord(APP_UUID);
+            } catch (IOException e) {
+                Log.e("Connect->Constructor", e.toString());
+            }
+            socket = tmp;
+        }
+
+        public void run() {
+            //Always make sure to cancel discovery because it will slow down the connection...
+            btAdapter.cancelDiscovery();
+
+            // Make a connection to the BluetoothSocket
+            try {
+                socket.connect();
+            } catch (IOException e) {
+                Log.e("Connect->Run", e.toString());
+                try {
+                    socket.close();
+                } catch (IOException ee) {
+                    Log.e("Connect->CloseSocket ", ee.toString());
+                }
+                connectionFailed();
+                return;
+            }
+
+            // Reset the ConnectThread because we're done here...
+            synchronized (CommServ.this) {
+                connectThread = null;
+            }
+
+            // Start the connected thread...
+            connected(socket, device);
+        }
+
+        public void cancel(){
+            try {
+                socket.close();
+            } catch (IOException e){
+                Log.e("Connect->Cancel", e.toString());
+            }
+        }
+    }
+
+    // runs during a connection with the remote device...
+    private class ReadWriteThread extends Thread {
+        private final BluetoothSocket socket;
+        private final InputStream inStream;
+        private final OutputStream outStream;
+
+        public ReadWriteThread(BluetoothSocket socket){
+            this.socket = socket;
+
+            InputStream tmpIn = null;
+            OutputStream tmpOut = null;
+
+            try {
+                tmpIn = socket.getInputStream();
+                tmpOut = socket.getOutputStream();
+            }catch (IOException e){
+            }
+            inStream = tmpIn;
+            outStream = tmpOut;
+        }
+
+        public void run(){
+            byte[] buffer = new byte[1024];
+            int bytes;
+
+            // Keeps listening to the InputStream
+            while(true) {
+                try {
+                    // Read from the InputStream
+                    bytes = inStream.read(buffer);
+
+                    // Send the obtained bytes to the UI Activity...
+                    handler.obtainMessage(ShareRecipeFragment.MESSAGE_READ, bytes, -1,
+                        buffer).sendToTarget();
+                } catch (IOException e) {
+                    connectionLost();
+                    // Restart the service
+                    CommServ.this.start();
+                    break;
+                }
+            }
+        }
+
+        // Write to OutputStream
+        public void write(byte[] buffer){
+            try {
+                outStream.write(buffer);
+                handler.obtainMessage(ShareRecipeFragment.MESSAGE_WRITE, -1, -1,
+                    buffer).sendToTarget();
+            } catch (IOException e){
+            }
+        }
+
+        public void cancel(){
+            try {
+                socket.close();
+            } catch (IOException e){
+            }
+        }
+    }
+
+    //Handles if connection is lost
+    private void connectionLost(){
+        Message message = handler.obtainMessage(ShareRecipeFragment.MESSAGE_TOAST);
+        Bundle bundle = new Bundle();
+        bundle.putString(ShareRecipeFragment.TOAST, "Connection Lost");
+        message.setData(bundle);
+        handler.sendMessage(message);
+
+        // Restarts the service
+        CommServ.this.start();
+    }
+
+    //Handles if connection fails
+    private synchronized void connectionFailed(){
+        Message message = handler.obtainMessage(ShareRecipeFragment.MESSAGE_TOAST);
+        Bundle bundle = new Bundle();
+        bundle.putString(ShareRecipeFragment.TOAST, "Cant connect to the device");
+        message.setData(bundle);
+        handler.sendMessage(message);
+        // Restarts the service
+        CommServ.this.start();
+    }
+
+    // Cancels the running threads
+    private void CancelThreads(){
+        if (connectThread != null){
+            connectThread.cancel();
+            connectThread = null;
+        }
+        if (connectedThread != null){
+            connectedThread.cancel();
+            connectedThread = null;
+        }
+        if (acceptThread != null){
+            acceptThread.cancel();
+            acceptThread = null;
+        }
+    }
+}
+
+    </code>
+    </pre>
+</div>
+
+<!-- END COMM SERVICE SCRIPT -->
+    <h3><div style="text-align: center;">Bluetooth Connection Service Class</div></h3><br>
+<!-- BEGIN DEVICE LIST SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+public class DeviceListActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private ListView listPairedDevices, listAvailableDevices;
+    private ProgressBar progressScanDevices;
+    private Button btnGoBack;
+
+    private ArrayAdapter&lt;String> adapterPairedDevices, adapterAvailableDevices;
+    private Context context;
+    private BluetoothAdapter btAdapter;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_device_list);
+        context = this;
+
+        init();
+    }
+
+    private void init(){
+        listPairedDevices = findViewById(R.id.list_paired_devices);
+        listAvailableDevices = findViewById(R.id.list_available_devices);
+        progressScanDevices = findViewById(R.id.progress_scan_devices);
+        btnGoBack = findViewById(R.id.btn_go_back_device_list);
+        btnGoBack.setOnClickListener(this);
+
+        adapterPairedDevices = new ArrayAdapter<>(context, R.layout.device_list_item);
+        adapterAvailableDevices = new ArrayAdapter<>(context, R.layout.device_list_item);
+
+        listPairedDevices.setAdapter(adapterPairedDevices);
+        listAvailableDevices.setAdapter(adapterAvailableDevices);
+
+        listAvailableDevices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView&lt;?> parent, View view, int i, long l) {
+                String info = ((TextView) view).getText().toString();
+                String address = info.substring(info.length() - 17);
+
+                Intent intent = new Intent();
+                intent.putExtra("deviceAddress", address);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        Set&lt;BluetoothDevice> pairedDevices = btAdapter.getBondedDevices();
+
+        if(pairedDevices != null && pairedDevices.size() > 0){
+            for(BluetoothDevice device : pairedDevices){
+                adapterPairedDevices.add(device.getName() + "\n" + device.getAddress());
+            }
+        }
+
+        IntentFilter intentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(btDevicesListener, intentFilter);
+        IntentFilter intentFilter1 = new IntentFilter(
+            BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+        registerReceiver(btDevicesListener, intentFilter1);
+
+        listPairedDevices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView&lt;?> parent, View view, int i, long l) {
+                btAdapter.cancelDiscovery();
+
+                String info = ((TextView) view).getText().toString();
+                String address = info.substring(info.length() - 17);
+
+                Log.d("Address", address);
+
+                Intent intent = new Intent();
+                intent.putExtra("deviceAddress", address);
+
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
+        });
+    }
+
+    private BroadcastReceiver btDevicesListener = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if(BluetoothDevice.ACTION_FOUND.equals(action)){
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (device.getBondState() != BluetoothDevice.BOND_BONDED){
+                    adapterAvailableDevices.add(device.getName() + "\n" + device.getAddress());
+                }
+            } else if (btAdapter.ACTION_DISCOVERY_FINISHED.equals(action)){
+                progressScanDevices.setVisibility(View.GONE);
+                if (adapterAvailableDevices.getCount() == 0){
+                    Toast.makeText(context, "No new devices Found",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(context, "Click on the device to start the connection",
+                        Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_device_list, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.menu_scan_devices:
+                scanDevices();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void scanDevices(){
+        progressScanDevices.setVisibility(View.VISIBLE);
+        adapterAvailableDevices.clear();
+
+        Toast.makeText(context, "Scan started", Toast.LENGTH_SHORT).show();
+
+        if (btAdapter.isDiscovering()){
+            btAdapter.cancelDiscovery();
+        }
+        btAdapter.startDiscovery();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (btDevicesListener != null){
+            unregisterReceiver(btDevicesListener);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_go_back_device_list){
+            MainActivity.fragMan.beginTransaction().replace(R.id.fragment_container,
+                new MainMenuFragment()).addToBackStack(null).commit();
+        }
+    }
+}
+
+
+    </code>
+    </pre>
+</div>
+
+<!-- END DEVICE LIST SCRIPT SCRIPT -->
+    <h3><div style="text-align: center;">Device List Activity</div></h3><br>
+<!-- BEGIN SHARE RECIPE FRAGMENT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-java">
+public class ShareRecipeFragment extends Fragment implements View.OnClickListener {
+
+    private Context context;
+    private BluetoothAdapter btAdapter;
+    private CommServ commServ = null;
+
+    private ListView lvRecipeToSend;
+    public TextView tvConnectedDevice;
+    private Button btnSendRecipe, btnGoBack;
+    private ArrayAdapter&lt;String> adapterRecipeToSend;
+
+    private final int LOCATION_PERMISSION_REQUEST = 101;
+    private final int SELECT_DEVICE = 102;
+
+    public static final int MESSAGE_STATE_CHANGED = 0;
+    public static final int MESSAGE_READ = 1;
+    public static final int MESSAGE_WRITE = 2;
+    public static final int MESSAGE_DEVICE_NAME = 3;
+    public static final int MESSAGE_TOAST = 4;
+
+    public static final String DEVICE_NAME = "deviceName";
+    public static final String TOAST = "toast";
+    private String connectedDevice;
+
+    public ShareRecipeFragment() {}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_share_recipe, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        context = this.getContext();
+        init(view);
+        initBluetooth();
+        commServ = new CommServ(context, handler);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.btn_go_back:
+                MainActivity.fragMan.popBackStack();
+                break;
+        }
+    }
+
+    /**HANDLER*/
+    private Handler handler = new Handler(new Handler.Callback(){
+        @Override
+        public boolean handleMessage(Message message){
+            switch (message.what){
+                case MESSAGE_READ:
+                    byte[] inBuffer = (byte[]) message.obj;
+                    Object inBoundObject = DeserializeObject(inBuffer);
+
+                    if (inBoundObject.getClass() == Recipe.class){
+                        Recipe oToR = (Recipe)inBoundObject;
+                        AddToDatabase(oToR);
+                        Log.i("Recipe", "Inbound Recipe Added Successfully!");
+                    }
+                    Toast.makeText(context,"You got a new Recipe!",
+                        Toast.LENGTH_SHORT).show();
+                    break;
+                case MESSAGE_STATE_CHANGED:
+
+                    switch(CommServ.getState()){
+                        case CommServ.STATE_CONNECTED:
+                        case CommServ.STATE_CONNECTING:
+                            tvConnectedDevice.setText("Connected to: " + connectedDevice);
+                            break;
+                        case CommServ.STATE_LISTEN:
+                        case CommServ.STATE_NONE:
+                            tvConnectedDevice.setText("Ready");
+                            break;
+                    }
+                    break;
+                case MESSAGE_DEVICE_NAME:
+                    connectedDevice = message.getData().getString(DEVICE_NAME);
+                    Toast.makeText(context, connectedDevice, Toast.LENGTH_SHORT).show();
+                    break;
+                case MESSAGE_TOAST:
+                    Toast.makeText(context, message.getData().getString(TOAST),
+                        Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            return false;
+        }
+    });
+
+    private void init(View v){
+        lvRecipeToSend = v.findViewById(R.id.list_recipe_to_send);
+        ListView lvIngredientsToSend = v.findViewById(R.id.lv_ingredients_to_send);
+        tvConnectedDevice = v.findViewById(R.id.tv_connected_Device);
+        btnSendRecipe = v.findViewById(R.id.btn_send_recipe);
+        btnGoBack = v.findViewById(R.id.btn_go_back);
+        btnGoBack.setOnClickListener(this);
+
+        if (MainActivity.selectedRecipe != null) {
+            adapterRecipeToSend = new ArrayAdapter<>(context, R.layout.meals_list_item);
+            adapterRecipeToSend.add(MainActivity.selectedRecipe.toString());
+
+            ArrayAdapter&lt;String> adapterIngredientToSend = new ArrayAdapter<>(context,
+                R.layout.ingredient_list_item);
+            for (Ingredient i : MainActivity.selectedRecipe.getIngredients()) {
+                adapterIngredientToSend.add(i.toString());
+            }
+
+            lvRecipeToSend.setAdapter(adapterRecipeToSend);
+            lvIngredientsToSend.setAdapter(adapterIngredientToSend);
+        }
+
+        btnSendRecipe.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // Create byte arrays of data being sent...
+                byte[] recipeToSend = PrepareRecipe();
+
+                if (recipeToSend != null) {
+                    commServ.write(recipeToSend);
+                    Log.i("Recipe Byte[]", recipeToSend.toString());
+
+                    //Recipe being sent data...
+                    Object o = DeserializeObject(recipeToSend);
+                    Recipe oToR = (Recipe)o;
+                    Log.i("Recipe Sent",oToR.toOtherString());
+                    for(Ingredient i : oToR.getIngredients()){
+                        Log.i("IngredientSent",i.toString());
+                    }
+                    Toast.makeText(context,"Successfully sent Recipe!",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(context,"No Recipe selected.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        setHasOptionsMenu(true);
+    }
+
+    /**Gets the recipe ready for serialization**/
+    private byte[] PrepareRecipe(){
+        if(MainActivity.selectedRecipe != null){
+            Recipe r = MainActivity.selectedRecipe;
+            return SerializeObject(r);
+        }
+        return null;
+    }
+
+    /**Serializes object**/
+    private byte[] SerializeObject(Object o){
+        byte[] data = null;
+        try{
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(bos);
+            oos.writeObject(o);
+            oos.flush();
+            data = bos.toByteArray();
+        } catch (IOException e){
+            Log.e("SerializeObject: ", "Failed to Serialize object" );
+        }
+        return data;
+    }
+
+    /**De-Serializes objects**/
+    private static Object DeserializeObject(byte[] data){
+
+        try {
+            ByteArrayInputStream in = new ByteArrayInputStream(data);
+            ObjectInputStream is = new ObjectInputStream(in);
+            return is.readObject();
+        } catch (IOException e){
+            Log.e("Could not Deserialize ", e.toString());
+        } catch (ClassNotFoundException ce){
+            Log.e("Class not found ", ce.toString());
+        }
+        return null;
+    }
+
+    /**Adds object to the database, depending on input**/
+    private static void AddToDatabase(Object input){
+        if (input.getClass() == Recipe.class){
+            MainActivity.db.dao().addRecipe((Recipe)input);
+        }
+    }
+
+    //////////////////////////////////////OPTIONS MENU//////////////////////////////////////////////
+    //region Options Menu
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.menu_main_activity, menu);
+        super.onCreateOptionsMenu(menu,inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item)
+    {
+        switch(item.getItemId()){
+            case R.id.menu_toggle_bluetooth:
+                EnableBluetooth();
+                return true;
+            case R.id.menu_search_devices:
+                CheckPermissions();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    //endregion
+    ////////////////////////////////////////BLUETOOTH///////////////////////////////////////////////
+    //region Bluetooth
+    /**Initialize the bluetooth device (check to see if device has bluetooth capabilities)**/
+    private void initBluetooth(){
+        btAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(btAdapter == null){
+            Toast.makeText(context, "No bluetooth found!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**This function will enable the bluetooth if its not already enabled**/
+    private void EnableBluetooth(){
+        if (!btAdapter.isEnabled()){
+            btAdapter.enable();
+        }
+
+        if (btAdapter.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE){
+            Intent discoveryIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+            discoveryIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
+            startActivity(discoveryIntent);
+        }
+    }
+
+    /**This function will check for permissions**/
+    private void CheckPermissions(){
+        if(ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[]{
+                    Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST);
+        } else {
+            Intent intent = new Intent(context, DeviceListActivity.class);
+            startActivityForResult(intent, SELECT_DEVICE);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == SELECT_DEVICE && resultCode == RESULT_OK){
+            String address = data.getStringExtra("deviceAddress");
+            commServ.connect(btAdapter.getRemoteDevice(address));
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+        @NonNull int[] grantResults) {
+        if(requestCode == LOCATION_PERMISSION_REQUEST){
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(context, DeviceListActivity.class);
+                startActivityForResult(intent, SELECT_DEVICE);
+            } else {
+                new AlertDialog.Builder(context)
+                        .setCancelable(false)
+                        .setMessage("Location permission is required.\n Please allow")
+                        .setPositiveButton("Allow", new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i){
+                                CheckPermissions();
+                            }
+                        })
+                        .setNegativeButton("Deny", new DialogInterface.OnClickListener(){
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i){
+                                getActivity().finish();
+                            }
+                        }).show();
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+    //endregion
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (commServ != null){
+            commServ.stop();
+        }
+    }
+}
+    </code>
+    </pre>
+</div>
+
+<!-- END SHARE RECIPE FRAGMENT SCRIPT -->
+    <h3><div style="text-align: center;">Share Recipe Fragment</div></h3><br>
 </body>
 </html>

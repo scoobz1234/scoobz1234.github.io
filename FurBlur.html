@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FurBlur</title>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/prism.js"></script>
+    <style type="text/css">
+        img{
+            width: 500px;
+            height: 100%;
+        }
+        .box{
+            display: table;
+        }
+        .slider{
+            width:520px;
+            height:590px;
+            margin:30px auto;
+            position: relative;
+            border: 10px solid white;
+            box-shadow: 0px 0px 5px 2px #ccc;
+        }
+        button{
+            padding: 30px;
+            border: none;
+            background: #00d6ff;
+            font-size: 20px;
+            color: black;
+            position: absolute;
+            top:45%;
+            cursor: pointer;
+        }
+        .next{
+            border-radius: 0px 10px 10px 0px;
+            margin-left: 500px
+        }
+        .prev{
+            border-radius: 10px 0px 0px 10px;
+            margin-left: -70px
+        }
+        .codeReview{
+            height: 400px;
+            margin:auto;
+            width: 800px;
+            overflow: auto
+        }
+
+    </style>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+</head>
+<body>
+<div id="mobile-menu-open" class="shadow-large">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<!-- End #mobile-menu-toggle -->
+<header>
+    <div id="mobile-menu-close">
+        <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul id="menu" class="shadow">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#scripts">Scripts</a></li>
+    </ul>
+</header>
+<!-- End header -->
+
+<div id="lead" style="height: 200px;">
+    <div id="lead-content">
+        <h1>FurBlur</h1>
+        <img src="images/campsite.jpg" style =" height:80%; width:auto;" />
+    </div>
+    <!-- End #lead-content -->
+
+    <div id="lead-overlay"></div>
+
+    <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+    </div>
+    <!-- End #lead-down -->
+</div>
+<!-- End #lead -->
+
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="heading">Project Information</h2>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    FurBlur is a multi-platform Platformer style video game built with Unity Engine. This was my first
+                    ever project, and has seen many iterations. I have left the majority of the code as it was written
+                    when i first started programming. This gives me a good understanding of how far I have come as
+                    a programmer.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End #about -->
+
+<!-- BEGIN PICTURE SLIDER -->
+<div class="slider" id="slider">
+    <div class="box" id="box">
+        <img src="images/furblurMainMenu.PNG"/>
+    </div>
+
+    <!-- Buttons -->
+    <button class="prev" onclick="prevImage()"><</button>
+    <button class="next" onclick="nextImage()">></button>
+</div>
+<!-- END PICTURE SLIDER -->
+
+<!-- Objectives -->
+<div id="objectives" class="background-alt">
+    <h2 class="heading">Objectives Met</h2>
+    <div class="container">
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        Being my first ever project, specific development processes were not completely adhered to.
+                        however, I did design, build and test solutions to get this game to work correctly.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project was programmed in C# with the Unity Engine
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        This project was created for Android, Apple, and desktop environments/platforms
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="project shadow-large">
+                <div class="project-image">
+                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                </div>
+                <div class="project-info" style="margin-left: 200px;">
+                    <br>
+                    <p>
+                        Project was created for Android and Apple mobile devices, and specifically utilizes
+                        touch input and touch swipes for character control.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Objectives -->
+
+<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
+
+<script type="text/javascript">
+    var slider_content = document.getElementById('box');
+
+    var preCode = document.getElementById('preCode');
+
+    var showSecond = false;
+    // contains images in an array
+    var image = ['furblurMainMenu','FurBlurGamePlay','BossLevel'];
+    var i = image.length;
+
+
+    // function for next image
+
+    function nextImage(){
+        if (i < image.length){
+            i += 1;
+        } else{
+            i = 1;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+    }
+
+    function prevImage(){
+        if (i < image.length + 1 && i > 1){
+            i -= 1;
+        } else{
+            i = image.length;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+    }
+</script>
+
+<!-- BEGIN CAMERA FOLLOW SCRIPT -->
+<div>
+    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+        <code class="language-c#">
+public class CameraFollow : MonoBehaviour {
+
+    public GameObject player;
+    private Vector3 offset;
+
+    void Start ()
+    {
+        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        offset = transform.position - player.transform.position;
+    }
+
+    // LateUpdate is called after Update each frame
+    void LateUpdate ()
+    {
+        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
+        transform.position = player.transform.position + offset;
+    }
+
+    public void EndGame(){
+        Application.Quit();
+    }
+    public void Restart(){
+        SceneManager.LoadScene(0);
+    }
+}
+    </code>
+    </pre>
+</div>
+<!-- END CAMERA FOLLOW SCRIPT -->
+
+    <h3><div style="text-align: center;">Camera Follow</div></h3><br>
+
+<!-- BEGIN FLAG SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Flag : MonoBehaviour {
+	public GameObject FlagDown, FlagUp, KeyEnabled;
+	public AudioClip Win;
+	public float Timer=0.0f, SpawnTimer=0.0f;
+	public Text TimerText;
+	public string formattedTime;
+
+
+
+	void Start () {
+		FlagDown.SetActive (true);
+		FlagUp.SetActive (false);
+	}
+	void FixedUpdate(){
+		Timer += Time.deltaTime;
+		formattedTime = (int)(Timer / 60) + ":" + (int)(Timer % 60);
+		TimerText.text = "Time - " +formattedTime;
+	}
+    private void Update() {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(3))
+        {
+            if (Input.GetKeyUp(KeyCode.W)) {
+                Restart();
+            }
+        }
+    }
+    void OnTriggerEnter2D (Collider2D other){
+		switch (other.gameObject.tag){
+		case "Player":
+			if (KeyEnabled.activeInHierarchy){
+				FlagDown.SetActive (false);
+				AudioSource.PlayClipAtPoint(Win, transform.position);
+				FlagUp.SetActive (true);
+				int HighTime = PlayerPrefs.GetInt ("Timer");
+				if(Timer>HighTime){
+					SetNewHighScore();
+				}
+				SceneManager.LoadScene (2);
+			}
+		break;
+		}
+	}
+	void SetNewHighScore(){
+		PlayerPrefs.SetFloat ("Timer",Timer);
+	}
+
+	public void Restart (){
+		SceneManager.LoadScene (0);
+	}
+
+}
+</code>
+</pre>
+</div>
+<!-- END FLAG SCRIPT -->
+
+    <h3><div style="text-align: center;">Flag (end level)</div></h3><br>
+
+<!-- BEGIN KEY SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class KeyScript : MonoBehaviour {
+
+	public GameObject Key, KeyEnabled, KeyDisabled,KeySparkle;
+
+	void Start(){
+		Scene CurrentScene = SceneManager.GetActiveScene();
+		int buildIndex = CurrentScene.buildIndex;
+    	switch (buildIndex){
+    	case 1:
+			KeyEnabled.SetActive (false);
+			KeyDisabled.SetActive (true);
+    	break;
+		case 2:
+			KeyEnabled.SetActive (false);
+			KeyDisabled.SetActive (false);
+		break;
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		if (other.gameObject.tag == "Player"){
+			Destroy (Key);
+			KeyEnabled.SetActive (true);
+			KeySparkle.SetActive (false);
+			KeyDisabled.SetActive (false);
+		}
+	}
+}
+    </code>
+    </pre>
+</div>
+<!-- END KEY SCRIPT -->
+
+    <h3><div style="text-align: center;">Key Object</div></h3><br>
+
+<!-- BEGIN LEVEL1 SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Level1_Script : MonoBehaviour
+{
+    public GameObject player, enemyDeath, enemySpawn1, enemySpawn2, enemy0, enemy1, enemyPortal1, enemyPortal2;
+    public Transform playerTrans, enemyTrans0, enemyTrans1, spawnTrans1, spawnTrans2;
+    public float walkingDistance = 50.0f, smoothTime = 3.0f, distance, spawnTimer;
+    private Vector3 smoothVelocity = Vector3.zero, StartingPos;
+    public bool isReturning = false;
+    public AudioClip enemyDie;
+    AudioSource Audio;
+    Rigidbody m_rigidBody = null;
+
+    void Start(){
+        spawnTimer = 100.0f;
+        Audio = GetComponent&lt;AudioSource>();
+        enemyPortal1 = (GameObject)Resources.Load("SpawnPortal");
+        enemyPortal2 = (GameObject)Resources.Load("SpawnPortal2");
+        enemyDeath = (GameObject)Resources.Load("EnemyDeath");
+        enemyDie = (AudioClip)Resources.Load("Male_Death_01");
+        player = GameObject.FindWithTag("Player");
+        playerTrans = player.transform;
+        enemySpawn1 = GameObject.FindWithTag("Spawn1");
+        spawnTrans1 = enemySpawn1.transform;
+        enemySpawn2 = GameObject.FindWithTag("Spawn2");
+        spawnTrans2 = enemySpawn2.transform;
+        enemy0 = GameObject.FindWithTag("Enemy0");
+        enemyTrans0 = enemy0.transform;
+        enemy1 = GameObject.FindWithTag("Enemy1");
+        enemyTrans1 = enemy1.transform;
+        StartingPos = transform.position;
+        m_rigidBody = GetComponent&lt;Rigidbody>();
+    }
+    void FixedUpdate(){
+        if (!isReturning){
+            float distance = Vector3.Distance(transform.position, playerTrans.position);
+        }
+        else if (isReturning){
+            if (gameObject.tag == "Enemy0"){
+                float distance = Vector3.Distance(transform.position, enemySpawn1.transform.position);
+            }
+            else if (gameObject.tag == "Enemy1"){
+                float distance = Vector3.Distance(transform.position, enemySpawn2.transform.position);
+            }
+        }
+        if (distance < walkingDistance && !isReturning){
+            if (gameObject.tag.Contains("Enemy")){
+                transform.position = Vector3.SmoothDamp
+                    (transform.position, playerTrans.position, ref smoothVelocity, smoothTime);
+            }
+        }
+        else if (distance < walkingDistance && isReturning){
+            if (gameObject.tag == "Enemy0"){
+                transform.position = Vector3.SmoothDamp
+                    (transform.position, enemySpawn1.transform.position, ref smoothVelocity, smoothTime);
+            }
+            else if (gameObject.tag == "Enemy1"){
+                transform.position = Vector3.SmoothDamp
+                    (transform.position, enemySpawn2.transform.position, ref smoothVelocity, smoothTime);
+            }
+        }
+    }
+    //this is the enemy colliding with gameobject tagged player, this is to "kill the enemy" or player
+    void OnTriggerExit2D(Collider2D other){
+        if (other.gameObject.tag == "Player"){
+            if (other.gameObject.transform.position.y > transform.position.y){
+                Instantiate(enemyDeath, transform.position, transform.rotation);
+                AudioSource.PlayClipAtPoint(enemyDie, transform.position);
+                gameObject.SetActive(false);
+                PortalStuff();
+            }
+            else{
+                var movement = other.GetComponent&lt;Movement>();
+                movement.Kill();
+            }
+        }
+    }
+    public void PortalStuff(){
+        if (gameObject.tag == "Enemy0" && GameObject.FindWithTag("EnemyPortal1") == null){
+            Instantiate(enemyPortal1, spawnTrans1.position, spawnTrans1.rotation);
+        }
+        if (gameObject.tag == "Enemy1" && GameObject.FindWithTag("EnemyPortal2") == null){
+            Instantiate(enemyPortal2, spawnTrans2.position, spawnTrans2.rotation);
+        }
+    }
+}
+    </code>
+    </pre>
+</div>
+<!-- END LEVEL1 SCRIPT -->
+
+    <h3><div style="text-align: center;">Level 1</div></h3><br>
+
+<!-- BEGIN LEVEL2 SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Level2_Script : MonoBehaviour
+{
+    public GameObject player, enemyDeath, enemyBoss, spawnLocation1, spawnLocation2, spawnLocation3, enemy1, enemy2, spawnPortal1, spawnPortal2,
+    lavaWave, spawnPortal3, ShieldPowerUp;
+    public Transform playerTrans, enemyTrans1, enemyTrans2, enemyTrans3, bossTrans, enemySpawnTrans1, enemySpawnTrans2, enemySpawnTrans3;
+    public float walkingDistance = 500.0f, smoothTime = 3.0f, fastTime = 0.5f, distance, spawnTimer, waveDestroyTimer;
+    private Vector3 smoothVelocity = Vector3.zero, StartingPos;
+    public AudioClip enemyDie;
+    AudioSource Audio;
+    public bool isReflected = false, shieldPowered = false, hasCollided = false;
+
+    void Start(){
+        spawnTimer = 100.0f;
+        waveDestroyTimer = 300.0f;
+        StartingPos = transform.position;
+        Audio = GetComponent&lt;AudioSource>();
+        enemyDeath = (GameObject)Resources.Load("EnemyDeath");
+        enemyDie = (AudioClip)Resources.Load("Male_Death_01");
+        lavaWave = GameObject.FindWithTag("LavaWave");
+        player = GameObject.FindWithTag("Player");
+        playerTrans = player.transform;
+        enemyBoss = GameObject.FindWithTag("Boss");
+        bossTrans = enemyBoss.transform;
+        spawnPortal1 = (GameObject)Resources.Load("SpawnPortal");
+        spawnPortal2 = (GameObject)Resources.Load("SpawnPortal2");
+        spawnPortal3 = (GameObject)Resources.Load("SpawnPortal3");
+        spawnLocation1 = GameObject.FindWithTag("Spawn1");
+        enemySpawnTrans1 = spawnLocation1.transform;
+        spawnLocation2 = GameObject.FindWithTag("Spawn2");
+        enemySpawnTrans2 = spawnLocation2.transform;
+        spawnLocation3 = GameObject.FindWithTag("Spawn3");
+        enemySpawnTrans3 = spawnLocation3.transform;
+        enemy1 = (GameObject)Resources.Load("Enemy");
+        enemyTrans1 = enemy1.transform;
+        enemy2 = (GameObject)Resources.Load("Enemy2");
+        enemyTrans2 = enemy2.transform;
+        ShieldPowerUp = (GameObject)Resources.Load("ShieldPowerUp");
+    }
+    // meat and potatoes...
+    void FixedUpdate(){
+        //gets isHealthy bool from enemy boss game object script
+        bool isHealthy = GameObject.Find("EnemyBoss").GetComponent&lt;BossScript>().isHealthy;
+        //checks if the enemy is reflected or not and then sets its target accordingly
+        if (isReflected) {
+            float distance = Vector3.Distance(transform.position, bossTrans.position);
+        }
+        else if (!isReflected) {
+            float distance = Vector3.Distance(transform.position, playerTrans.position);
+        }
+        // moves enemy per distance check...
+        if (distance < walkingDistance){
+            if (isReflected){
+                transform.position = Vector3.SmoothDamp(transform.position, bossTrans.position, ref smoothVelocity, fastTime);
+            }
+            else if (!isReflected && gameObject.tag.Contains("Enemy")){
+                transform.position = Vector3.SmoothDamp(transform.position, playerTrans.position, ref smoothVelocity, smoothTime);
+            }
+        }
+        //if he's healthy HP >= 50 then spawns two enemies
+        switch (isHealthy){
+            case false:
+                BossStage2();
+                break;
+        }
+    }
+    // collision handling
+    void OnTriggerExit2D(Collider2D other){
+        if (other.gameObject.tag == "PlayerShield" && !hasCollided){
+            var playerScript = player.GetComponent&lt;Movement>();
+            var shieldLevelScript = GameObject.FindWithTag("ShieldPowerMeter").GetComponent&lt;ProgressBarPro>();
+            playerScript.shieldPowerLevel -= 25;
+            shieldLevelScript.SetValue(playerScript.shieldPowerLevel, 100);
+            isReflected = true;
+            hasCollided = true;
+        }
+        if (other.gameObject.tag == "Player"){
+            if (player.transform.position.y > transform.position.y && !hasCollided){
+                Instantiate(enemyDeath, transform.position, transform.rotation);
+                AudioSource.PlayClipAtPoint(enemyDie, transform.position);
+                DropShield();
+                hasCollided = true;
+                gameObject.SetActive(false);
+                PortalStuff();
+            }
+            else if (player.transform.position.y < transform.position.y && !hasCollided){
+                var movement = other.GetComponent&lt;Movement>();
+                if (!movement.shieldIsActive){
+                    movement.Kill();
+                }
+            }
+        }
+        if (other.gameObject.tag == "Spikes"){
+            Instantiate(enemyDeath, transform.position, transform.rotation);
+            AudioSource.PlayClipAtPoint(enemyDie, transform.position);
+            gameObject.SetActive(false);
+        }
+    }
+    // spawning of the portals..
+    public void PortalStuff(){
+        bool isHealthy = GameObject.Find("EnemyBoss").GetComponent&lt;BossScript>().isHealthy;
+        if (gameObject.tag == "Enemy0" && GameObject.FindWithTag("EnemyPortal1") == null && isHealthy){
+            Instantiate(spawnPortal1, enemySpawnTrans1.position, enemySpawnTrans1.rotation);
+        }
+        if (gameObject.tag == "Enemy1" && GameObject.FindWithTag("EnemyPortal2") == null && isHealthy){
+            Instantiate(spawnPortal2, enemySpawnTrans2.position, enemySpawnTrans2.rotation);
+        }
+        if (!isHealthy){
+            if (gameObject.tag == "Enemy0" && GameObject.FindWithTag("EnemyPortal3") == null){
+                Instantiate(spawnPortal3, enemySpawnTrans3.position, enemySpawnTrans3.rotation);
+            }
+        }
+    }
+    public void DropShield(){
+        int randomNumber = Random.Range(0, 10);
+        if (randomNumber >= 5){
+            Instantiate(ShieldPowerUp, gameObject.transform.position, gameObject.transform.rotation);
+        }
+    }
+    public void BossStage2(){
+        if (GameObject.FindWithTag("EnemyPortal1") || GameObject.FindWithTag("EnemyPortal2")){
+            Destroy(GameObject.FindWithTag("EnemyPortal1"));
+            Destroy(GameObject.FindWithTag("EnemyPortal2"));
+            GameObject.FindWithTag("Enemy1").SetActive(false);
+        }
+    }
+    void OnEnable(){
+        isReflected = false;
+        hasCollided = false;
+    }
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END LEVEL2 SCRIPT -->
+
+    <h3><div style="text-align: center;">Level 2</div></h3><br>
+
+<!-- BEGIN LEVEL MANAGER SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class LevelManager : MonoBehaviour
+{
+    public GameObject Player, Boss, Key, KeyEnabled, KeyDisabled,
+        KeySparkle, playerRespawn, BloodSplatter, Camera, life1, life2, life3, Enemy, Enemy2, lavaWave;
+    public Transform PlayerTrans, BossTrans, Spawn1Trans, Spawn2Trans, Spawn3Trans, playerRespawnTrans;
+    public AudioClip getKey, KilledByEnemy;
+    public float spawnTimer, waveActivateTimer, waveDeactivateTimer = 200.0f;
+    public int playerLives, enemyPooledAmmount = 2;
+    public bool isKilled = false, isHealthy;
+    List&lt;GameObject> enemies;
+    AudioSource audio;
+
+    void Start()
+    {
+        life1 = GameObject.Find("Life1");
+        life2 = GameObject.Find("Life2");
+        life3 = GameObject.Find("Life3");
+        playerLives = 3;
+        getKey = (AudioClip)Resources.Load("GetKey");
+        audio = Player.GetComponent&lt;AudioSource>();
+        Camera = GameObject.FindWithTag("MainCamera");
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        int buildIndex = CurrentScene.buildIndex;
+        //switch control for level's
+        switch (buildIndex)
+        {
+            // level one
+            case 1:
+                Key = GameObject.FindWithTag("RedKey");
+                KeyEnabled = GameObject.FindWithTag("EnabledKey");
+                KeyDisabled = GameObject.FindWithTag("DisabledKey");
+                KeySparkle = GameObject.FindWithTag("KeySparkle");
+                KeyEnabled.SetActive(false);
+                KeyDisabled.SetActive(true);
+                playerRespawn = GameObject.FindWithTag("Respawn");
+                playerRespawnTrans = playerRespawn.transform;
+                BloodSplatter.SetActive(false);
+                enemies = new List&lt;GameObject>();
+                for (int i = 0; i < enemyPooledAmmount; i++){
+                    GameObject obj = (GameObject)Instantiate(Enemy);
+                    obj.SetActive(false);
+                    obj.gameObject.tag = ("Enemy" + i);
+                    enemies.Add(obj);
+                }
+                break;
+            // level 2
+            case 2:
+                enemies = new List&lt;GameObject>();
+                for (int i = 0; i < enemyPooledAmmount; i++){
+                    GameObject obj = (GameObject)Instantiate(Enemy2);
+                    obj.SetActive(false);
+                    obj.gameObject.tag = ("Enemy" + i);
+                    enemies.Add(obj);
+                }
+                break;
+        }
+    }
+    void FixedUpdate()
+    {
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        int buildIndex = CurrentScene.buildIndex;
+        //switch control for level's
+        switch (buildIndex){
+            // level one
+            case 1:
+                EnemySpawner(1);
+                break;
+            // level 2
+            case 2:
+                var isBossHealthy = GameObject.FindWithTag("Boss").GetComponent&lt;BossScript>();
+                if(isBossHealthy.Health > 50){
+                    EnemySpawner(1);
+                }
+                else if (isBossHealthy.Health <= 50 && isBossHealthy.Health > 25) {
+                    EnemySpawner(2);
+                    if (lavaWave.activeInHierarchy){
+                        --waveDeactivateTimer;
+                        if (waveDeactivateTimer <= 0 && lavaWave.activeInHierarchy){
+                            lavaWave.SetActive(false);
+                            waveActivateTimer = 100f;
+                        }
+                    }
+                    else{
+                        --waveActivateTimer;
+                    }
+                }
+                else if (isBossHealthy.Health <= 25 && isBossHealthy.Health > 1){
+                    EnemySpawner(3);
+                    if (lavaWave.activeInHierarchy){
+                        --waveDeactivateTimer;
+                        if (waveDeactivateTimer <= 0 && lavaWave.activeInHierarchy){
+                            lavaWave.SetActive(false);
+                            waveActivateTimer = 100f;
+                        }
+                    }
+                }
+                if (isBossHealthy.Health <=0){
+
+                }
+                break;
+        }
+        if (!gameObject.tag.Contains("Enemy0") && spawnTimer > 0){
+            --spawnTimer;
+        }
+    }
+    public void KeyControl(){
+        Destroy(Key);
+        KeyEnabled.SetActive(true);
+        KeySparkle.SetActive(false);
+        KeyDisabled.SetActive(false);
+    }
+    public void Kill(){
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        int buildIndex = CurrentScene.buildIndex;
+        if (!isKilled){
+            if (playerLives > 1){
+                --playerLives;
+                StartCoroutine(Respawn(buildIndex));
+                LifeControl();
+            }
+            else if (playerLives == 1){
+                Destroy(GameObject.FindWithTag("Player"));
+                life1.SetActive(false);
+                StartCoroutine(GameOver());
+            }
+            isKilled = true;
+        }
+    }
+    public IEnumerator WinGame(){
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(3);
+    }
+
+    IEnumerator GameOver(){
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(4);
+    }
+
+    IEnumerator Respawn(int BuildIndex){
+        Renderer Rend = Player.GetComponent&lt;Renderer>();
+        Rigidbody2D rbod = Player.GetComponent&lt;Rigidbody2D>();
+      //  var healthyBool = GameObject.FindWithTag("Boss").GetComponent&lt;BossScript>();
+      //  bool mIsReflected = Level2_Script == null ? false : Level2_Script.isReflected;
+
+
+        if (BuildIndex == 1){
+            Rend.enabled = false;
+            audio.PlayOneShot(KilledByEnemy);
+            BloodSplatter.SetActive(true);
+            Player.GetComponent&lt;SpriteTrail>().enabled = (false);
+
+            yield return new WaitForSeconds(1.5f);
+
+            Rend.enabled = true;
+            Player.transform.position = playerRespawnTrans.position;
+            Camera.transform.position = playerRespawnTrans.position;
+            Player.GetComponent&lt;SpriteTrail>().enabled = (true);
+            isKilled = false;
+        }
+        else if (BuildIndex == 2){
+            Rend.enabled = false;
+            audio.PlayOneShot(KilledByEnemy);
+            BloodSplatter.SetActive(true);
+            Player.GetComponent&lt;SpriteTrail>().enabled = (false);
+
+            yield return new WaitForSeconds(1.5f);
+
+            Rend.enabled = true;
+            Player.transform.position = playerRespawnTrans.position;
+            Camera.transform.position = playerRespawnTrans.position;
+            Player.GetComponent&lt;SpriteTrail>().enabled = (true);
+            isKilled = false;
+            BloodSplatter.SetActive(false);
+        }
+        yield break;
+    }
+    private void LifeControl(){
+        if (playerLives == 2){
+            life3.SetActive(false);
+        }
+        else if (playerLives == 1){
+            life3.SetActive(false);
+            life2.SetActive(false);
+        }
+    }
+    public void EnemySpawner(int caseNum){
+        switch (caseNum){
+            case 1:
+                if (spawnTimer <= 0){
+                    if (GameObject.FindWithTag("Enemy0") == null){
+                        for(int i = 0; i < enemies.Count; i++){
+                            if(enemies[i].gameObject.tag == "Enemy0"){
+                                enemies[i].transform.position = Spawn1Trans.position;
+                                enemies[i].transform.rotation = Spawn1Trans.rotation;
+                                enemies[i].SetActive(true);
+                            }
+                            Destroy(GameObject.FindWithTag("EnemyPortal1"));
+                            spawnTimer = 300.0f;
+                        }
+                    }
+                    if (GameObject.FindWithTag("Enemy1") == null){
+                        for(int i = 1; i < enemies.Count; i++){
+                            if(enemies[i].gameObject.tag == "Enemy1"){
+                                enemies[i].transform.position = Spawn2Trans.position;
+                                enemies[i].transform.rotation = Spawn2Trans.rotation;
+                                enemies[i].SetActive(true);
+                            }
+                            Destroy(GameObject.FindWithTag("EnemyPortal2"));
+                            spawnTimer = 300.0f;
+                        }
+                    }
+                }
+            break;
+            case 2:
+                if (spawnTimer <= 0){
+                    if (GameObject.FindWithTag("Enemy0") == null){
+                        for(int i = 0; i < enemies.Count - 1; i++){
+                            enemies[i].transform.position = Spawn3Trans.position;
+                            enemies[i].transform.rotation = Spawn3Trans.rotation;
+                            enemies[i].SetActive(true);
+                            Destroy(GameObject.FindWithTag("EnemyPortal3"));
+                        }
+                    }
+                spawnTimer = 300.0f;
+                }
+                if (waveActivateTimer <= 0){
+                    if (!lavaWave.activeInHierarchy){
+                        lavaWave.SetActive(true);
+                        lavaWave.transform.position = BossTrans.position;
+                        lavaWave.transform.rotation = BossTrans.rotation;
+                        waveDeactivateTimer = 200f;
+                    }
+                }
+            break;
+            case 3:
+                if (waveActivateTimer <= 0){
+                    if (!lavaWave.activeInHierarchy){
+                        lavaWave.SetActive(true);
+                        lavaWave.transform.position = BossTrans.position;
+                        lavaWave.transform.rotation = BossTrans.rotation;
+                        waveDeactivateTimer = 200f;
+                    }
+                }
+            break;
+        }
+    }
+}
+
+    </code>
+    </pre>
+</div>
+<!-- END LEVEL MANAGER SCRIPT -->
+
+    <h3><div style="text-align: center;">Level Manager</div></h3><br>
+
+<!-- BEGIN MOVEMENT SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class Movement : MonoBehaviour
+{
+
+    public float moveSpeed, jumpHeight, shieldPowerLevel = 100f, activeTime = 2.0f, activateWaitTime = 4.0f, ShieldTimerLevel = 0.0f;
+    public int playerLives = 3;
+    public GameObject Player, BloodSplatter, Shield, playerRespawn, Camera;
+    public Transform PlayerTrans, PortalExit, playerRespawnTrans;
+    public bool isGrounded, hasCollided = false, shieldIsActive = false, showShield = false;
+    public AudioClip Jump, KilledByEnemy, getKey;
+    AudioSource audio;
+
+    void Start(){
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        int buildIndex = CurrentScene.buildIndex;
+        if (buildIndex == 1){
+            audio = GetComponent&lt;AudioSource>();
+            getKey = (AudioClip)Resources.Load("GetKey");
+            BloodSplatter.SetActive(false);
+            playerRespawn = GameObject.FindWithTag("Respawn");
+            playerRespawnTrans = playerRespawn.transform;
+            Camera = GameObject.FindWithTag("MainCamera");
+        }
+        else if (buildIndex == 2){
+            audio = GetComponent&lt;AudioSource>();
+            getKey = (AudioClip)Resources.Load("GetKey");
+            BloodSplatter.SetActive(false);
+            Shield.SetActive(false);
+            playerRespawn = GameObject.FindWithTag("Respawn");
+            playerRespawnTrans = playerRespawn.transform;
+            Camera = GameObject.FindWithTag("MainCamera");
+        }
+    }
+    void FixedUpdate(){
+        Scene CurrentScene = SceneManager.GetActiveScene();
+        int buildIndex = CurrentScene.buildIndex;
+        switch (buildIndex){
+            //This is level one stuff
+            case 1:
+                switch (GetKeyPressed()){
+                    case 1:
+                        audio.PlayOneShot(Jump);
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (GetComponent&lt;Rigidbody2D>().velocity.x, jumpHeight);
+                        isGrounded = false;
+                        break;
+                    case 2:
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (moveSpeed, GetComponent&lt;Rigidbody2D>().velocity.y);
+                        break;
+                    case 3:
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (-moveSpeed, GetComponent&lt;Rigidbody2D>().velocity.y);
+                        break;
+                    case 4:
+                        GetComponent&lt;Rigidbody2D>().velocity = Vector3.zero;
+                        GetComponent&lt;Rigidbody2D>().angularVelocity = 0f;
+                        break;
+                }
+                break;
+            //This is level two stuff
+            case 2:
+                switch (GetKeyPressed()){
+                    case 1:
+                        audio.PlayOneShot(Jump);
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (GetComponent&lt;Rigidbody2D>().velocity.x, jumpHeight);
+                        isGrounded = false;
+                        break;
+                    case 2:
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (moveSpeed, GetComponent&lt;Rigidbody2D>().velocity.y);
+                        break;
+                    case 3:
+                        GetComponent&lt;Rigidbody2D>().velocity = new Vector2
+                            (-moveSpeed, GetComponent&lt;Rigidbody2D>().velocity.y);
+                        break;
+                    case 4:
+                        ActivateShield();
+                        break;
+                }
+                break;
+        }
+    }
+    void LateUpdate(){
+        hasCollided = false;
+    }
+    //takes player input and returns a value for switch case
+    private int GetKeyPressed(){
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded){
+            return 1;
+        }
+        else if (Input.GetKey(KeyCode.D)){
+            return 2;
+        }
+        else if (Input.GetKey(KeyCode.A)){
+            return 3;
+        }
+        else if (Input.GetKey(KeyCode.S)){
+            return 4;
+        }
+        else{
+            return 0;
+        }
+    }
+    //takes input and calls coroutine if shield is above 0
+    void ActivateShield(){
+        if (Input.GetKey(KeyCode.S)){
+            if (!shieldIsActive && shieldPowerLevel > 0f){
+                StartCoroutine(BeginShowShield());
+            }
+        }
+    }
+    // shield coroutine, loop that activates shield, and waits for activate wait time before reshield
+    IEnumerator BeginShowShield(){
+        float timer = 0f;
+        ShieldTimerLevel = 2.0f;
+        Shield.SetActive(true);
+        shieldIsActive = true;
+
+        while (timer < activeTime){
+            if (Input.GetKeyUp(KeyCode.S)){
+                break;
+            }
+            timer += Time.deltaTime;
+            if (ShieldTimerLevel >= 0){
+                ShieldTimerLevel -= Time.deltaTime;
+                var shieldLevelScript = GameObject.FindWithTag("ShieldTimerMeter").GetComponent&lt;ProgressBarPro>();
+                shieldLevelScript.SetValue(ShieldTimerLevel, 100);
+            }
+            yield return null;
+        }
+        Shield.SetActive(false);
+        StartCoroutine(Recharge());
+        yield return new WaitForSeconds(activateWaitTime);
+        shieldIsActive = false;
+    }
+
+    IEnumerator Recharge(){
+        ShieldTimerLevel = 0.0f;
+        while (ShieldTimerLevel < activateWaitTime){
+            ShieldTimerLevel += Time.deltaTime;
+            var shieldLevelScript = GameObject.FindWithTag("ShieldTimerMeter").GetComponent&lt;ProgressBarPro>();
+            shieldLevelScript.SetValue(ShieldTimerLevel, activeTime);
+
+            yield return null;
+        }
+    }
+    //kill player method.
+    public void Kill(){
+        var LevelManagerScript = GameObject.FindWithTag("GameController").GetComponent&lt;LevelManager>();
+        LevelManagerScript.Kill();
+    }
+    void OnTriggerExit2D(Collider2D other){
+        switch (other.gameObject.tag){
+            case "Portal":
+                transform.position = PortalExit.position;
+                break;
+            case "RedKey":
+                var KeyAction = GameObject.FindWithTag("GameController").GetComponent&lt;LevelManager>();
+                audio.PlayOneShot(getKey);
+                KeyAction.KeyControl();
+                break;
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other){
+        switch (other.gameObject.tag){
+            case "Lava":
+            case "Spikes":
+            case "LavaWave":
+                Kill();
+                break;
+            case "ShieldPowerUp":
+                if (!hasCollided){
+                    hasCollided = true;
+                    Destroy(other.gameObject);
+                    shieldPowerLevel += 25;
+                    ShieldLevel(shieldPowerLevel);
+                }
+                break;
+        }
+    }
+    void OnCollisionStay2D(Collision2D coll){
+        if (coll.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
+            isGrounded = true;
+        }
+        else {
+            isGrounded = false;
+        }
+    }
+    void ShieldLevel(float SPL){
+        var shieldLevelScript = GameObject.FindWithTag("ShieldPowerMeter").GetComponent&lt;ProgressBarPro>();
+        shieldLevelScript.SetValue(SPL, 100);
+    }
+}
+    </code>
+    </pre>
+</div>
+<!-- END MOVEMENT SCRIPT -->
+
+    <h3><div style="text-align: center;">Movement</div></h3><br>
+
+<!-- BEGIN BOSS SCRIPT -->
+<div>
+<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+    <code class="language-c#">
+public class BossScript : MonoBehaviour
+{
+    public int Health;
+    public GameObject bossHit, player;
+    public AudioClip bossHitAudio;
+    public bool isHealthy, dirRight = true, hasCollided= false, isAngry = false, dirDown;
+    public float speed = 5.0f;
+
+    void Start()
+    {
+        Health = 100;
+        bossHit = (GameObject)Resources.Load("BossHit");
+        bossHitAudio = (AudioClip)Resources.Load("Male_Death_01");
+        isHealthy = true;
+        player = GameObject.FindWithTag("Player");
+    }
+
+    void FixedUpdate(){
+        if (Health >= 50) {
+            isHealthy = true;
+        }
+        else {
+            isHealthy = false;
+        }
+        int CH = CheckHealth(Health);
+
+        switch (CH){
+            case 0:
+                if (dirRight){
+                    transform.Translate(Vector2.right * speed * Time.deltaTime);
+                }
+                else{
+                    transform.Translate(-Vector2.right * speed * Time.deltaTime);
+                }
+                if (transform.position.x >= 23.0f){
+                    dirRight = false;
+                }
+                if (transform.position.x <= 0){
+                    dirRight = true;
+                }
+                break;
+            case 1:
+                if (dirRight){
+                    transform.Translate(Vector2.right * (speed * 2) * Time.deltaTime);
+                }
+                else{
+                    transform.Translate(-Vector2.right * (speed * 2) * Time.deltaTime);
+                }
+                if (transform.position.x >= 23.0f){
+                    dirRight = false;
+                }
+                if (transform.position.x <= 0){
+                    dirRight = true;
+                }
+                break;
+            case 2:
+                if (dirRight){
+                    transform.Translate(Vector2.right * (speed * 2) * Time.deltaTime);
+                }
+                else{
+                    transform.Translate(-Vector2.right * (speed * 2) * Time.deltaTime);
+                }
+                if (transform.position.x >= 28.0f){
+                    dirRight = false;
+                }
+                if (transform.position.x <= -8){
+                    dirRight = true;
+                }
+                //move up and down
+                if (dirDown){
+                    transform.Translate(Vector2.down * (speed * 4) * Time.deltaTime);
+                }
+                else{
+                    transform.Translate(Vector2.up * (speed * 4) * Time.deltaTime);
+                }
+                if (transform.position.y >= 30.0f){
+                    dirDown = true;
+                }
+                if (transform.position.y <= 13.0f){
+                    dirDown = false;
+                }
+            break;
+        }
+    }
+    void LateUpdate(){
+        hasCollided = false;
+    }
+    public int CheckHealth(int Health){
+        if (Health <= 50 && Health > 25){
+            return 1;
+        }
+        else if (Health <=25){
+            return 2;
+        }
+        return 0;
+    }
+    void OnTriggerEnter2D(Collider2D other){
+        if(!hasCollided){
+            hasCollided = true;
+            var BossHealthScript = GameObject.FindWithTag("BossHealthBar").GetComponent&lt;ProgressBarPro>();
+            var Level2_Script = other.GetComponent&lt;Level2_Script>();
+            bool mIsReflected = Level2_Script == null ? false : Level2_Script.isReflected;
+            if (other.gameObject.tag.Contains("Enemy") && mIsReflected){
+                Health -= 10;
+                BossHealthScript.SetValue(Health, 100);
+                Instantiate(bossHit, other.transform.position, other.transform.rotation);
+                other.gameObject.SetActive(false);
+                Level2_Script.PortalStuff();
+                if (Health < 0){
+                    var WinGame = GameObject.FindWithTag("GameController").GetComponent&lt;LevelManager>();
+                    WinGame.StartCoroutine(WinGame.WinGame());
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+    void OnTriggerExit2D(Collider2D other){
+        if (!hasCollided){
+            hasCollided = true;
+            var BossHealthScript = GameObject.FindWithTag("BossHealthBar").GetComponent&lt;ProgressBarPro>();
+            if (other.gameObject.tag == "Player"){
+                if (player.transform.position.y > transform.position.y){
+                    Health -= 5;
+                    BossHealthScript.SetValue(Health, 100);
+                    Instantiate(bossHit, transform.position, transform.rotation);
+                    if (Health < 0){
+                        Instantiate(bossHit, new Vector3(transform.position.x,transform.position.y,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x + 1,transform.position.y + 1,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x - 1,transform.position.y - 1,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x,transform.position.y + 1,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x + 1,transform.position.y,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x,transform.position.y - 1,transform.position.z), transform.rotation);
+                        Instantiate(bossHit, new Vector3(transform.position.x - 1,transform.position.y,transform.position.z), transform.rotation);
+                        var WinGame = GameObject.FindWithTag("GameController").GetComponent&lt;LevelManager>();
+                        WinGame.StartCoroutine(WinGame.WinGame());
+                        Destroy(gameObject);
+                    }
+                }
+                else if (player.transform.position.y < transform.position.y){
+                    var movement = other.GetComponent&lt;Movement>();
+                    movement.Kill();
+                }
+            }
+        }
+    }
+}
+    </code>
+    </pre>
+</div>
+<!-- END BOSS SCRIPT -->
+
+<h3><div style="text-align: center;">Boss</div></h3><br>
+</body>
+</html>

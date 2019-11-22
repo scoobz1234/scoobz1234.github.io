@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/FurBlur.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/prism.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/BossLevel.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/FurBlurGamePlay.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/devicelist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/furblurMainMenu.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/homescreen.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/mealslist.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/recipecreation.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/recipelist.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/share.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/prism.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReciPlease.html" beforeDir="false" afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +47,17 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\js" />
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\css" />
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -52,12 +72,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.FurBlur.html">
+    <configuration name="FurBlur.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/FurBlur.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="NihilisticSpaceFarmWars.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/NihilisticSpaceFarmWars.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ReciPlease.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ReciPlease.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.FurBlur.html" />
+        <item itemvalue="JavaScript Debug.NihilisticSpaceFarmWars.html" />
+        <item itemvalue="JavaScript Debug.ReciPlease.html" />
         <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
@@ -81,6 +113,7 @@
       <workItem from="1574264051718" duration="1799000" />
       <workItem from="1574265930434" duration="2233000" />
       <workItem from="1574359179469" duration="293000" />
+      <workItem from="1574359548801" duration="31604000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed links">
       <created>1574267945363</created>

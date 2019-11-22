@@ -869,3 +869,11 @@ footer {
         padding: 5px 10px
     }
 }
+
+pre{
+    max-height: 300px;
+    overflow-y: auto;
+}
+pre[class]{
+    max-height:100px;
+}
