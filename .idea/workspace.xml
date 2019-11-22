@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/FurBlur.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/prism.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/BossLevel.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/FurBlurGamePlay.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/devicelist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/furblurMainMenu.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/homescreen.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/mealslist.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/recipecreation.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/recipelist.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/share.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/prism.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FurBlur.html" beforeDir="false" afterPath="$PROJECT_DIR$/FurBlur.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" beforeDir="false" afterPath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReciPlease.html" beforeDir="false" afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/BossLevel.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/FurBlurBossLevel.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/campsite.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/FurBlurLogo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/devicelist.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseDeviceList.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/furblurMainMenu.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/FurBlurMainMenu.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/homescreen.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseHomeScreen.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/mealslist.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseMealsList.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recipecreation.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseRecipeCreation.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/recipelist.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseRecipeList.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/share.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/ReciPleaseShare.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ship.PNG.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/NSFWLogo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,7 +110,7 @@
       <workItem from="1574264051718" duration="1799000" />
       <workItem from="1574265930434" duration="2233000" />
       <workItem from="1574359179469" duration="293000" />
-      <workItem from="1574359548801" duration="31604000" />
+      <workItem from="1574359548801" duration="32917000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed links">
       <created>1574267945363</created>
@@ -129,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574359235483</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created project pages for NSFW, ReciPlease, Furblur. Setup links, and worked on css">
+      <created>1574465885636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574465885637</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Fixed links" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed links" />
+    <MESSAGE value="Created project pages for NSFW, ReciPlease, Furblur. Setup links, and worked on css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created project pages for NSFW, ReciPlease, Furblur. Setup links, and worked on css" />
   </component>
 </project>
