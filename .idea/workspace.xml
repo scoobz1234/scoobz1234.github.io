@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/DesignDoc_TT.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/DesignDocument.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ERDiagram.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/FinalReport.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/FlowDiagram.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/GameCompany.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/Proposal.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/ShippingCompany.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveFive.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +110,7 @@
       <workItem from="1574359179469" duration="293000" />
       <workItem from="1574359548801" duration="34034000" />
       <workItem from="1575394644504" duration="40000" />
-      <workItem from="1575394765907" duration="6178000" />
+      <workItem from="1575394765907" duration="6825000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed links">
       <created>1574267945363</created>
@@ -163,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574467551955</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Created - ObjectiveFive.html&#10;Added content to ObjectiveFive.html">
+      <created>1575402296373</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575402296373</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,13 +185,18 @@
     <MESSAGE value="Fixed links" />
     <MESSAGE value="Created project pages for NSFW, ReciPlease, Furblur. Setup links, and worked on css" />
     <MESSAGE value="fixed images" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed images" />
+    <MESSAGE value="Created - ObjectiveFive.html&#10;Added content to ObjectiveFive.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created - ObjectiveFive.html&#10;Added content to ObjectiveFive.html" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1377" y="347" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575395974566">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="1377" y="347" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575395974566" />
+    <state x="1271" y="194" key="CommitChangelistDialog2" timestamp="1575402295500">
+      <screen x="0" y="0" width="2194" height="1194" />
+    </state>
+    <state x="1271" y="194" key="CommitChangelistDialog2/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575402295500" />
     <state width="1074" height="156" key="GridCell.Tab.0.bottom" timestamp="1575401130475">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
