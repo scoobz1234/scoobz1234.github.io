@@ -579,9 +579,7 @@ public class Player_Master : NetworkBehaviour {
             EventComponentHealthIncrease(increaseAmmount);
         }
     }
-
 }
-
     </code>
     </pre>
 </div>
@@ -603,8 +601,8 @@ Vector3 rotation = Vector3.zero;
 private Rigidbody rb;
 
 /// &lt;summary>
-    /// public functions
-    /// &lt;/summary>
+/// public functions
+/// &lt;/summary>
 
 public void Move(Vector3 _velocity) {
 velocity = _velocity;
@@ -620,8 +618,8 @@ public void Yaw(Vector3 _yaw) {
 
 
 /// &lt;summary>
-    /// private functions
-    /// &lt;/summary>
+/// private functions
+/// &lt;/summary>
 
 void Forward() {
 rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
@@ -633,8 +631,8 @@ rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation * Time.fixedDeltaTime));
 
 
 /// &lt;summary>
-    /// standard functions
-    /// &lt;/summary>
+/// standard functions
+/// &lt;/summary>
 
 private void Start() {
 rb = GetComponent&lt;Rigidbody>();
