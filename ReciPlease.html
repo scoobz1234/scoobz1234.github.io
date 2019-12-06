@@ -31,7 +31,7 @@
 
 <div id="lead" style="height: 200px;">
     <div id="lead-content">
-        <img src="images/ReciPleaseLogo.jpg" style =" height:50%; width:auto;" />
+        <img src="images/ReciPleaseLogo.jpg" style =" height:50%; width:auto;" alt="Logo"/>
     </div>
     <!-- End #lead-content -->
 
@@ -63,15 +63,47 @@
 </div>
 <!-- End #about -->
 
-<div class="slider" id="slider">
+<div class="slider" id="slider" style="height:920px">
     <div class="box" id="box">
-        <img src="images/ReciPleaseHomeScreen.PNG" height="1384" width="770"/>
+        <img src="images/ReciPleaseHomeScreen.PNG" alt="home screen"/>
     </div>
 
     <!-- Buttons -->
     <button class="prev" onclick="prevImage()"><</button>
     <button class="next" onclick="nextImage()">></button>
 </div>
+
+<script type="text/javascript">
+    var slider_content = document.getElementById('box');
+
+    var preCode = document.getElementById('preCode');
+
+    var showSecond = false;
+    // contains images in an array
+    var image = ['FurBlurMainMenu','FurBlurGamePlay','FurBlurBossLevel'];
+    var i = image.length;
+
+
+    // function for next image
+
+    function nextImage(){
+        if (i < image.length){
+            i += 1;
+        } else{
+            i = 1;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
+    }
+
+    function prevImage(){
+        if (i < image.length + 1 && i > 1){
+            i -= 1;
+        } else{
+            i = image.length;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
+    }
+</script>
 
 <!-- Objectives -->
 <div id="objectives" class="background-alt">
@@ -80,7 +112,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 1"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -96,7 +128,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 2"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -111,7 +143,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 3"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -125,7 +157,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 4"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -139,7 +171,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 5"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -175,7 +207,7 @@
             } else{
                 i = 1;
             }
-            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
         }
 
         function prevImage(){
@@ -184,7 +216,7 @@
             } else{
                 i = image.length;
             }
-            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
         }
     </script>
 <div>
@@ -254,7 +286,7 @@
 </div>
 
 <!-- END RECIPE SCRIPT -->
-<h3><div style="text-align: center;">Recipe Class</div></h3><br>
+<div style="text-align: center;"><h3>Recipe Class</h3></div><br>
 <!-- BEGIN INGREDIENT SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -314,7 +346,7 @@ enum Measurements
 </div>
 
 <!-- END INGREDIENT SCRIPT -->
-    <h3><div style="text-align: center;">Ingredient Class</div></h3><br>
+<div style="text-align: center;"><h3>Ingredient Class</h3></div><br>
 <!-- BEGIN MAIN MENU FRAGMENT SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -397,7 +429,7 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
 </div>
 
 <!-- END MAIN MENU FRAGMENT SCRIPT -->
-    <h3><div style="text-align: center;">Main Menu Fragment</div></h3><br>
+<div style="text-align: center;"><h3>Main Menu Fragment</h3></div><br>
 <!-- BEGIN MEALS LIST FRAGMENT SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -477,7 +509,7 @@ public class MealsListFragment extends Fragment implements View.OnClickListener{
 </div>
 
 <!-- END SCRIPT -->
-    <h3><div style="text-align: center;">Meals List Fragment</div></h3><br>
+<div style="text-align: center;"><h3>Meals List Fragment</h3></div><br>
 <!-- BEGIN COMM SERVICE SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -803,7 +835,7 @@ public class CommServ {
 </div>
 
 <!-- END COMM SERVICE SCRIPT -->
-    <h3><div style="text-align: center;">Bluetooth Connection Service Class</div></h3><br>
+<div style="text-align: center;"><h3>Bluetooth Connection Service Class</h3></div><br>
 <!-- BEGIN DEVICE LIST SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -962,7 +994,7 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
 </div>
 
 <!-- END DEVICE LIST SCRIPT SCRIPT -->
-    <h3><div style="text-align: center;">Device List Activity</div></h3><br>
+<div style="text-align: center;"><h3>Device List Activity</h3></div><br>
 <!-- BEGIN SHARE RECIPE FRAGMENT SCRIPT -->
 <div>
 <pre style="min-height: 300px; margin: 20px auto; width: 80%">
@@ -1266,6 +1298,6 @@ public class ShareRecipeFragment extends Fragment implements View.OnClickListene
 </div>
 
 <!-- END SHARE RECIPE FRAGMENT SCRIPT -->
-    <h3><div style="text-align: center;">Share Recipe Fragment</div></h3><br>
+<div style="text-align: center;"><h3>Share Recipe Fragment</h3></div><br>
 </body>
 </html>

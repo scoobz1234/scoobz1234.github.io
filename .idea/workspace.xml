@@ -1,41 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="Created:&#10;ObjectiveTwo.html&#10;ObjectiveThree.html&#10;ObjectiveFour.html&#10;ObjectiveFive.html&#10;Populated pages with data.&#10;Moved CSS code to respective Style.css &#10;Removed Objective Information from project pages&#10;Removed Documents not being used.">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/AndroidStudio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Atom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/HTML.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/JavaScript.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/JetBrains.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Python.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Unity.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/VisualStudio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/WebStorm.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Xamarin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/cPlusPlus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/cSharp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/ios.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/java.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/windows.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Stephen.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scoobz1234.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scoobz1234.github.io.iml" afterDir="false" />
+    <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="Fixed ReciPlease page:&#10;Slider buttons position,&#10;Slider Box Height.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FurBlur.html" beforeDir="false" afterPath="$PROJECT_DIR$/FurBlur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" beforeDir="false" afterPath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveFive.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveFour.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveFour.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveOne.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveOne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveSix.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveSix.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveThree.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveThree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveTwo.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveTwo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReciPlease.html" beforeDir="false" afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/prism.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/scripts.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/scripts.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,11 +53,8 @@
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.FurBlur.html">
+  <component name="RunManager" selected="JavaScript Debug.ReciPlease.html">
     <configuration name="FurBlur.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/FurBlur.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="NihilisticSpaceFarmWars.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/NihilisticSpaceFarmWars.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="ObjectiveFive.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ObjectiveFive.html" useBuiltInWebServerPort="true">
@@ -98,16 +63,19 @@
     <configuration name="ObjectiveTwo.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ObjectiveTwo.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="ReciPlease.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ReciPlease.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/index.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.ReciPlease.html" />
         <item itemvalue="JavaScript Debug.FurBlur.html" />
         <item itemvalue="JavaScript Debug.ObjectiveTwo.html" />
         <item itemvalue="JavaScript Debug.index.html" />
         <item itemvalue="JavaScript Debug.ObjectiveFive.html" />
-        <item itemvalue="JavaScript Debug.NihilisticSpaceFarmWars.html" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +115,7 @@
       <workItem from="1575394765907" duration="8071000" />
       <workItem from="1575490836224" duration="8874000" />
       <workItem from="1575501011060" duration="3824000" />
-      <workItem from="1575518747734" duration="16730000" />
+      <workItem from="1575518747734" duration="18288000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed links">
       <created>1574267945363</created>
@@ -212,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575508919809</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Created:&#10;ObjectiveTwo.html&#10;ObjectiveThree.html&#10;ObjectiveFour.html&#10;ObjectiveFive.html&#10;Populated pages with data.&#10;Moved CSS code to respective Style.css &#10;Removed Objective Information from project pages&#10;Removed Documents not being used.">
+      <created>1575591095860</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1575591095860</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +215,8 @@
     <MESSAGE value="Added content to ObjectiveFive.html" />
     <MESSAGE value="Created ObjectiveSix.html&#10;Populated ObjectiveSix with data&#10;Created ObjectiveOne.html&#10;Populated ObjectiveOne with data&#10;Removed Objective Six from ReciPlease.html&#10;Created ObjectiveFive.html&#10;Populated ObjectiveFive with Data" />
     <MESSAGE value="Created:&#10;ObjectiveTwo.html&#10;ObjectiveThree.html&#10;ObjectiveFour.html&#10;ObjectiveFive.html&#10;Populated pages with data.&#10;Moved CSS code to respective Style.css &#10;Removed Objective Information from project pages&#10;Removed Documents not being used." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created:&#10;ObjectiveTwo.html&#10;ObjectiveThree.html&#10;ObjectiveFour.html&#10;ObjectiveFive.html&#10;Populated pages with data.&#10;Moved CSS code to respective Style.css &#10;Removed Objective Information from project pages&#10;Removed Documents not being used." />
+    <MESSAGE value="Fixed ReciPlease page:&#10;Slider buttons position,&#10;Slider Box Height." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed ReciPlease page:&#10;Slider buttons position,&#10;Slider Box Height." />
   </component>
   <component name="WindowStateProjectService">
     <state x="1377" y="347" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575395974566">
@@ -251,77 +227,77 @@
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="845" y="452" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575590257090" />
-    <state x="1271" y="194" key="CommitChangelistDialog2" timestamp="1575589410249">
+    <state x="1271" y="194" key="CommitChangelistDialog2" timestamp="1575592579640">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="1271" y="194" key="CommitChangelistDialog2/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589410249" />
+    <state x="1271" y="194" key="CommitChangelistDialog2/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592579640" />
     <state x="878" y="351" key="FileChooserDialogImpl" timestamp="1575584722675">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="878" y="351" key="FileChooserDialogImpl/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575584722675" />
-    <state width="2173" height="493" key="GridCell.Tab.0.bottom" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.0.bottom" timestamp="1575592370895">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.0.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.0.center" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.0.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370895" />
+    <state width="2173" height="493" key="GridCell.Tab.0.center" timestamp="1575592370895">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.0.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.0.left" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.0.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370895" />
+    <state width="2173" height="493" key="GridCell.Tab.0.left" timestamp="1575592370894">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.0.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.0.right" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.0.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370894" />
+    <state width="2173" height="493" key="GridCell.Tab.0.right" timestamp="1575592370895">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.0.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.1.bottom" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.0.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370895" />
+    <state width="2173" height="493" key="GridCell.Tab.1.bottom" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.1.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.1.center" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.1.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.1.center" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.1.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.1.left" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.1.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.1.left" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.1.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.1.right" timestamp="1575589767077">
+    <state width="2173" height="493" key="GridCell.Tab.1.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.1.right" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.1.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767077" />
-    <state width="2173" height="493" key="GridCell.Tab.2.bottom" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.1.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.2.bottom" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.2.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.2.center" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.2.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.2.center" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.2.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.2.left" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.2.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.2.left" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.2.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.2.right" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.2.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.2.right" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.2.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.3.bottom" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.2.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.3.bottom" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.3.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.3.center" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.3.bottom/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.3.center" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.3.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.3.left" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.3.center/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.3.left" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.3.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
-    <state width="2173" height="493" key="GridCell.Tab.3.right" timestamp="1575589767078">
+    <state width="2173" height="493" key="GridCell.Tab.3.left/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
+    <state width="2173" height="493" key="GridCell.Tab.3.right" timestamp="1575592370896">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state width="2173" height="493" key="GridCell.Tab.3.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575589767078" />
+    <state width="2173" height="493" key="GridCell.Tab.3.right/-1080.218.1080.1850/3840.218.1080.1880/0.0.2194.1194@0.0.2194.1194" timestamp="1575592370896" />
   </component>
 </project>
