@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-
 </head>
 <body>
+<!-- Begin #mobile-menu-toggle -->
 <div id="mobile-menu-open" class="shadow-large">
     <i class="fa fa-bars" aria-hidden="true"></i>
 </div>
 <!-- End #mobile-menu-toggle -->
+
+<!-- Begin header -->
 <header>
     <div id="mobile-menu-close">
         <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
@@ -23,15 +25,15 @@
     <ul id="menu" class="shadow">
         <li><a href="index.html">Homepage</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#objectives">Objectives</a></li>
         <li><a href="#scripts">Scripts</a></li>
     </ul>
 </header>
 <!-- End header -->
 
+<!-- Begin #lead -->
 <div id="lead" style="height: 200px;">
     <div id="lead-content">
-        <img src="images/ReciPleaseLogo.jpg" style =" height:50%; width:auto;" alt="Logo"/>
+        <h1>ReciPlease</h1>
     </div>
     <!-- End #lead-content -->
 
@@ -46,6 +48,7 @@
 </div>
 <!-- End #lead -->
 
+<!-- Begin #about -->
 <div id="about">
     <div class="container">
         <div class="row">
@@ -63,6 +66,7 @@
 </div>
 <!-- End #about -->
 
+<!-- Begin #slider -->
 <div class="slider" id="slider" style="height:920px">
     <div class="box" id="box">
         <img src="images/ReciPleaseHomeScreen.PNG" alt="home screen"/>
@@ -72,7 +76,6 @@
     <button class="prev" onclick="prevImage()"><</button>
     <button class="next" onclick="nextImage()">></button>
 </div>
-
 <script type="text/javascript">
     var slider_content = document.getElementById('box');
 
@@ -80,7 +83,7 @@
 
     var showSecond = false;
     // contains images in an array
-    var image = ['FurBlurMainMenu','FurBlurGamePlay','FurBlurBossLevel'];
+    var image = ['ReciPleaseHomeScreen','ReciPleaseRecipeCreation','ReciPleaseMealsList','ReciPleaseShare','ReciPleaseDeviceList'];
     var i = image.length;
 
 
@@ -104,123 +107,23 @@
         slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
     }
 </script>
+<!-- End #slider -->
 
-<!-- Objectives -->
-<div id="objectives" class="background-alt">
-    <h2 class="heading">Objectives Met</h2>
-    <div class="container">
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 1"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        Project followed software development processes, and was completed in several stages, to include initial creation of the
-                        classes and data structures that create the backbone of the system. next stage was the sharing of content without a network connection.
-                        This was by far the longest stage and caused several new iterations of phase 1. That is where building and testing software solutions came into play.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 2"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project specifically started out in C# with the Unity Engine, secondly it was moved to C# and Xamarin and XAML with Visual Studio. Lastly
-                        the project was moved to Android Studio and completed in Java.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 3"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        Prior to the final iteration of this project, it was created as a cross platform project in Visual Studio covering Android, Apple, and PC.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 4"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project is designed and has been implemented on mobile Android devices.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px" alt="objective 5"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This projects development was tracked and managed with Trello.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="tab">
+    <button class="tabLinks" onClick="openScript(event,'recipe')" id="defaultOpen">Script 1</button>
+    <button class="tabLinks" onClick="openScript(event,'ingredient')">Script 2</button>
+    <button class="tabLinks" onClick="openScript(event,'mainMenu')">Script 3</button>
+    <button class="tabLinks" onClick="openScript(event,'mealsList')">Script 4</button>
+    <button class="tabLinks" onClick="openScript(event,'commService')">Script 5</button>
+    <button class="tabLinks" onClick="openScript(event,'deviceList')">Script 6</button>
+    <button class="tabLinks" onClick="openScript(event,'shareRecipe')">Script 7</button>
 </div>
-<!-- end Objectives -->
 
 <div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
 
 <!-- BEGIN RECIPE SCRIPT -->
-    <script type="text/javascript">
-        var slider_content = document.getElementById('box');
-
-        var preCode = document.getElementById('preCode');
-
-        var showSecond = false;
-        // contains images in an array
-        var image = ['ReciPleaseHomeScreen','ReciPleaseRecipeCreation','ReciPleaseMealsList','ReciPleaseShare','ReciPleaseDeviceList'];
-        var i = image.length;
-
-
-        // function for next image
-
-        function nextImage(){
-            if (i < image.length){
-                i += 1;
-            } else{
-                i = 1;
-            }
-            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
-        }
-
-        function prevImage(){
-            if (i < image.length + 1 && i > 1){
-                i -= 1;
-            } else{
-                i = image.length;
-            }
-            slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
-        }
-    </script>
-<div>
-    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="recipe" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
         <code class="language-java">
         @Entity
         public class Recipe implements Serializable {
@@ -284,12 +187,11 @@
     </code>
     </pre>
 </div>
-
 <!-- END RECIPE SCRIPT -->
-<div style="text-align: center;"><h3>Recipe Class</h3></div><br>
+
 <!-- BEGIN INGREDIENT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="ingredient" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 @Entity
 public class Ingredient implements Serializable {
@@ -344,12 +246,11 @@ enum Measurements
 </code>
 </pre>
 </div>
-
 <!-- END INGREDIENT SCRIPT -->
-<div style="text-align: center;"><h3>Ingredient Class</h3></div><br>
+
 <!-- BEGIN MAIN MENU FRAGMENT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="mainMenu" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 public class MainMenuFragment extends Fragment implements View.OnClickListener {
 
@@ -427,12 +328,11 @@ public class MainMenuFragment extends Fragment implements View.OnClickListener {
     </code>
     </pre>
 </div>
-
 <!-- END MAIN MENU FRAGMENT SCRIPT -->
-<div style="text-align: center;"><h3>Main Menu Fragment</h3></div><br>
+
 <!-- BEGIN MEALS LIST FRAGMENT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="mealsList" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 public class MealsListFragment extends Fragment implements View.OnClickListener{
 
@@ -507,12 +407,11 @@ public class MealsListFragment extends Fragment implements View.OnClickListener{
     </code>
     </pre>
 </div>
-
 <!-- END SCRIPT -->
-<div style="text-align: center;"><h3>Meals List Fragment</h3></div><br>
+
 <!-- BEGIN COMM SERVICE SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="commService" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 public class CommServ {
 
@@ -833,12 +732,11 @@ public class CommServ {
     </code>
     </pre>
 </div>
-
 <!-- END COMM SERVICE SCRIPT -->
-<div style="text-align: center;"><h3>Bluetooth Connection Service Class</h3></div><br>
+
 <!-- BEGIN DEVICE LIST SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="deviceList" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 public class DeviceListActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -992,12 +890,11 @@ public class DeviceListActivity extends AppCompatActivity implements View.OnClic
     </code>
     </pre>
 </div>
-
 <!-- END DEVICE LIST SCRIPT SCRIPT -->
-<div style="text-align: center;"><h3>Device List Activity</h3></div><br>
+
 <!-- BEGIN SHARE RECIPE FRAGMENT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="shareRecipe" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-java">
 public class ShareRecipeFragment extends Fragment implements View.OnClickListener {
 
@@ -1296,8 +1193,25 @@ public class ShareRecipeFragment extends Fragment implements View.OnClickListene
     </code>
     </pre>
 </div>
-
 <!-- END SHARE RECIPE FRAGMENT SCRIPT -->
-<div style="text-align: center;"><h3>Share Recipe Fragment</h3></div><br>
+
+<script type="text/javascript">
+    function openScript(evt, scriptName)
+    {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++){
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i ++){
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(scriptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+</script>
+
 </body>
 </html>

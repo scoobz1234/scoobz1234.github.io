@@ -16,6 +16,8 @@
     <i class="fa fa-bars" aria-hidden="true"></i>
 </div>
 <!-- End #mobile-menu-toggle -->
+
+<!-- Begin header -->
 <header>
     <div id="mobile-menu-close">
         <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
@@ -23,16 +25,15 @@
     <ul id="menu" class="shadow">
         <li><a href="index.html">Homepage</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#objectives">Objectives</a></li>
         <li><a href="#scripts">Scripts</a></li>
     </ul>
 </header>
 <!-- End header -->
 
+<!-- Begin #lead -->
 <div id="lead" style="height: 300px;">
     <div id="lead-content">
         <h1 style="width: 800px">Nihilistic Space Farm Wars</h1>
-        <img src="images/NSFWLogo.png" style =" height:80%; width:auto;" />
     </div>
     <!-- End #lead-content -->
 
@@ -47,7 +48,7 @@
 </div>
 <!-- End #lead -->
 
-<!-- START #ABOUT -->
+<!-- Begin #about -->
 <div id="about">
     <div class="container">
         <div class="row">
@@ -66,118 +67,22 @@
 </div>
 <!-- End #about -->
 
-<!-- BEGIN PICTURE SLIDER -->
-<div class="slider" id="slider">
-    <div class="box" id="box">
-        <img src="images/NFSWLogo.png" height="1384" width="770"/>
-    </div>
-
-    <!-- Buttons -->
-    <button class="prev" onclick="prevImage()"><</button>
-    <button class="next" onclick="nextImage()">></button>
+<div class="tab">
+    <button class="tabLinks" onClick="openScript(event,'pController')" id="defaultOpen">Script 1</button>
+    <button class="tabLinks" onClick="openScript(event,'pHealth')">Script 2</button>
+    <button class="tabLinks" onClick="openScript(event,'pMaster')">Script 3</button>
+    <button class="tabLinks" onClick="openScript(event,'pMotor')">Script 4</button>
+    <button class="tabLinks" onClick="openScript(event,'pSetup')">Script 5</button>
+    <button class="tabLinks" onClick="openScript(event,'pShoot')">Script 6</button>
+    <button class="tabLinks" onClick="openScript(event,'asteroids')">Script 7</button>
+    <button class="tabLinks" onClick="openScript(event,'asteroidSpawn')">Script 8</button>
 </div>
-<!-- END PICTURE SLIDER -->
-
-<!-- Objectives -->
-<div id="objectives" class="background-alt">
-    <h2 class="heading">Objectives Met</h2>
-    <div class="container">
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        Project utilized a Game Design Document, as well as Trello for project development process.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project was programmed in C# with the Unity Engine
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project was created for a desktop environments/platform
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective5.png" style= "width:75%; height:auto; margin-left: -60px"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end Objectives -->
 
 <div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
 
-<script type="text/javascript">
-    var slider_content = document.getElementById('box');
-
-    var preCode = document.getElementById('preCode');
-
-    var showSecond = false;
-    // contains images in an array
-    var image = ['NFSWLogo'];
-    var i = image.length;
-
-
-    // function for next image
-
-    function nextImage(){
-        if (i < image.length){
-            i += 1;
-        } else{
-            i = 1;
-        }
-        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
-    }
-
-    function prevImage(){
-        if (i < image.length + 1 && i > 1){
-            i -= 1;
-        } else{
-            i = image.length;
-        }
-        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
-    }
-</script>
-
 <!-- BEGIN PLAYER CONTROLLER SCRIPT -->
-<div>
-    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pController" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 80%">
         <code class="language-c#">
 public class Player_Controller : NetworkBehaviour {
 
@@ -364,11 +269,9 @@ public class Player_Controller : NetworkBehaviour {
 </div>
 <!-- END PLAYER CONTROLLER SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Controller</div></h3><br>
-
 <!-- BEGIN PLAYER HEALTH SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pHealth" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Player_Health : NetworkBehaviour {
 
@@ -432,11 +335,9 @@ public class Player_Health : NetworkBehaviour {
 </div>
 <!-- END PLAYER HEALTH SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Health</div></h3><br>
-
 <!-- BEGIN PLAYER MASTER SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pMaster" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Player_Master : NetworkBehaviour {
 
@@ -543,11 +444,9 @@ public class Player_Master : NetworkBehaviour {
 </div>
 <!-- END PLAYER MASTER SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Master</div></h3><br>
-
 <!-- BEGIN MOTOR SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pMotor" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Player_Motor : MonoBehaviour {
 
@@ -607,11 +506,9 @@ rb = GetComponent&lt;Rigidbody>();
 </div>
 <!-- END MOTOR SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Motor</div></h3><br>
-
 <!-- BEGIN SETUP SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pSetup" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Player_Setup : NetworkBehaviour {
 
@@ -640,11 +537,9 @@ public class Player_Setup : NetworkBehaviour {
 </div>
 <!-- END SETUP SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Setup</div></h3><br>
-
 <!-- BEGIN SHOOT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="pShoot" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Player_Shoot : NetworkBehaviour {
 
@@ -682,11 +577,9 @@ public class Player_Shoot : NetworkBehaviour {
 </div>
 <!-- END SHOOT SCRIPT -->
 
-    <h3><div style="text-align: center;">Player Shoot</div></h3><br>
-
 <!-- BEGIN ASTEROIDS SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="asteroids" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Asteroid_Master : MonoBehaviour {
 
@@ -711,11 +604,9 @@ public class Asteroid_Master : MonoBehaviour {
 </div>
 <!-- END ASTEROIDS SCRIPT -->
 
-    <h3><div style="text-align: center;">Asteroids Master</div></h3><br>
-
 <!-- BEGIN ASTEROID SPAWN SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="asteroidSpawn" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 80%">
     <code class="language-c#">
 public class Asteroid_Spawn : NetworkBehaviour {
 
@@ -774,6 +665,23 @@ public class Asteroid_Spawn : NetworkBehaviour {
 </div>
 <!-- END ASTEROID SPAWN SCRIPT -->
 
-<h3><div style="text-align: center;">Asteroid Spawner</div></h3><br>
+<script type="text/javascript">
+    function openScript(evt, scriptName)
+    {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++){
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i ++){
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(scriptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>

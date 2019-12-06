@@ -24,7 +24,6 @@
     <ul id="menu" class="shadow">
         <li><a href="index.html">Homepage</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#objectives">Objectives</a></li>
         <li><a href="#scripts">Scripts</a></li>
     </ul>
 </header>
@@ -33,7 +32,6 @@
 <div id="lead" style="height: 200px;">
     <div id="lead-content">
         <h1>FurBlur</h1>
-        <img src="images/FurBlurLogo.jpg" alt="FurBlur Logo Image"/>
     </div>
     <!-- End #lead-content -->
 
@@ -77,74 +75,6 @@
     <button class="next" onclick="nextImage()">></button>
 </div>
 <!-- END PICTURE SLIDER -->
-
-<!-- Objectives -->
-<div id="objectives" class="background-alt">
-    <h2 class="heading">Objectives Met</h2>
-    <div class="container">
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 1"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        Being my first ever project, specific development processes were not completely adhered to.
-                        however, I did design, build and test solutions to get this game to work correctly.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 2"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project was programmed in C# with the Unity Engine
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 3"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        This project was created for Android, Apple, and desktop environments/platforms
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="project shadow-large">
-                <div class="project-image">
-                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 4"/>
-                </div>
-                <div class="project-info" style="margin-left: 200px;">
-                    <br>
-                    <p>
-                        Project was created for Android and Apple mobile devices, and specifically utilizes
-                        touch input and touch swipes for character control.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end Objectives -->
-
-<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
-
 <script type="text/javascript">
     var slider_content = document.getElementById('box');
 
@@ -177,9 +107,22 @@
     }
 </script>
 
+<div class="tab">
+    <button class="tabLinks" onClick="openScript(event,'cameraFollow')" id="defaultOpen">Script 1</button>
+    <button class="tabLinks" onClick="openScript(event,'flag')">Script 2</button>
+    <button class="tabLinks" onClick="openScript(event,'key')">Script 3</button>
+    <button class="tabLinks" onClick="openScript(event,'levelOne')">Script 4</button>
+    <button class="tabLinks" onClick="openScript(event,'levelTwo')">Script 5</button>
+    <button class="tabLinks" onClick="openScript(event,'levelManager')">Script 6</button>
+    <button class="tabLinks" onClick="openScript(event,'movement')">Script 7</button>
+    <button class="tabLinks" onClick="openScript(event,'boss')">Script 8</button>
+</div>
+
+<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
+
 <!-- BEGIN CAMERA FOLLOW SCRIPT -->
-<div>
-    <pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="cameraFollow" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
         <code class="language-c#">
 public class CameraFollow : MonoBehaviour {
 
@@ -211,11 +154,9 @@ public class CameraFollow : MonoBehaviour {
 </div>
 <!-- END CAMERA FOLLOW SCRIPT -->
 
-    <div style="text-align: center;"><h3>Camera Follow</h3></div><br>
-
 <!-- BEGIN FLAG SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="flag" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class Flag : MonoBehaviour {
 	public GameObject FlagDown, FlagUp, KeyEnabled;
@@ -273,11 +214,9 @@ public class Flag : MonoBehaviour {
 </div>
 <!-- END FLAG SCRIPT -->
 
-    <div style="text-align: center;"><h3>Flag (end level)</h3></div><br>
-
 <!-- BEGIN KEY SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="key" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class KeyScript : MonoBehaviour {
 
@@ -313,11 +252,9 @@ public class KeyScript : MonoBehaviour {
 </div>
 <!-- END KEY SCRIPT -->
 
-<div style="text-align: center;"><h3>Key Object</h3></div><br>
-
 <!-- BEGIN LEVEL1 SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="levelOne" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class Level1_Script : MonoBehaviour
 {
@@ -408,11 +345,9 @@ public class Level1_Script : MonoBehaviour
 </div>
 <!-- END LEVEL1 SCRIPT -->
 
-<div style="text-align: center;"><h3>Level 1</h3></div><br>
-
 <!-- BEGIN LEVEL2 SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="levelTwo" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class Level2_Script : MonoBehaviour
 {
@@ -550,11 +485,9 @@ public class Level2_Script : MonoBehaviour
 </div>
 <!-- END LEVEL2 SCRIPT -->
 
-    <div style="text-align: center;"><h3>Level 2</h3></div><br>
-
 <!-- BEGIN LEVEL MANAGER SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="levelManager" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class LevelManager : MonoBehaviour
 {
@@ -809,11 +742,9 @@ public class LevelManager : MonoBehaviour
 </div>
 <!-- END LEVEL MANAGER SCRIPT -->
 
-    <div style="text-align: center;"><h3>Level Manager</h3></div><br>
-
 <!-- BEGIN MOVEMENT SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="movement" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class Movement : MonoBehaviour
 {
@@ -1014,11 +945,9 @@ public class Movement : MonoBehaviour
 </div>
 <!-- END MOVEMENT SCRIPT -->
 
-    <div style="text-align: center;"><h3>Movement</h3></div><br>
-
 <!-- BEGIN BOSS SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="boss" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c#">
 public class BossScript : MonoBehaviour
 {
@@ -1171,6 +1100,23 @@ public class BossScript : MonoBehaviour
 </div>
 <!-- END BOSS SCRIPT -->
 
-<div style="text-align: center;"><h3>Boss</h3></div><br>
+<script type="text/javascript">
+    function openScript(evt, scriptName)
+    {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++){
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i ++){
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(scriptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>
