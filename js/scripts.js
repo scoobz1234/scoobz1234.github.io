@@ -1,8 +1,5 @@
 (function ($) {
 
-    // Remove no-js class
-   // $('html').removeClass('no-js');
-
     // Animate to section when nav is clicked
     $('header a').click(function (e) {
 

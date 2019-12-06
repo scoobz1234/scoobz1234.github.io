@@ -6,48 +6,6 @@
     <link href="css/prism.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/prism.js"></script>
-    <style type="text/css">
-        img{
-            width: 500px;
-            height: 100%;
-        }
-        .box{
-            display: table;
-        }
-        .slider{
-            width:520px;
-            height:590px;
-            margin:30px auto;
-            position: relative;
-            border: 10px solid white;
-            box-shadow: 0px 0px 5px 2px #ccc;
-        }
-        button{
-            padding: 30px;
-            border: none;
-            background: #00d6ff;
-            font-size: 20px;
-            color: black;
-            position: absolute;
-            top:45%;
-            cursor: pointer;
-        }
-        .next{
-            border-radius: 0px 10px 10px 0px;
-            margin-left: 500px
-        }
-        .prev{
-            border-radius: 10px 0px 0px 10px;
-            margin-left: -70px
-        }
-        .codeReview{
-            height: 400px;
-            margin:auto;
-            width: 800px;
-            overflow: auto
-        }
-
-    </style>
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
@@ -58,6 +16,7 @@
     <i class="fa fa-bars" aria-hidden="true"></i>
 </div>
 <!-- End #mobile-menu-toggle -->
+
 <header>
     <div id="mobile-menu-close">
         <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
@@ -74,12 +33,11 @@
 <div id="lead" style="height: 200px;">
     <div id="lead-content">
         <h1>FurBlur</h1>
-        <img src="images/FurBlurLogo.jpg" style =" height:80%; width:auto;" />
+        <img src="images/FurBlurLogo.jpg" alt="FurBlur Logo Image"/>
     </div>
     <!-- End #lead-content -->
 
     <div id="lead-overlay"></div>
-
     <div id="lead-down">
             <span>
                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
@@ -111,7 +69,7 @@
 <!-- BEGIN PICTURE SLIDER -->
 <div class="slider" id="slider">
     <div class="box" id="box">
-        <img src="images/FurBlurMainMenu.PNG"/>
+        <img src="images/FurBlurMainMenu.PNG" alt="FurBlur Main Menu Image"/>
     </div>
 
     <!-- Buttons -->
@@ -127,7 +85,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective1.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 1"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -142,7 +100,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective2.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 2"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -156,7 +114,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective3.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 3"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -170,7 +128,7 @@
         <div class="row">
             <div class="project shadow-large">
                 <div class="project-image">
-                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px"/>
+                    <img src="images/Objective4.png" style= "width:75%; height:auto; margin-left: -60px" alt="Objective 4"/>
                 </div>
                 <div class="project-info" style="margin-left: 200px;">
                     <br>
@@ -206,7 +164,7 @@
         } else{
             i = 1;
         }
-        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
     }
 
     function prevImage(){
@@ -215,7 +173,7 @@
         } else{
             i = image.length;
         }
-        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG>";
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
     }
 </script>
 
@@ -253,7 +211,7 @@ public class CameraFollow : MonoBehaviour {
 </div>
 <!-- END CAMERA FOLLOW SCRIPT -->
 
-    <h3><div style="text-align: center;">Camera Follow</div></h3><br>
+    <div style="text-align: center;"><h3>Camera Follow</h3></div><br>
 
 <!-- BEGIN FLAG SCRIPT -->
 <div>
@@ -315,7 +273,7 @@ public class Flag : MonoBehaviour {
 </div>
 <!-- END FLAG SCRIPT -->
 
-    <h3><div style="text-align: center;">Flag (end level)</div></h3><br>
+    <div style="text-align: center;"><h3>Flag (end level)</h3></div><br>
 
 <!-- BEGIN KEY SCRIPT -->
 <div>
@@ -355,7 +313,7 @@ public class KeyScript : MonoBehaviour {
 </div>
 <!-- END KEY SCRIPT -->
 
-    <h3><div style="text-align: center;">Key Object</div></h3><br>
+<div style="text-align: center;"><h3>Key Object</h3></div><br>
 
 <!-- BEGIN LEVEL1 SCRIPT -->
 <div>
@@ -450,7 +408,7 @@ public class Level1_Script : MonoBehaviour
 </div>
 <!-- END LEVEL1 SCRIPT -->
 
-    <h3><div style="text-align: center;">Level 1</div></h3><br>
+<div style="text-align: center;"><h3>Level 1</h3></div><br>
 
 <!-- BEGIN LEVEL2 SCRIPT -->
 <div>
@@ -592,7 +550,7 @@ public class Level2_Script : MonoBehaviour
 </div>
 <!-- END LEVEL2 SCRIPT -->
 
-    <h3><div style="text-align: center;">Level 2</div></h3><br>
+    <div style="text-align: center;"><h3>Level 2</h3></div><br>
 
 <!-- BEGIN LEVEL MANAGER SCRIPT -->
 <div>
@@ -851,7 +809,7 @@ public class LevelManager : MonoBehaviour
 </div>
 <!-- END LEVEL MANAGER SCRIPT -->
 
-    <h3><div style="text-align: center;">Level Manager</div></h3><br>
+    <div style="text-align: center;"><h3>Level Manager</h3></div><br>
 
 <!-- BEGIN MOVEMENT SCRIPT -->
 <div>
@@ -1056,7 +1014,7 @@ public class Movement : MonoBehaviour
 </div>
 <!-- END MOVEMENT SCRIPT -->
 
-    <h3><div style="text-align: center;">Movement</div></h3><br>
+    <div style="text-align: center;"><h3>Movement</h3></div><br>
 
 <!-- BEGIN BOSS SCRIPT -->
 <div>
@@ -1213,6 +1171,6 @@ public class BossScript : MonoBehaviour
 </div>
 <!-- END BOSS SCRIPT -->
 
-<h3><div style="text-align: center;">Boss</div></h3><br>
+<div style="text-align: center;"><h3>Boss</h3></div><br>
 </body>
 </html>

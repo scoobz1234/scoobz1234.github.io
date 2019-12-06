@@ -532,9 +532,6 @@ footer {
 .project-image {
     float: left
 }
-.project-image_right {
-    float: right
-}
 
 .project-info {
     position: absolute;
@@ -543,23 +540,15 @@ footer {
     margin-left: 300px;
     padding: 15px
 }
-
-.project-info_left {
+.project-infoLeft {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    margin-right: 300px;
+    margin-left: 500px;
     padding: 15px
 }
 
 .project-info h3 {
-    font-size: 1.5em;
-    font-weight: 300;
-    color: #374054;
-    margin: 0 0 15px 0
-}
-
-.project-info_left h3 {
     font-size: 1.5em;
     font-weight: 300;
     color: #374054;
@@ -613,7 +602,7 @@ footer {
 
 #objectives {
     padding: 50px 15px;
-    text-align:center
+    text-align: center
 }
 
 #contact {
@@ -759,8 +748,7 @@ footer {
     #lead {
         height: auto;
         min-height: auto;
-        max-height: auto;
-        padding: 100px 15px
+        padding: 100px 15px;
     }
 
     #lead-content {
@@ -870,10 +858,90 @@ footer {
     }
 }
 
-pre{
+pre {
     max-height: 300px;
     overflow-y: auto;
 }
-pre[class]{
-    max-height:100px;
+
+pre[class] {
+    max-height: 100px;
+}
+
+embed {
+    width: 880px;
+    height: 980px;
+}
+
+.lbl {
+    text-align: center;
+}
+
+.description {
+    text-align: center;
+    margin: 120px;
+    font-size: large;
+}
+
+.ppt {
+    display: inline-block;
+}
+
+.pptCase {
+    width: 100%;
+    text-align: center;
+}
+
+.pdf {
+    width: 900px;
+    height: 1000px;
+    margin: 30px auto;
+    position: relative;
+    border: 10px solid white;
+    box-shadow: 0 0 5px 2px #ccc;
+}
+
+.vid {
+    width: 900px;
+    height: 700px;
+    margin: 30px auto;
+    position: relative;
+    border: 10px solid white;
+    box-shadow: 0 0 5px 2px #ccc;
+}
+.slider{
+    width:520px;
+    height:590px;
+    margin:30px auto;
+    position: relative;
+    border: 10px solid white;
+    box-shadow: 0 0 5px 2px #ccc;
+}
+#lead-content img{
+    height:80%;
+    width:auto;
+}
+#slider button {
+    padding: 30px;
+    border: none;
+    background: #00d6ff;
+    font-size: 20px;
+    color: black;
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+}
+.box{
+    display: table;
+}
+#box img{
+    width: 500px;
+    height: 100%;
+}
+.next{
+    border-radius: 0 10px 10px 0;
+    margin-left: 500px
+}
+.prev{
+    border-radius: 10px 0 0 10px;
+    margin-left: -70px
 }
