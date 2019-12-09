@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="Removed Objectives from individual project pages&#10;Changed script view to tabbed view&#10;added content to ObjectiveFive.html&#10;removed images from lead sections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FurBlur.html" beforeDir="false" afterPath="$PROJECT_DIR$/FurBlur.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" beforeDir="false" afterPath="$PROJECT_DIR$/NihilisticSpaceFarmWars.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ObjectiveFive.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReciPlease.html" beforeDir="false" afterPath="$PROJECT_DIR$/ReciPlease.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObjectiveOne.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveOne.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ObjectiveSix.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveSix.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -39,7 +49,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="copyright" />
@@ -57,11 +67,26 @@
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.FurBlur.html">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.ObjectiveSix.html">
     <configuration name="FurBlur.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/FurBlur.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="NihilisticSpaceFarmWars.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/NihilisticSpaceFarmWars.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ObjectiveSix.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ObjectiveSix.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="ObjectiveTwo.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ObjectiveTwo.html" useBuiltInWebServerPort="true">
@@ -70,30 +95,15 @@
     <configuration name="ReciPlease.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ReciPlease.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/index.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.ObjectiveSix.html" />
         <item itemvalue="JavaScript Debug.FurBlur.html" />
         <item itemvalue="JavaScript Debug.NihilisticSpaceFarmWars.html" />
         <item itemvalue="JavaScript Debug.ReciPlease.html" />
         <item itemvalue="JavaScript Debug.ObjectiveTwo.html" />
-        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",HTML5_OUTLINE_MODE" />
@@ -120,6 +130,7 @@
       <workItem from="1575490836224" duration="8874000" />
       <workItem from="1575501011060" duration="3824000" />
       <workItem from="1575518747734" duration="28021000" />
+      <workItem from="1575925603259" duration="1440000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed links">
       <created>1574267945363</created>

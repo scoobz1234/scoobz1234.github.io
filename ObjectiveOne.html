@@ -149,7 +149,7 @@ int main(int argC, char** argV)
 		intList->SelectionSort();
 		//intList->InsertionSort();
 		auto stop = std::chrono::high_resolution_clock::now();
-		auto durationSelection = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+		auto durationSelection = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 		cout << durationSelection.count() << " nanoseconds" << endl;
 		intList = new LinkedList();
 	}
@@ -231,7 +231,7 @@ int main(int argC, char** argV)
 	//		start = std::chrono::high_resolution_clock::now();
 	//		intList->SelectionSort();
 	//		stop = std::chrono::high_resolution_clock::now();
-	//		auto durationSelection = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+	//		auto durationSelection = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 	//		cout << durationSelection.count() << " milliseconds" << endl;
 	//		break;
 	//	case 6:
@@ -240,7 +240,7 @@ int main(int argC, char** argV)
 	//		start = std::chrono::high_resolution_clock::now();
 	//		intList->BubbleSort();
 	//		stop = std::chrono::high_resolution_clock::now();
-	//		auto durationBubble = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+	//		auto durationBubble = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 	//		cout << durationBubble.count() << " milliseconds" << endl;
 	//		break;
 	//	case 7:
@@ -249,7 +249,7 @@ int main(int argC, char** argV)
 	//		start = std::chrono::high_resolution_clock::now();
 	//		intList->InsertionSort();
 	//		stop = std::chrono::high_resolution_clock::now();
-	//		auto durationInsert = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+	//		auto durationInsert = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 	//		cout << durationInsert.count() << " milliseconds" << endl;
 	//		break;
 	//	case 8:
@@ -258,7 +258,7 @@ int main(int argC, char** argV)
 	//		start = std::chrono::high_resolution_clock::now();
 	//		intList->MergeSort(&intList->headNode);
 	//		stop = std::chrono::high_resolution_clock::now();
-	//		auto durationMerge = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+	//		auto durationMerge = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 	//		cout << durationMerge.count() << " milliseconds" << endl;
 	//		break;
 	//	case 9:
@@ -267,7 +267,7 @@ int main(int argC, char** argV)
 	//		start = std::chrono::high_resolution_clock::now();
 	//		intList->QuickSort();
 	//		stop = std::chrono::high_resolution_clock::now();
-	//		auto durationQuick = chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+	//		auto durationQuick = chrono::duration_cast&lt;std::chrono::nanoseconds>(stop - start);
 	//		cout << durationQuick.count() << " milliseconds" << endl;
 	//		break;
 	//	case 10:

@@ -61,9 +61,17 @@
 </div>
 <!-- End #about -->
 
+<div class="tab">
+	<button class="tabLinks" onClick="openScript(event,'hashHeader')" id="defaultOpen">Hash Tables</button>
+	<button class="tabLinks" onClick="openScript(event,'binaryHeader')">Binary Search Trees</button>
+	<button class="tabLinks" onClick="openScript(event,'key')">Linked Lists</button>
+	<button class="tabLinks" onClick="openScript(event,'levelOne')">Sorting Algorithms</button>
+</div>
+
+
 <!-- BEGIN HASH TABLE HEADER SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="hashHeader" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c++">
 
 #include "Item.h"
@@ -98,13 +106,7 @@ public:
 
 </code>
 </pre>
-</div>
-<h3><div style="text-align: center;">Hash Table Header</div></h3><br>
-<!-- END HASH TABLE HEADER SCRIPT -->
-
-<!-- BEGIN HASH TABLE SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+	<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c++">
 
 #include "MyHash.h"
@@ -343,21 +345,18 @@ int MyHash&lt;K,D>::NumberOfItemsInIndex(int index)
 
 </code>
 </pre>
-</div>
-<h3><div style="text-align: center;">Hash Table Class</div></h3><br>
-<!-- END HASH TABLE SCRIPT -->
 
-<!-- BEGIN DOCUMENTATION -->
-<div class="pdf">
+	<div class="pdf">
 	<iframe src="https://onedrive.live.com/embed?cid=40332682106B7AEA&resid=40332682106B7AEA%214723&authkey=ALsPSwHgINFFeJM&em=2"
 			width="880" height="980" frameborder="0" scrolling="no">
 	</iframe>
+	</div>
 </div>
 <!-- END DOCUMENTATION -->
 
 <!-- BEGIN BINARY SEARCH TREE HEADER SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+<div id="binaryHeader" class="tabContent">
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c++">
 
 #pragma once
@@ -405,13 +404,9 @@ protected:
 
 </code>
 </pre>
-</div>
-<h3><div style="text-align: center;">Binary Search Tree Header</div></h3><br>
-<!-- END SCRIPT -->
 
-<!-- BEGIN BINARY SEARCH TREE SCRIPT -->
-<div>
-<pre style="min-height: 300px; margin: 20px auto; width: 80%">
+
+<pre style="min-height: 1000px; margin: 20px auto; width: 90%">
     <code class="language-c++">
 
 #include "BST.h"
@@ -793,17 +788,35 @@ template &lt;class T> void BST&lt;T>::mRemoveTree(Node&lt;T>* rootNode)
 
 </code>
 </pre>
-</div>
-<h3><div style="text-align: center;">Binary Search Tree Class</div></h3><br>
-<!-- END SCRIPT -->
 
-<!-- BEGIN DOCUMENTATION -->
+
 <div class="pdf">
 	<iframe src="https://onedrive.live.com/embed?cid=40332682106B7AEA&resid=40332682106B7AEA%214724&authkey=AP6wyiCEjbdC7ks&em=2"
 			width="880" height="980" frameborder="0" scrolling="no">
 	</iframe>
 </div>
+</div>
 <!-- END DOCUMENTATION -->
+
+
+<script type="text/javascript">
+	function openScript(evt, scriptName)
+	{
+		var i, tabContent, tabLinks;
+		tabContent = document.getElementsByClassName("tabContent");
+		for (i = 0; i < tabContent.length; i++){
+			tabContent[i].style.display = "none";
+		}
+		tabLinks = document.getElementsByClassName("tabLinks");
+		for (i = 0; i < tabLinks.length; i ++){
+			tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+		}
+		document.getElementById(scriptName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	document.getElementById("defaultOpen").click();
+</script>
 
 </body>
 </html>

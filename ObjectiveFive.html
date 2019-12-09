@@ -61,8 +61,15 @@
 </div>
 <!-- End #about -->
 
-<!-- BEGIN PLAYER CONTROLLER SCRIPT -->
-<div style="text-align: center;"><h1>Entity Relationship Diagrams</h1></div>
+<div class="tab">
+    <button class="tabLinks" onClick="openScript(event,'diagrams')" id="defaultOpen">Diagrams</button>
+    <button class="tabLinks" onClick="openScript(event,'designDocs')">Design Documents</button>
+    <button class="tabLinks" onClick="openScript(event,'sprintDocs')">Sprints</button>
+    <button class="tabLinks" onClick="openScript(event,'reports')">Reports</button>
+</div>
+
+
+<div id="diagrams" class="tabContent">
 <div  class="pdf">
     <embed src="docs/GameCompany.pdf" width="880px" height="980px"/>
 </div>
@@ -71,25 +78,21 @@
     <embed src="docs/ShippingCompany.pdf" width="880px" height="980px"/>
 </div>
 
-<div style="text-align: center;"><h1>Design Documents</h1></div>
+<div  class="pdf">
+    <embed src="docs/FlowDiagram.pdf" width="880px" height="980px"/>
+</div>
+</div>
+
+<div id="designDocs" class="tabContent">
 <div  class="pdf">
     <embed src="docs/DesignDocument.pdf" width="880px" height="980px"/>
 </div>
 <div  class="pdf">
     <embed src="docs/DesignDoc_TT.pdf" width="880px" height="980px"/>
 </div>
-
-<div style="text-align: center;"><h1>Flow Diagram (TherapyBuddy)</h1></div>
-<div  class="pdf">
-    <embed src="docs/FlowDiagram.pdf" width="880px" height="980px"/>
 </div>
 
-<div style="text-align: center;"><h1></h1></div>
-<div  class="pdf">
-    <embed src="docs/FlowDiagram.pdf" width="880px" height="980px"/>
-</div>
-
-<br>
+<div id="sprintDocs" class="tabContent">
 <div style="text-align: center;"><h1>Sprint 1 (Therapy Buddy)</h1></div>
 <div style="text-align: center; margin:120px; font-size: large">
 <p>
@@ -206,9 +209,9 @@
 <div  class="pdf">
     <embed src="docs/TherapyBuddyFinalReport.pdf" width="880px" height="980px"/>
 </div>
+</div>
 
-
-<div style="text-align: center;"><h1>VR&R Tidy Trainers</h1></div>
+<div id="reports" class="tabContent">
 <div class="pdf">
     <iframe
             width="880"
@@ -247,6 +250,25 @@
             src="https://onedrive.live.com/embed?resid=40332682106B7AEA%214784&authkey=%21AFxnHPdeY9wIe0I&em=2&wdAllowInteractivity=False&wdInConfigurator=True">
     </iframe>
 </div>
+</div>
+<script type="text/javascript">
+    function openScript(evt, scriptName)
+    {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++){
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i ++){
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(scriptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
 
 </body>
 </html>
