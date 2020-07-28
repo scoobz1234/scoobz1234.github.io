@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated />
   </component>
@@ -10,12 +28,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca00c80b-2d12-4215-a89a-4276b9391444" name="Default Changelist" comment="Removed Objectives from individual project pages&#10;Changed script view to tabbed view&#10;added content to ObjectiveFive.html&#10;removed images from lead sections">
+      <change afterPath="$PROJECT_DIR$/Taproot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/TaprootT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/taproot_intervention.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/taproot_model.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveFive.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveFive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveOne.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveOne.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ObjectiveSix.html" beforeDir="false" afterPath="$PROJECT_DIR$/ObjectiveSix.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/prism.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/prism.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/prism.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/prism.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,45 +62,34 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\docs" />
-      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io" />
-      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\docs" />
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\js" />
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\images" />
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io\docs" />
+      <recent name="C:\Users\Stephen\Desktop\scoobz1234.github.io" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="JavaScript Debug.ObjectiveSix.html">
+  <component name="RunManager">
     <configuration name="FurBlur.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/FurBlur.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -95,15 +105,6 @@
     <configuration name="ReciPlease.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/scoobz1234.github.io/ReciPlease.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JavaScript Debug.ObjectiveSix.html" />
-        <item itemvalue="JavaScript Debug.FurBlur.html" />
-        <item itemvalue="JavaScript Debug.NihilisticSpaceFarmWars.html" />
-        <item itemvalue="JavaScript Debug.ReciPlease.html" />
-        <item itemvalue="JavaScript Debug.ObjectiveTwo.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",HTML5_OUTLINE_MODE" />
@@ -220,13 +221,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

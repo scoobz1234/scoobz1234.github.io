@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taproot</title>
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="js/prism.js"></script>
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+</head>
+<body>
+<!-- Begin #mobile-menu-toggle -->
+<div id="mobile-menu-open" class="shadow-large">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+</div>
+<!-- End #mobile-menu-toggle -->
+
+<!-- Begin header -->
+<header>
+    <div id="mobile-menu-close">
+        <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul id="menu" class="shadow">
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#scripts">Scripts</a></li>
+    </ul>
+</header>
+<!-- End header -->
+
+<!-- Begin #lead -->
+<div id="lead" style="height: 200px;">
+    <div id="lead-content">
+        <h1>Taproot</h1>
+    </div>
+    <!-- End #lead-content -->
+
+    <div id="lead-overlay"></div>
+
+    <div id="lead-down">
+            <span>
+                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+            </span>
+    </div>
+    <!-- End #lead-down -->
+</div>
+<!-- End #lead -->
+
+<!-- Begin #about -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="heading">Project Information</h2>
+            </div>
+            <div class="col-md-8">
+                <p>
+                    Taproot is an assistance application that provides care instructions/help to industry
+                    professionals for patients under their care. This project includes a Front-End built in React-Native,
+                    a Back-End web API built in Python with Django REST framework, and a database hosted in Azure built
+                    with SQL.
+
+                    Please note that due to NDA, Photos of Mobile Application are unable to be presented at this time.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End #about -->
+
+<!-- Begin #slider -->
+<div class="slider" id="slider" style="height:920px">
+    <div class="box" id="box">
+        <img src="images/TaprootT.PNG" alt="home screen"/>
+    </div>
+
+    <!-- Buttons -->
+    <button class="prev" onclick="prevImage()"><</button>
+    <button class="next" onclick="nextImage()">></button>
+</div>
+<script type="text/javascript">
+    var slider_content = document.getElementById('box');
+
+    var preCode = document.getElementById('preCode');
+
+    var showSecond = false;
+    // contains images in an array
+    var image = ['taproot_intervention','taproot_model','TaprootT'];
+    var i = image.length;
+
+
+    // function for next image
+
+    function nextImage(){
+        if (i < image.length){
+            i += 1;
+        } else{
+            i = 1;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
+    }
+
+    function prevImage(){
+        if (i < image.length + 1 && i > 1){
+            i -= 1;
+        } else{
+            i = image.length;
+        }
+        slider_content.innerHTML = "<img src=images/"+image[i-1]+".PNG alt='image'>";
+    }
+</script>
+<!-- End #slider -->
+
+<div class="tab">
+    <button class="tabLinks" onClick="openScript(event,'residentSelection')" id="defaultOpen">React-Native 1</button>
+    <button class="tabLinks" onClick="openScript(event,'resident')">React-Native 2</button>
+    <button class="tabLinks" onClick="openScript(event,'models')">Python/Django 1</button>
+    <button class="tabLinks" onClick="openScript(event,'admin')">Python/Django 2</button>
+    <button class="tabLinks" onClick="openScript(event,'jquery')">Django/JQuery</button>
+    <button class="tabLinks" onClick="openScript(event,'sql')">SQL</button>
+</div>
+
+<div id= "scripts" style="text-align: center;"><h1>Code Review</h1></div>
+
+<!-- BEGIN SCRIPT -->
+<div id="residentSelection" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-tsx">
+        // Created by Stephen R. Ouellette, 2020
+        // Student University of Advancing Technology
+
+        import React from "react";
+        import { View, FlatList, TextInput, ActivityIndicator } from "react-native";
+        import { HeaderButtons, Item } from "react-navigation-header-buttons";
+        import HeaderButton from "../components/HeaderButton";
+        import ResidentItem from "../components/ResidentItem";
+        import Styles from "../constants/Styles";
+        import * as SQLite from 'expo-sqlite';
+        import getData from '../constants/Database';
+        const db = SQLite.openDatabase('taprootDB.db'); // Open the database //
+
+        class ResidentSelectionScreen extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {
+              search: "", // Holds the search term //
+              isLoading: true, // Flag for loading checked //
+              data: [],  // Holds the data we get from the database //
+              facilities: []
+            };
+          }
+
+          async componentDidMount() {
+            this.focusListener = this.props.navigation.addListener('didFocus', () => {
+              this.setState({ isLoading: false});
+            });
+            const { search } = this.state;
+            await this.fetchData(search);
+          }
+
+          componentWillUnmount() {
+            this.focusListener.remove(); // Make sure you unsubscribe from the listener //
+          }
+
+          async handleSearch(val) {
+            this.setState({ search: val });
+            await this.fetchData(val);
+          }
+
+          fetchData(search) {
+            var query = "SELECT * FROM tbl_residents WHERE last_name LIKE '%" + search + "%' ";
+            var params = [];
+            db.transaction((tx) => {
+              tx.executeSql(query, params, (tx, results) => {
+                if (results.rows._array.length > 0) {
+                  this.setState({ data: results.rows._array });
+                }
+              }, function (tx, err) { console.log(err); });
+            });
+
+          }
+
+          render() {
+            if (this.state.isLoading) {
+              return (
+                &lt;View style={Styles.activityIndicator}>
+                  &lt;ActivityIndicator />
+                &lt;/View>
+              );
+            } else {
+              const renderResidentItem = itemData => {
+                return (
+                  &lt;ResidentItem
+                          id={itemData.item.id}
+                          first_name={itemData.item.first_name}
+                          last_name={itemData.item.last_name}
+                          facility={itemData.item.facility}
+                          onSelectResident={() => {
+                      this.props.navigation.navigate({
+                        routeName: "Resident",
+                        params: {
+                          residentID: itemData.item.id,
+                          authToken: this.props.navigation.getParam('authToken')
+                        }
+                      });
+                    }}
+                  />
+                );
+              };
+
+              const displayedResidents = this.state.data.filter(
+                resident => resident.last_name
+                    .toLocaleLowerCase()
+                    .indexOf(this.state.search) >= 0
+              );
+
+              displayedResidents.sort((a, b) => a.last_name > b.last_name);
+
+              return (
+                &lt;View style={Styles.residentSelection_MainView}>
+                  &lt;View style={Styles.residentSelection_SearchBarContainer}>
+                    &lt;TextInput
+                            style={Styles.residentSelection_SearchBar}
+                            placeholder="Search"
+                            onChangeText={value =>
+                        this.setState({ search: value.toLocaleLowerCase() })
+                      }
+                    />
+                  &lt;/View>
+                  &lt;View style={Styles.residentSelection_InterventionListContainer}>
+                    &lt;FlatList
+                            keyExtractor={(item, index) => index.toString()}
+                      data={displayedResidents}
+                      renderItem={renderResidentItem}
+                      style={{ width: "100%" }}
+                    />
+                  &lt;/View>
+                &lt;/View>
+              );
+            }
+          }
+        }
+
+        ResidentSelectionScreen.navigationOptions = navData => {
+          return {
+            headerTitle: "Residents",
+            headerLeft: () => (
+              &lt;HeaderButtons HeaderButtonComponent={HeaderButton}>
+                &lt;Item
+                        title="Back"
+                        iconName="ios-arrow-round-back"
+                        onPress={() => {
+                    navData.navigation.pop();
+                  }}
+                />
+              &lt;/HeaderButtons>
+            )
+          };
+        };
+
+        export default ResidentSelectionScreen;
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+
+<!-- BEGIN SCRIPT -->
+<div id="resident" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-tsx">
+            // Created by Stephen R. Ouellette, 2020
+            // Student University of Advancing Technology
+            import React from "react";
+            import { View, Text, FlatList, Image, ActivityIndicator } from "react-native";
+            import { HeaderButtons, Item } from "react-navigation-header-buttons";
+            import HeaderButton from "../components/HeaderButton";
+            import BehaviorItem from "../components/BehaviorItem";
+            import Styles from "../constants/Styles";
+            import * as SQLite from 'expo-sqlite';
+
+            const db = SQLite.openDatabase('taprootDB.db');
+
+            class Patient extends React.Component {
+              constructor(props) {
+                super(props);
+                this.state = {
+                  dataSource: null,
+                  behaviors: null,
+                  isLoading: true,
+                  residentID: this.props.navigation.getParam("residentID")
+                };
+              }
+
+              componentDidMount() {
+                this.getResident();
+                this.getBehaviors();
+              }
+
+              getResident(){
+                // database.transaction(callback,error,success);
+                // console.log('Getting resident:',this.state.residentID);
+                db.transaction(tx => {
+                  tx.executeSql(
+                    // SQL Statement string
+                    "SELECT * FROM tbl_residents WHERE id LIKE '%" + this.state.residentID + "%'",
+                    // parameters (these pertain to ? you might put into the SQL statement string)
+                    [],
+                    // Callback Success Function
+                    (_, { rows }) => {this.setState({dataSource: rows._array});},
+                    // Callback Error Function
+                    (t, error) => {console.log('Get Behaviors Callback Error:',error);});},
+                  // Transaction Error Function
+                  (t, error) => { console.log('Get Behaviors Transaction Failure:',error);},);
+              }
+
+              getBehaviors(){
+                // database.transaction(callback,error,success);
+                // console.log('Getting Behaviors for:',this.state.residentID);
+                db.transaction(tx => {
+                  tx.executeSql(
+                    // SQL Statement string
+                    "SELECT * FROM tbl_behaviors AS b INNER JOIN tbl_reactive_behaviors AS rb ON b.id = rb.id WHERE rb.resident LIKE '%" + this.state.residentID + "%'",
+                    // parameters (these pertain to ? you might put into the SQL statement string)
+                    [],
+                    // Callback Success Function
+                    (_, { rows }) => {
+                      console.log(rows);
+                      this.setState({behaviors: rows._array});
+                      this.setState({isLoading: false});},
+                    // Callback Error Function
+                    (t, error) => {console.log('Get Behaviors Callback Error:',error);});},
+                  // Transaction Error Function
+                  (t, error) => { console.log('Get Behaviors Transaction Failure:',error);},);
+            }
+
+              render() {
+                // if the state is loading, we display the activity indicator, else we display the page...
+                if (this.state.isLoading) {
+                  return (
+                    &lt;View style={Styles.activityIndicator}>
+                      &lt;ActivityIndicator />
+                    &lt;/View>
+                  );
+                } else {
+                  //This is the object that handles rendering the data in the flatlist
+                  //it returns a behavior item (component we built) which displays the data
+                  const renderBehaviorItem = itemData => {
+                    return (
+                      &lt;BehaviorItem
+                              id={itemData.item.id}
+                              name={itemData.item.name}
+                              onSelectBehavior={() => {
+                          this.props.navigation.navigate({
+                            routeName: "Interventions",
+                            params: {
+                              behaviorID: itemData.item.behavior,
+                              residentID: this.state.residentID,
+                              authToken: this.props.navigation.getParam('authToken')
+                            }
+                          });
+                        }}
+                      />
+                    );
+                  };
+
+                  return (
+                    &lt;View style={Styles.resident_MainView}>
+                      &lt;View style={Styles.resident_TopContainer}>
+                        &lt;View style={Styles.resident_ResidentProfilePictureContainer}>
+                          {/* Image of resident will go here, placeholder for now */}
+                          &lt;Image
+                                  style={Styles.resident_ResidentProfileImage}
+                                  source={require("../assets/Portrait_Placeholder.png")}
+                          />
+                        &lt;/View>
+                        &lt;View style={Styles.resident_DemographicsContainer}>
+                          &lt;Text style={Styles.resident_Label}>
+                            First:{" "}
+                            &lt;Text style={Styles.resident_Text}>
+                              {/* Returns the selected resident's first name */}
+                              {this.state.dataSource[0].first_name}{" "}
+                            &lt;/Text>
+                          &lt;/Text>
+                          &lt;Text style={Styles.resident_Label}>
+                            Last:{" "}
+                            &lt;Text style={Styles.resident_Text}>
+                              {/* Returns the selected resident's last name */}
+                              {this.state.dataSource[0].last_name}{" "}
+                            &lt;/Text>
+                          &lt;/Text>
+                          &lt;Text style={Styles.resident_Label}>
+                            D.O.B:{" "}
+                            &lt;Text style={Styles.resident_Text}>
+                              {/* Returns the selected resident's date of birth */}
+                              {this.state.dataSource[0].date_of_birth}{" "}
+                            &lt;/Text>
+                          &lt;/Text>
+                          &lt;Text style={Styles.resident_Label}>
+                            Gender:{" "}
+                            &lt;Text style={Styles.resident_Text}>
+                              {/* Returns the selected resident's gender */}
+                              {this.state.dataSource[0].gender}{" "}
+                            &lt;/Text>
+                          &lt;/Text>
+                        &lt;/View>
+                      &lt;/View>
+                      {/* This view contains the FlatList of behaviors */}
+                      &lt;View style={Styles.resident_BottomContainer}>
+                        &lt;Text style={Styles.resident_BehaviorsLabel}>Behaviors&lt;/Text>
+                        &lt;FlatList
+                                keyExtractor={(item, index) => index.toString()}
+                          data={this.state.behaviors} // FlatList contains the selected behaviors for the data
+                          renderItem={renderBehaviorItem} //render using the renderbehavioritem method
+                          style={Styles.resident_BehaviorsList} // set styles
+                        />
+                      &lt;/View>
+                    &lt;/View>
+                  );
+                }
+              }
+            }
+
+            Patient.navigationOptions = navData => {
+              return {
+                headerTitle: "Resident Profile",
+                headerLeft: () => (
+                  &lt;HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    &lt;Item
+                            title="Back"
+                            iconName="ios-arrow-round-back"
+                            onPress={() => {
+                        navData.navigation.pop();
+                      }}
+                    />
+                  &lt;/HeaderButtons>
+                )
+              };
+            };
+
+            export default Patient;
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+
+<!-- BEGIN SCRIPT -->
+<div id="models" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-python">
+            """Taproot models for the database and API website"""
+            """Created By Stephen R Ouellette 2020"""
+            from django.db import models
+            from django.contrib.auth.models import User
+
+            # DROPDOWN SELECTION ARRAYS #
+            GENDER = [('M', 'Male'), ('F', 'Female')]
+            SEVERITY = [('Mild', 'Mild'), ('Moderate', 'Moderate'), ('Severe', 'Severe')]
+            EYES = [('None', 'None'), ('Left', 'Left'), ('Right', 'Right'), ('Both', 'Both')]
+            CHOICE = [('1', 'Yes'), ('0', 'No'), ('2', 'Sometimes')]
+            ADL = [('None', 'None'), ('Partial-Care', 'Partial-Care'), ('Total-Care', 'Total-Care')]
+            MOBILITY = [('None', 'None'), ('Unsteady', 'Unsteady'), ('Needs Assistance', 'Needs Assistance'),
+                        ('Wheelchair', 'Wheelchair'), ('Cane/Walker', 'Cane/Walker')]
+            TOWARDS = [('None', 'None'), ('Staff', 'Staff'), ('Family', 'Family'), ('Nurse', 'Nurse'),
+                       ('Doctor', 'Doctor'), ('Caregivers', 'Caregivers'), ('All', 'All'), ('Other', 'Other')]
+            FREQUENCY = [('None', 'None'), ('1 to 3 times per day', '1 to 3 times per day'),
+                         ('More than 3 times per day', 'More than 3 times per day'),
+                         ('A few times per week', 'A few times per week'),
+                         ('A few times per month', 'A few times per month'),
+                         ('Everytime', 'Everytime'), ('Other', 'Other')]
+            TIME_OF_THE_DAY = [('Morning', 'Morning'), ('Afternoon', 'Afternoon'),
+                               ('Night', 'Night'), ('All', 'All')]
+            ADMINISTRATION = [('None', 'None'), ('Routine', 'Routine'), ('PRN', 'PRN')]
+            MEMORY_LENGTH = [('None', 'None'), ('1 to 5 mins', '1 to 5 mins'),
+                             ('10 to 15 mins', '10 to 15 mins'), ('15 to 30 mins', '15 to 30 mins'),
+                             ('30 to 60 mins', '30 to 60 mins'), ('Other', 'Other')]
+            LANGUAGE = [('English', 'English'), ('French', 'French'), ('Spanish', 'Spanish'),
+                        ('German', 'German'), ('Chinese', 'Chinese'), ('Arabic', 'Arabic'),
+                        ('Russian', 'Russian'), ('Japanese', 'Japanese'), ('Hindu', 'Hindu'),
+                        ('Malay', 'Malay'), ('Bengali', 'Bengali'), ('Portuguese', 'Portuguese')]
+
+
+            # ADMIT TABLE #
+            class Admit(models.Model):
+                """ Put your table fields here, CharFields must have max_length input...
+                If you want it to be not required, need to put null and blank to true...
+                ForeignKey's must have reference to the Model, and then set on_delete method... """
+                pid = models.CharField(max_length=128, null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                facility = models.ForeignKey('Facility', on_delete=models.PROTECT)
+                room_number = models.CharField(max_length=128)
+                admit_date = models.DateField()
+                discharge_date = models.DateField(null=True, blank=True)
+                discharged_to = models.CharField(max_length=512, null=True, blank=True)
+
+                # this def statement sets the value you see when you click on a page
+                # without this you would see Admit Object(1), Admit Object(2) and so on...
+                def __str__(self):
+                    return self.resident.last_name + ', ' + self.resident.first_name
+
+                class Meta:
+                    db_table = 'admit' # What table this class represents/connects to...
+                    verbose_name = 'Admission' # Changes how you see the table name on the admin page...
+                    verbose_name_plural = 'Admissions' # Changes how you see the plural name of the table...
+
+
+            class Ailment(models.Model):
+                """Ailment Table"""
+                ailment = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.ailment
+
+                class Meta:
+                    db_table = "ailments"
+                    verbose_name = 'Ailment'
+                    verbose_name_plural = 'Ailments'
+
+
+            class Behavior(models.Model):
+                """Behavior Table"""
+                behavior_name = models.CharField(max_length=128)
+                behavior_details = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.behavior_name
+
+                class Meta:
+                    db_table = "behaviors"
+                    verbose_name = 'Behavior'
+                    verbose_name_plural = 'Behaviors'
+
+
+            class States(models.Model):
+                """ States Table """
+                abbreviation = models.CharField(max_length=2)
+                full_name = models.CharField(max_length=128)
+
+                def __str__(self):
+                    return self.full_name
+
+                class Meta:
+                    db_table = "states"
+                    verbose_name = 'State'
+                    verbose_name_plural = 'States'
+
+
+            class Caregiver(models.Model):
+                """ Caregiver Tables """
+                facility = models.ForeignKey('Facility', on_delete=models.PROTECT)
+                first_name = models.CharField(max_length=128)
+                last_name = models.CharField(max_length=128)
+                gender = models.CharField(max_length=1, choices=GENDER)
+                user = models.ForeignKey(User, on_delete=models.PROTECT)
+                active = models.BooleanField(default=True)
+
+                class Meta:
+                    db_table = "caregiver"
+                    verbose_name = 'Caregiver'
+                    verbose_name_plural = 'Caregivers'
+
+
+            class Dementia_Severity(models.Model):
+                """ Dementia Severity Table """
+                severity = models.CharField(max_length=128)
+
+                class Meta:
+                    db_table = "dementia_severity"
+
+
+            class Demographic(models.Model):
+                """ Demographic Table """
+                pid = models.IntegerField(null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                raised_city = models.CharField(max_length=128, verbose_name='City raised in',
+                              blank=True, null=True)
+                raised_state = models.ForeignKey('States', on_delete=models.PROTECT, related_name="rs",
+                               blank=True, null=True)
+                lived_city = models.CharField(max_length=128, verbose_name='City lived in',
+                             blank=True, null=True)
+                lived_state = models.ForeignKey('States', on_delete=models.PROTECT, blank=True, null=True)
+                has_spouse = models.CharField(max_length=1, choices=CHOICE, default=0)
+                spouse_name = models.CharField(max_length=128, verbose_name='Spouses name',
+                              blank=True, null=True)
+                english_first_language = models.CharField(max_length=1, choices=CHOICE, default=0)
+                language_spoken = models.CharField(max_length=128, choices=LANGUAGE, default='English')
+                has_siblings = models.CharField(max_length=1, choices=CHOICE, default=0)
+                sibling_count = models.IntegerField(verbose_name='How many siblings does the resident have?',
+                                blank=True, null=True)
+                sibling_birth_order = models.CharField(max_length=128, verbose_name='Resident birth order',
+                                      blank=True, null=True,)
+                has_children = models.CharField(max_length=1, choices=CHOICE, default=0)
+                children_count = models.IntegerField(blank=True, null=True)
+                children_names = models.CharField(max_length=512, blank=True, null=True)
+
+                """ This def is for when your updating a resident profile...
+                    if there is no PID then this is the one and only record.
+                    so we return #1 if there is a PID then we return the PID itself """
+                def __str__(self):
+                    return '#1' if self.pid is None else self.pid
+
+                class Meta:
+                    db_table = "demographic"
+
+
+            class Dental_Diagnoses(models.Model):
+                """ Dental Diagnoses Table """
+                dental_problem = models.CharField(max_length=128)
+
+                def __str__(self):
+                    return self.dental_problem
+
+                class Meta:
+                    db_table = "dental_diagnoses"
+                    verbose_name = 'Dental Diagnoses'
+                    verbose_name_plural = 'Dental Diagnoses'
+
+
+            class Diagnoses(models.Model):
+                """ Diagnoses Table """
+                pid = models.IntegerField(null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                medical_diagnoses = models.ManyToManyField('Medical_Diagnoses', blank=True)
+                mental_health_diagnoses = models.ManyToManyField('Mental_Health_Diagnoses', blank=True)
+                hearing_diagnoses = models.ManyToManyField('Hearing_Diagnoses', blank=True)
+                dental_diagnoses = models.ManyToManyField('Dental_Diagnoses', blank=True)
+                severity_of_dementia = models.CharField(max_length=10, choices=SEVERITY, default='Mild')
+                length_of_memories = models.CharField(max_length=512, choices=MEMORY_LENGTH, default='None',
+                                     blank=True, null=True)
+                vision_diagnoses = models.ManyToManyField('Vision_Diagnoses', blank=True)
+                eyes_affected = models.CharField(max_length=6, choices=EYES, default='None')
+                def __str__(self):
+                    return self.resident.last_name + ', ' + self.resident.first_name
+
+                class Meta:
+                    db_table = "diagnoses"
+                    verbose_name = 'Diagnoses'
+                    verbose_name_plural = 'Diagnoses'
+
+
+            class Encounters(models.Model):
+                """ Encounters Table """
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                resistant_action = models.ForeignKey('Resistant_Actions', on_delete=models.PROTECT)
+                intervention = models.ForeignKey('Interventions', on_delete=models.PROTECT)
+                caregiver = models.ForeignKey('Caregiver', on_delete=models.PROTECT)
+                rating = models.FloatField(max_length=3)
+                notes = models.TextField(max_length=512)
+                encounter_date = models.CharField(max_length=512)
+                outcome = models.CharField(max_length=1, default='0')
+
+                class Meta:
+                    db_table = "encounters"
+                    verbose_name = 'Encounter'
+                    verbose_name_plural = 'Encounters'
+
+
+            class Facility(models.Model):
+                """ Facitlity Table """
+                facility_name = models.CharField(max_length=512)
+                street = models.CharField(max_length=512)
+                street_cont = models.TextField(max_length=512, null=True, blank=True)
+                city = models.CharField(max_length=128)
+                state_code = models.ForeignKey('States', on_delete=models.PROTECT)
+                zipcode = models.CharField(max_length=128)
+                phone = models.CharField(max_length=128)
+
+                def __str__(self):
+                    return self.facility_name + ', ' + self.city
+
+                class Meta:
+                    db_table = "facility"
+                    verbose_name = 'Facility'
+                    verbose_name_plural = 'Facilities'
+
+
+            class Favorites(models.Model):
+                """ Favorites Table """
+                pid = models.IntegerField(null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                favorite_music = models.CharField(max_length=512, null=True, blank=True)
+                favorite_hobby = models.CharField(max_length=128, null=True, blank=True)
+                favorite_movie = models.CharField(max_length=128, null=True, blank=True)
+                favorite_tv_show = models.CharField(max_length=128, null=True, blank=True)
+                upset_by = models.CharField(max_length=512, null=True, blank=True)
+                likes_animals = models.CharField(max_length=1, choices=CHOICE, default='0',
+                                null=True, blank=True)
+                personality = models.CharField(max_length=128, null=True, blank=True,
+                              verbose_name='Did they grow up being modest/shy?')
+                insecurities = models.CharField(max_length=128, null=True, blank=True,
+                               verbose_name='Were they overly concerned with how they looked?')
+                profession = models.CharField(max_length=128, null=True, blank=True)
+                food = models.CharField(max_length=128, null=True, blank=True, verbose_name='Favorite Food')
+                snack = models.CharField(max_length=128, null=True, blank=True, verbose_name='Favorite Snack')
+                drink = models.CharField(max_length=128, null=True, blank=True, verbose_name='Favorite Drink')
+                interests = models.TextField(max_length=512, null=True, blank=True)
+                memory = models.TextField(max_length=512, null=True, blank=True, verbose_name='Favorite Memory')
+                relax_action = models.TextField(max_length=512, null=True, blank=True,
+                               verbose_name='What did they used to enjoy or do to relax?')
+                other = models.TextField(max_length=512, null=True, blank=True)
+
+                def __str__(self):
+                    return self.resident.last_name + ', ' + self.resident.first_name
+
+                class Meta:
+                    db_table = "favorites"
+                    verbose_name = 'Favorite'
+                    verbose_name_plural = 'Favorites'
+
+
+            class Hearing_Diagnoses(models.Model):
+                """ Hearing Diagnoses """
+                hearing_problem = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.hearing_problem
+
+                class Meta:
+                    db_table = "hearing_diagnoses"
+                    verbose_name = 'Hearing Diagnoses'
+                    verbose_name_plural = 'Hearing Diagnoses'
+
+
+            class History(models.Model):
+                """ History Table """
+                pid = models.IntegerField(null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                history_of_injuries = models.ManyToManyField('Injuries', blank=True)
+                history_of_ailments = models.ManyToManyField('Ailment', blank=True)
+
+                def __str__(self):
+                    return self.resident.last_name + ', ' + self.resident.first_name
+
+                class Meta:
+                    db_table = "history"
+                    verbose_name = 'History'
+                    verbose_name_plural = 'Histories'
+
+
+            class Injuries(models.Model):
+                """ Injuries Table """
+                injury = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.injury
+
+                class Meta:
+                    db_table = "injuries"
+                    verbose_name = 'Injury'
+                    verbose_name_plural = 'Injuries'
+
+
+            class Interventions(models.Model):
+                """ Interventions Table """
+                intervention_name = models.CharField(max_length=512)
+                intervention_details = models.TextField(max_length=512)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                behavior = models.ForeignKey('Behavior', on_delete=models.PROTECT)
+                active = models.BooleanField(default=True)
+
+                def __str__(self):
+                    return self.intervention_name
+
+                class Meta:
+                    db_table = "interventions"
+                    verbose_name = 'Intervention'
+                    verbose_name_plural = 'Interventions'
+
+
+            class Medical_Diagnoses(models.Model):
+                """ Medical Diagnoses Table """
+                medical_problem = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.medical_problem
+
+                class Meta:
+                    db_table = "medical_diagnoses"
+                    verbose_name = 'Medical Diagnoses'
+                    verbose_name_plural = 'Medical Diagnoses'
+
+
+            class Medications(models.Model):
+                """ Medications Table """
+                pid = models.IntegerField(null=True, blank=True)
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                medication_name = models.CharField(max_length=128)
+                date_prescribed = models.DateField()
+                dosage = models.CharField(max_length=45)
+                frequency = models.CharField(max_length=128)
+                administration = models.CharField(max_length=512, choices=ADMINISTRATION, default='None')
+                prns_given_last_month = models.CharField(max_length=512)
+                is_medication_discontinued = models.CharField(max_length=1, choices=CHOICE, default=0)
+                def __str__(self):
+                    return self.medication_name + ', ' + self.resident.last_name
+
+                class Meta:
+                    db_table = "medications"
+                    verbose_name = 'Medication'
+                    verbose_name_plural = 'Medications'
+
+
+            class Mental_Health_Diagnoses(models.Model):
+                """ Mental Health Diagnoses Table """
+                mental_health_problem = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.mental_health_problem
+
+                class Meta:
+                    db_table = "mental_health_diagnoses"
+                    verbose_name = 'Mental Health Diagnoses'
+                    verbose_name_plural = 'Mental Health Diagnoses'
+
+
+            class Needs(models.Model):
+                """ Needs Table """
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                mobility = models.CharField(max_length=16, choices=MOBILITY, default='None')
+                adl_care = models.CharField(max_length=10, choices=ADL, default='None')
+                can_communicate = models.CharField(max_length=1, choices=CHOICE, default=0)
+                can_comprehend = models.CharField(max_length=1, choices=CHOICE, default=0,
+                                 verbose_name="Can understand your requests?")
+
+                def __str__(self):
+                    return self.resident.last_name
+
+                class Meta:
+                    db_table = "needs"
+                    verbose_name = 'Need'
+                    verbose_name_plural = 'Needs'
+
+
+            class Resident(models.Model):
+                """ Resident Table """
+                pid = models.IntegerField(null=True)
+                first_name = models.CharField(max_length=128)
+                last_name = models.CharField(max_length=128)
+                preferred_name = models.CharField(max_length=128)
+                date_of_birth = models.DateField()
+                gender = models.CharField(max_length=2, choices=GENDER)
+                last_update = models.DateField(null=True, blank=True)
+                active = models.BooleanField(default=True)
+
+                def __str__(self):
+                    return self.last_name.lower() +', '+ self.first_name.lower()
+
+                class Meta:
+                    db_table = "residents"
+                    verbose_name = 'Resident'
+                    verbose_name_plural = 'Residents'
+
+            class Resistant_Actions(models.Model):
+                """ Resistant Actions Table """
+                resident = models.ForeignKey('Resident', on_delete=models.PROTECT)
+                intervention = models.ManyToManyField('Interventions',blank=True)
+                behavior = models.ForeignKey('Behavior', on_delete=models.PROTECT)
+                towards = models.CharField(max_length=128, choices=TOWARDS, default='None')
+                frequency = models.CharField(max_length=128, choices=FREQUENCY, default='None')
+                time_of_day_occurs = models.CharField(max_length=128, choices=TIME_OF_THE_DAY, blank=True, null=True)
+
+                class Meta:
+                    db_table = "resistant_actions"
+                    verbose_name = 'Reactive Behavior'
+                    verbose_name_plural = 'Reactive Behaviors'
+
+
+            class Vision_Diagnoses(models.Model):
+                """ Vision Diagnoses Table """
+                vision_problem = models.CharField(max_length=512)
+
+                def __str__(self):
+                    return self.vision_problem
+
+                class Meta:
+                    db_table = "vision_diagnoses"
+                    verbose_name = 'Vision Diagnoses'
+                    verbose_name_plural = 'Vision Diagnoses'
+
+            # TODO calculate age from DOB (today-dob)
+            # TODO Print one record*****
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+
+<!-- BEGIN SCRIPT -->
+<div id="admin" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-python">
+            """ Admin page, (one page resident input model) """
+            """Created By Stephen R Ouellette 2020"""
+            from django.contrib import admin
+            from .forms import InterventionForm
+            from .models import Demographic, Diagnoses, Admit, Favorites, History
+            from .models import Medications, Resident, Resistant_Actions, Needs, Interventions
+
+            ############## INLINES ###################
+            class DemographicInline(admin.StackedInline):
+                """ Demographic Inline function utilizes Stacked Inline Method """
+                fieldsets = (
+                    (None, {
+                        'fields': (('has_spouse', 'spouse_name'),
+                                   ('has_siblings', 'sibling_count', 'sibling_birth_order'),
+                                   ('has_children', 'children_count', 'children_names'))
+                    }),
+                    (None, {
+                        'fields': (('raised_city', 'raised_state'),
+                                   ('lived_city', 'lived_state'))
+                    }),
+                    (None, {
+                        'fields': (('resident'),
+                                   ('english_first_language'),)
+                    })
+                )
+                suit_classes = 'suit-tab suit-tab-demographic'
+                model = Demographic
+                extra = 1
+
+                class Media:
+                    """ This adds the javascript code to the inline """
+                    js = ('admin/js/hide_unhide.js',)
+
+            class AdmitInline(admin.StackedInline):
+                """ Admit Inline function utilizes stacked inline method """
+                fieldsets = (
+                    (None, {'fields': (('facility', 'room_number'),)}),
+                    (None, {'fields': (('admit_date',))}),
+                    (None, {'fields': (('discharge_date', 'discharged_to'),)})
+                )
+                model = Admit
+                extra = 1
+
+            class DiagnosesInline(admin.StackedInline):
+                """ Diagnoses Inline utilizes stacked inline method """
+                filter_horizontal = ('vision_diagnoses', 'medical_diagnoses',
+                                     'mental_health_diagnoses', 'hearing_diagnoses', 'dental_diagnoses')
+                fieldsets = (
+                    (None, {'fields': (('severity_of_dementia', 'length_of_memories'),)}),
+                    (None, {'fields': (('vision_diagnoses', 'eyes_affected'),)}),
+                    (None, {'fields': ('medical_diagnoses',)}),
+                    (None, {'fields': ('mental_health_diagnoses',)}),
+                    (None, {'fields': ('hearing_diagnoses',)}),
+                    (None, {'fields':('dental_diagnoses',)})
+                )
+                model = Diagnoses
+                extra = 1
+
+            class FavoritesInline(admin.StackedInline):
+                """ Favorites Inline uses Stacked Inline method """
+                fieldsets = (
+                    (None, {'fields': (('food', 'snack'),
+                                       ('drink', 'favorite_hobby'),
+                                       ('favorite_music'),
+                                       ('favorite_movie', 'favorite_tv_show'),
+                                       ('personality', 'insecurities'))}),
+                    (None, {'fields': ('profession',)}),
+                    (None, {'fields': ('interests',)}),
+                    (None, {'fields': ('memory',)}),
+                    (None, {'fields': ('relax_action',)}),
+                    (None, {'fields': ('other',)}),
+                )
+
+                model = Favorites
+                extra = 1
+
+            class HistoryInline(admin.StackedInline):
+                """ History inline uses stacked inline method """
+                filter_horizontal = ('history_of_injuries', 'history_of_ailments')
+                fields = ('history_of_injuries', 'history_of_ailments')
+
+                model = History
+                extra = 1
+
+            class MedicationsInline(admin.StackedInline):
+                """ Medications Inline """
+                fieldsets = (
+                    (None, {'fields': (('medication_name', 'date_prescribed'),
+                                       ('dosage', 'frequency'), ('administration'))}),
+                    (None, {'fields': ('prns_given_last_month', 'is_medication_discontinued')})
+                )
+                model = Medications
+                extra = 1
+
+            class NeedsInline(admin.StackedInline):
+                """ Needs Inline uses stacked inline method """
+                fields = ('mobility', 'adl_care', 'can_communicate', 'can_comprehend')
+                model = Needs
+                extra = 1
+
+            class Resistant_ActionsInline(admin.StackedInline):
+                """ Resistant Actions Inline uses Stacked Inline method """
+                filter_horizontal = ('intervention',)
+                fields = ('behavior', 'towards', 'frequency', 'time_of_day_occurs', 'intervention')
+                model = Resistant_Actions
+                extra = 1
+
+            ############### MODEL ADMINS ###################
+
+            @admin.register(Resident)
+            class ResidentAdmin(admin.ModelAdmin):
+                """ Resident Admin model, uses inlines from above. """
+                inlines = [DemographicInline, AdmitInline, DiagnosesInline, FavoritesInline, HistoryInline,
+                           MedicationsInline, NeedsInline, Resistant_ActionsInline]
+                list_display = ['last_name', 'first_name', 'date_of_birth', 'gender']
+                list_filter = ('last_name',)
+                fields = ('first_name', 'last_name'), ('preferred_name',), ('gender', 'date_of_birth')
+
+            @admin.register(Interventions)
+            class InterventionAdmin(admin.ModelAdmin):
+                """ Intervention admin model """
+                form = InterventionForm
+                fields = ('intervention_name', ('resident', 'resident_name'), 'behavior', ('verb', 'subject'),
+                          'subject_detail', 'intervention_details')
+                class Media:
+                    """ This adds the javascript code to the inline """
+                    js = ('admin/js/intervention_builder.js',)
+
+            @admin.register(Resistant_Actions)
+            class Resistant_ActionsAdmin(admin.ModelAdmin):
+                """ Reactive Behavior Admin Model """
+                fields = ('behavior','towards', 'frequency', 'time_of_day_occurs', 'resident', 'intervention')
+
+            @admin.register(Admit)
+            class AdmitAdmin(admin.ModelAdmin):
+                """ Admit Admin model """
+                fields = ('resident','facility','room_number','admit_date','discharge_date','discharged_to')
+
+            # SETTINGS FOR PAGES #
+            admin.site.site_header = "Taproot Admin"
+            admin.site.site_title = "Taproot Admin"
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+
+<!-- BEGIN SCRIPT -->
+<div id="jquery" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-python">
+            // This script is a string builder for the Intervention form
+            // Created By Stephen R Ouellette 2020. //
+            (function($) {
+                $(function() {
+                    // Variables //
+                    var rName = $('#id_resident_name');
+                    var verb = $("#id_verb");
+                    var subject = $("#id_subject");
+                    var subject_detail = $("#id_subject_detail");
+                    var details = $("#id_intervention_details");
+                    var name = $("#id_intervention_name");
+
+                    // When the verb field changes, we take the value of the other fields and concatenate
+                    verb.change(function() {
+                        $(details).val($(this).val());
+                        $(name).val($(this).val() + '_' + $(subject).val());
+                    });
+                    // When the subject field changes, we tak the value of other fields and concatenate
+                    subject.change(function(){
+                        $(details).val($(verb).val() + ' ' + $(rName).val() + ' with ' + $(subject_detail).val());
+                        $(name).val($(rName).val().toLowerCase() + '_' + $(verb).val().toLowerCase() + '_' + $(this).val().toLowerCase());
+                    });
+                    // Subject change = concatenate details, rname, and subject.
+                    subject_detail.change(function(){
+                        $(details).val($(verb).val() + ' ' + $(rName).val() + ' with ' + $(this).val());
+                    })
+
+                });
+              })(django.jQuery);
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+<!-- BEGIN SCRIPT -->
+<div id="sql" class="tabContent">
+    <pre style="min-height: 1000px; margin: 20px auto; width: 90%">
+        <code class="language-sql">
+            CREATE TABLE residents (
+              residentID INT IDENTITY PRIMARY KEY,
+              first_name VARCHAR(45) NOT NULL,
+              last_name VARCHAR(45) NOT NULL,
+              preferred_name VARCHAR(45) NOT NULL,
+              date_of_birth DATE NOT NULL,
+              gender VARCHAR(45) NOT NULL,
+              CONSTRAINT [residentID_UNIQUE] UNIQUE (residentID ASC)
+            )
+
+            CREATE TABLE demographic (
+              demographicID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              raised_city VARCHAR(45) NULL,
+              raised_state VARCHAR(45) NULL,
+              lived_city VARCHAR(45) NULL,
+              lived_state VARCHAR(45) NULL,
+              has_spouse TINYINT NOT NULL DEFAULT 0,
+              spouse_name VARCHAR(45) NULL,
+              english_first_language TINYINT NULL DEFAULT 0,
+              has_siblings TINYINT NOT NULL DEFAULT 0,
+              sibling_count INT NULL DEFAULT 0,
+              sibling_birth_order VARCHAR(45) NULL,
+              has_children TINYINT NOT NULL DEFAULT 0,
+              children_count INT NULL DEFAULT 0,
+              children_names VARCHAR(45) NULL,
+              residents_residentID INT NOT NULL,
+              CONSTRAINT demographicID_UNIQUE UNIQUE (demographicID ASC),
+              INDEX fk_demographic_residents_idx (residentID ASC),
+                CONSTRAINT fk_demographic_residents FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+              )
+
+              CREATE TABLE medications (
+              medicationID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              medication_name VARCHAR(45) NULL,
+              date_prescribed DATE NULL,
+              dosage VARCHAR(45) NULL,
+              frequency VARCHAR(45) NULL,
+              administration VARCHAR(45) NULL,
+              prns_given_last_month VARCHAR(45) NULL,
+              is_medication_discounted TINYINT NOT NULL DEFAULT 0,
+              CONSTRAINT medicationID_UNIQUE UNIQUE (medicationID ASC),
+              INDEX fk_medications_residents_idx (residentID ASC),
+              CONSTRAINT fk_medications_residents FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+              )
+
+            CREATE TABLE favorites (
+              favoriteID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              favorite_musicID INT NULL,
+              hobbiesID INT NULL,
+              memory VARCHAR(45) NULL,
+              food VARCHAR(45) NULL,
+              snack VARCHAR(45) NULL,
+              drink VARCHAR(45) NULL,
+              interests VARCHAR(45) NULL,
+              CONSTRAINT favoriteID_UNIQUE UNIQUE (favoriteID ASC),
+              INDEX fk_favorites_residents_idx (residentID ASC),
+              CONSTRAINT fk_favorites_residents FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE needs (
+              needsID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              mobility VARCHAR(45) NULL,
+              adl_care VARCHAR(45) NULL,
+              can_communicate TINYINT NOT NULL DEFAULT 0,
+              can_comprehend TINYINT NOT NULL DEFAULT 0,
+              CONSTRAINT needsID_UNIQUE UNIQUE (needsID ASC),
+              INDEX fk_needs_residents_idx (residentID ASC),
+              CONSTRAINT fk_needs_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION)
+
+            CREATE TABLE facilitiy (
+              facilityID INT IDENTITY PRIMARY KEY,
+              name VARCHAR(45) NOT NULL,
+              location VARCHAR(45) NOT NULL,
+              CONSTRAINT facilityID_UNIQUE UNIQUE (facilityID ASC)
+            )
+
+            CREATE TABLE admit (
+              admitID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              facilityID INT NOT NULL,
+              room_number VARCHAR(45) NULL,
+              admit_date DATE NULL,
+              discharge_date DATE NULL,
+              discharged_to VARCHAR(45) NULL,
+              CONSTRAINT admitID_UNIQUE UNIQUE (admitID ASC),
+              INDEX fk_admit_residents_idx (residentID ASC),
+              INDEX fk_admit_facilitiy_idx (facilityID ASC),
+              CONSTRAINT fk_admit_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_admit_facilitiy
+                FOREIGN KEY (facilityID)
+                REFERENCES facilitiy (facilityID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE caregiver (
+              caregiverID INT IDENTITY PRIMARY KEY,
+              facilityID INT NOT NULL,
+              first_name VARCHAR(45) NOT NULL,
+              last_name VARCHAR(45) NOT NULL,
+              CONSTRAINT caregiverID_UNIQUE UNIQUE (caregiverID ASC)
+            )
+
+            CREATE TABLE facilitiy_caregiver_m2m (
+              facilitiy_facilityID INT,
+              caregiver_caregiverID INT,
+              PRIMARY KEY (facilitiy_facilityID, caregiver_caregiverID),
+              INDEX fk_facilitiy_caregiver_m2m_caregiver_idx (caregiver_caregiverID ASC),
+              INDEX fk_facilitiy_caregiver_m2m_facilitiy_idx (facilitiy_facilityID ASC),
+              CONSTRAINT fk_facilitiy_caregiver_m2m_facilitiy
+                FOREIGN KEY (facilitiy_facilityID)
+                REFERENCES facilitiy (facilityID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_facilitiy_caregiver_m2m_caregiver
+                FOREIGN KEY (caregiver_caregiverID)
+                REFERENCES caregiver (caregiverID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION)
+
+            CREATE TABLE behaviors (
+              behaviorID INT IDENTITY PRIMARY KEY,
+              name VARCHAR(45) NOT NULL,
+              info VARCHAR(45) NOT NULL,
+              CONSTRAINT behaviorID_UNIQUE UNIQUE (behaviorID ASC)
+            )
+
+            CREATE TABLE resistant_actions (
+              resistant_actionID INT IDENTITY PRIMARY KEY,
+              behaviorID INT NOT NULL,
+              towards VARCHAR(45) NULL,
+              frequency VARCHAR(45) NULL,
+              time_of_day_occurs VARCHAR(45) NULL,
+              INDEX fk_resistant_actions_behaviors_idx (behaviorID ASC),
+              CONSTRAINT fk_resistant_actions_behaviors
+                FOREIGN KEY (behaviorID)
+                REFERENCES behaviors (behaviorID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE interventions (
+              interventionID INT IDENTITY PRIMARY KEY,
+              resistant_actionID INT NOT NULL,
+              residentID INT NOT NULL,
+              intervention_details VARCHAR(45) NULL,
+              CONSTRAINT interventionID_UNIQUE UNIQUE (interventionID ASC),
+              INDEX fk_interventions_resistant_actions_idx (resistant_actionID ASC),
+              INDEX fk_interventions_residents_idx (residentID ASC),
+              CONSTRAINT fk_interventions_resistant_actions
+                FOREIGN KEY (resistant_actionID)
+                REFERENCES resistant_actions (resistant_actionID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_interventions_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+
+            CREATE TABLE encounters (
+              encounterID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              resistant_actionID INT NOT NULL,
+              interventionID INT NOT NULL,
+              caregiverID INT NOT NULL,
+              rating FLOAT NOT NULL DEFAULT 1,
+              notes VARCHAR(45) NULL,
+              CONSTRAINT encounterID_UNIQUE UNIQUE (encounterID ASC),
+              INDEX fk_encounters_resistant_actions_idx (resistant_actionID ASC),
+              INDEX fk_encounters_interventions_idx (interventionID ASC),
+              INDEX fk_encounters_caregiver_idx (caregiverID ASC),
+              INDEX fk_encounters_residents_idx (residentID ASC),
+              CONSTRAINT fk_encounters_resistant_actions
+                FOREIGN KEY (resistant_actionID)
+                REFERENCES resistant_actions (resistant_actionID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_encounters_interventions
+                FOREIGN KEY (interventionID)
+                REFERENCES interventions (interventionID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_encounters_caregiver
+                FOREIGN KEY (caregiverID)
+                REFERENCES caregiver (caregiverID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_encounters_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE behaviors_residents_m2m (
+              behaviors_behaviorID INT,
+              residents_residentID INT,
+              PRIMARY KEY (behaviors_behaviorID, residents_residentID),
+              INDEX fk_behaviors_residents_m2m_residents_idx (residents_residentID ASC),
+              INDEX fk_behaviors_residents_m2m_behaviors_idx (behaviors_behaviorID ASC),
+              CONSTRAINT fk_behaviors_residents_m2m_behaviors
+                FOREIGN KEY (behaviors_behaviorID)
+                REFERENCES behaviors (behaviorID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_behaviors_residents_m2m_residents
+                FOREIGN KEY (residents_residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE dementia_serverity (
+              dementia_severityID INT IDENTITY PRIMARY KEY,
+              severity VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE memory_lengths (
+              memory_lengthID INT IDENTITY PRIMARY KEY,
+              memory_length VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE eyes_affected (
+              eyes_affectedID INT IDENTITY PRIMARY KEY,
+              affected_eye VARCHAR(45) NOT NULL,
+            )
+
+
+            CREATE TABLE diagnoses (
+              diagnosesID INT IDENTITY PRIMARY KEY,
+              residentID INT NOT NULL,
+              medical_diagnosesID INT NULL,
+              mental_health_diagnosesID INT NULL,
+              hearing_diagnosesID INT NULL,
+              dental_diagnosesID INT NULL,
+              severity_of_dementia INT NULL,
+              length_of_memories INT NULL,
+              vision_diagnosesID INT NULL,
+              eyes_affectedID INT NULL,
+              CONSTRAINT diagnosesID_UNIQUE UNIQUE (diagnosesID ASC),
+              INDEX fk_diagnoses_residents_idx (residentID ASC),
+              INDEX fk_diagnoses_dementia_serverity_idx (severity_of_dementia ASC),
+              INDEX fk_diagnoses_memory_lengths_idx (length_of_memories ASC),
+              INDEX fk_diagnoses_eyes_affected_idx (eyes_affectedID ASC),
+              CONSTRAINT fk_diagnoses_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_diagnoses_dementia_serverity
+                FOREIGN KEY (severity_of_dementia)
+                REFERENCES dementia_serverity (dementia_severityID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_diagnoses_memory_lengths
+                FOREIGN KEY (length_of_memories)
+                REFERENCES memory_lengths (memory_lengthID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_diagnoses_eyes_affected
+                FOREIGN KEY (eyes_affectedID)
+                REFERENCES eyes_affected (eyes_affectedID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE medical_diagnoses (
+              medical_diagnosesID INT IDENTITY PRIMARY KEY,
+              medical_problem VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE mental_health_diagnoses (
+              mental_health_diagnosesID INT IDENTITY PRIMARY KEY,
+              mental_health_problem VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE hearing_diagnoses (
+              hearing_diagnosesID INT IDENTITY PRIMARY KEY,
+              hearing_problem VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE dental_diagnoses (
+              dental_diagnosesID INT IDENTITY PRIMARY KEY,
+              dental_problem VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE vision_diagnoses (
+              visionID INT IDENTITY PRIMARY KEY,
+              vision_problem VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE medical_diagnosis_diagnoses_M2M (
+              medical_diagnoses_medical_diagnosesID INT,
+              diagnoses_diagnosesID INT,
+              PRIMARY KEY (medical_diagnoses_medical_diagnosesID, diagnoses_diagnosesID),
+              INDEX fk_medical_diagnoses_diagnoses_m2m_diagnoses_idx (diagnoses_diagnosesID ASC),
+              INDEX fk_medical_diagnoses_diagnoses_m2m_medical_diagnoses_idx (medical_diagnoses_medical_diagnosesID ASC),
+              CONSTRAINT fk_medical_diagnoses_diagnoses_m2m_medical_diagnoses
+                FOREIGN KEY (medical_diagnoses_medical_diagnosesID)
+                REFERENCES medical_diagnoses (medical_diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_medical_diagnoses_diagnoses_m2m_diagnoses
+                FOREIGN KEY (diagnoses_diagnosesID)
+                REFERENCES diagnoses (diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE  mental_health__diagoses_m2m (
+              mental_health_diagnoses_mental_health_diagnosesID INT,
+              diagnoses_diagnosesID INT,
+              PRIMARY KEY (mental_health_diagnoses_mental_health_diagnosesID, diagnoses_diagnosesID),
+              INDEX fk_mental_health_diagnoses_diagnoses_m2m_diagnoses_idx (diagnoses_diagnosesID ASC),
+              INDEX fk_mental_health_diagnoses_diagnoses_m2m_mental_health_diag_idx (mental_health_diagnoses_mental_health_diagnosesID ASC),
+              CONSTRAINT fk_mental_health_diagnoses_diagnoses_m2m_mental_health_diagnoses
+                FOREIGN KEY (mental_health_diagnoses_mental_health_diagnosesID)
+                REFERENCES mental_health_diagnoses (mental_health_diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_mental_health_diagnoses_diagnoses_m2m_diagnoses
+                FOREIGN KEY (diagnoses_diagnosesID)
+                REFERENCES diagnoses (diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+              )
+
+            CREATE TABLE hearing_diag_m2m (
+              hearing_diagnoses_hearing_diagnosesID INT,
+              diagnoses_diagnosesID INT,
+              PRIMARY KEY (hearing_diagnoses_hearing_diagnosesID, diagnoses_diagnosesID),
+              INDEX fk_hearing_diagnoses_diagnoses_m2m_diagnoses_idx (diagnoses_diagnosesID ASC),
+              INDEX fk_hearing_diagnoses_diagnoses_m2m_hearing_diagnoses_idx (hearing_diagnoses_hearing_diagnosesID ASC),
+              CONSTRAINT fk_hearing_diagnoses_diagnoses_m2m_hearing_diagnoses
+                FOREIGN KEY (hearing_diagnoses_hearing_diagnosesID)
+                REFERENCES hearing_diagnoses (hearing_diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_hearing_diagnoses_diagnoses_m2m_diagnoses
+                FOREIGN KEY (diagnoses_diagnosesID)
+                REFERENCES diagnoses (diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE dental_diagnoses_diagnoses_m2m (
+              dental_diagnoses_dental_diagnosesID INT,
+              diagnoses_diagnosesID INT,
+              PRIMARY KEY (dental_diagnoses_dental_diagnosesID, diagnoses_diagnosesID),
+              INDEX fk_dental_diagnoses_diagnoses_m2m_diagnoses_idx (diagnoses_diagnosesID ASC),
+              INDEX fk_dental_diagnoses_diagnoses_m2m_dental_diagnoses_idx (dental_diagnoses_dental_diagnosesID ASC),
+              CONSTRAINT fk_dental_diagnoses_diagnoses_m2m_dental_diagnoses
+                FOREIGN KEY (dental_diagnoses_dental_diagnosesID)
+                REFERENCES dental_diagnoses (dental_diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_dental_diagnoses_diagnoses_m2m_diagnoses
+                FOREIGN KEY (diagnoses_diagnosesID)
+                REFERENCES diagnoses (diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE vision_diagnoses_diagnoses_m2m (
+              vision_diagnoses_visionID INT,
+              diagnoses_diagnosesID INT,
+              PRIMARY KEY (vision_diagnoses_visionID, diagnoses_diagnosesID),
+              INDEX fk_vision_diagnoses_diagnoses_m2m_diagnoses_idx (diagnoses_diagnosesID ASC),
+              INDEX fk_vision_diagnoses_diagnoses_m2m_vision_diagnoses_idx (vision_diagnoses_visionID ASC),
+              CONSTRAINT fk_vision_diagnoses_diagnoses_m2m_vision_diagnoses
+                FOREIGN KEY (vision_diagnoses_visionID)
+                REFERENCES vision_diagnoses (visionID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_vision_diagnoses_diagnoses_m2m_diagnoses
+                FOREIGN KEY (diagnoses_diagnosesID)
+                REFERENCES diagnoses (diagnosesID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE  history (
+              historyID INT PRIMARY KEY,
+              residentID INT NOT NULL,
+              history_of_injuriesID INT NULL,
+              history_of_ailmentsID INT NULL,
+              INDEX fk_history_residents1_idx (residentID ASC),
+              CONSTRAINT fk_history_residents
+                FOREIGN KEY (residentID)
+                REFERENCES residents (residentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE injuries (
+              injuryID INT PRIMARY KEY,
+              injury VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE ailments (
+              ailmentID INT PRIMARY KEY,
+              ailment VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE history_injuries_m2m (
+              history_historyID INT,
+              injuries_injuryID INT,
+              PRIMARY KEY (history_historyID, injuries_injuryID),
+              INDEX fk_history_injuries_m2m_injuries_idx (injuries_injuryID ASC),
+              INDEX fk_history_injuries_m2m_history_idx (history_historyID ASC),
+              CONSTRAINT fk_history_injuries_m2m_history
+                FOREIGN KEY (history_historyID)
+                REFERENCES history (historyID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_history_injuries_m2m_injuries
+                FOREIGN KEY (injuries_injuryID)
+                REFERENCES injuries (injuryID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE history_ailments_m2m (
+              history_historyID INT,
+              ailments_ailmentID INT,
+              PRIMARY KEY (history_historyID, ailments_ailmentID),
+              INDEX fk_history_ailments_m2m_ailments_idx (ailments_ailmentID ASC),
+              INDEX fk_history_ailments_m2m_history_idx (history_historyID ASC),
+              CONSTRAINT fk_history_ailments_m2m_history
+                FOREIGN KEY (history_historyID)
+                REFERENCES history (historyID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_history_ailments_m2m_ailments
+                FOREIGN KEY (ailments_ailmentID)
+                REFERENCES ailments (ailmentID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE music (
+              musicID INT PRIMARY KEY,
+              genre VARCHAR(45) NULL,
+              artist VARCHAR(45) NULL,
+              song VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE favorites_music_m2m (
+              music_musicID INT,
+              favorites_favoriteID INT,
+              PRIMARY KEY (music_musicID, favorites_favoriteID),
+              INDEX fk_favorites_music_m2m_favorites_idx (favorites_favoriteID ASC),
+              INDEX fk_favorites_music_m2m_music_idx (music_musicID ASC),
+              CONSTRAINT fk_favorites_music_m2m_music
+                FOREIGN KEY (music_musicID)
+                REFERENCES music (musicID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_favorites_music_m2m_favorites
+                FOREIGN KEY (favorites_favoriteID)
+                REFERENCES favorites (favoriteID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+
+            CREATE TABLE hobies (
+              hobbyID INT PRIMARY KEY,
+              name VARCHAR(45) NOT NULL,
+            )
+
+            CREATE TABLE favorites_hobbies_m2m (
+              hobies_hobbyID INT,
+              favorites_favoriteID INT,
+              PRIMARY KEY (hobies_hobbyID, favorites_favoriteID),
+              INDEX fk_favorites_hobbies_m2m_favorites_idx (favorites_favoriteID ASC),
+              INDEX fk_favorites_hobbies_m2m_hobies_idx (hobies_hobbyID ASC),
+              CONSTRAINT fk_favorites_hobbies_m2m_hobies
+                FOREIGN KEY (hobies_hobbyID)
+                REFERENCES hobies (hobbyID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION,
+              CONSTRAINT fk_favorites_hobbies_m2m_favorites
+                FOREIGN KEY (favorites_favoriteID)
+                REFERENCES favorites (favoriteID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+            )
+        </code>
+    </pre>
+</div>
+<!-- END SCRIPT -->
+
+
+
+<script type="text/javascript">
+    function openScript(evt, scriptName)
+    {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++){
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i ++){
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+        document.getElementById(scriptName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementById("defaultOpen").click();
+</script>
+
+</body>
+</html>
